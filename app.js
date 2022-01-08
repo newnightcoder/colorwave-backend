@@ -1,8 +1,8 @@
 import cors from "cors";
 import "dotenv/config";
 import express from "express";
+import { customAlphabet } from "nanoid";
 import stripe from "stripe";
-
 const app = express();
 const PORT = 4242;
 
@@ -28,6 +28,13 @@ app.post("/payment-intent-secret", async (req, res) => {
   });
   console.log("request received!");
   res.send({ clientSecret: paymentIntent.client_secret });
+});
+
+app.post("/user-order", (req, res, next) => {
+  const order = req.body;
+  const nanoid = customAlphabet("1234567890abcdef", 10);
+  const orderId = nanoid();
+  res.json({ ...order, orderId });
 });
 
 app.listen(PORT, (err) => {
