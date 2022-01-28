@@ -1,0 +1,93 @@
+.image-gallery {
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  /* border: 2px solid pink; */
+}
+.image-gallery-content,
+.image-gallery-slide-wrapper,
+.image-gallery-swipe,
+.image-gallery-slides,
+.image-gallery-slide {
+  width: 100%;
+  height: inherit !important;
+  object-fit: cover;
+}
+
+.image-gallery-slide img {
+  width: 100%;
+  height: 100%;
+}
+
+@media screen and (max-width: 768px) {
+  .image-gallery-slide,
+  .image-gallery-image {
+    object-fit: cover !important;
+  }
+}
+
+.bg-gaming {
+  background-color: #333;
+}
+
+.bg-sound {
+  background-color: #ebebeb;
+}
+
+.font-cabin {
+  font-family: "Cabin";
+}
+
+/* scrollbar product description  */
+.scrollbar-description {
+  scrollbar-color: #fcd34d;
+  scrollbar-width: auto;
+}
+
+.scrollbar-description::-webkit-scrollbar {
+  width: 5px;
+  background-color: dimgray;
+}
+.scrollbar-description::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: #fcd34d;
+}
+
+/* scrollbar cart items */
+.scrollbar-cart {
+  scrollbar-color: black;
+  scrollbar-width: auto;
+}
+
+.scrollbar-cart::-webkit-scrollbar {
+  width: 5px;
+  background-color: #999;
+}
+.scrollbar-cart::-webkit-scrollbar-thumb {
+  width: 5px;
+  background-color: black;
+}
+
+/* fade-in animation */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
+
+/* fade-in from left animation */
+@keyframes fadeInLeft {
+  0% {
+    opacity: 0;
+    transform: translateY(-200%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0%);
+  }
+}
