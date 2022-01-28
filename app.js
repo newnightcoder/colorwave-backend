@@ -21,7 +21,7 @@ app.post("/payment-intent-secret", async (req, res) => {
   const paymentIntent = await stripeConnexion.paymentIntents.create({
     amount: 2000,
     currency: "eur",
-    // payment_method_types: ["card"],
+    // payment_method_types: ["card", "apple_pay"],
     automatic_payment_methods: {
       enabled: true,
     },
