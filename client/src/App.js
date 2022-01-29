@@ -15,9 +15,8 @@ import {
   SupportPage,
 } from "./Pages";
 import { getShopData } from "./Redux/Actions/shop.action";
-import { persistor } from "./Redux/storeConfig.js";
 
-persistor.purge();
+// persistor.purge();
 const App = () => {
   const dispatch = useDispatch();
 
