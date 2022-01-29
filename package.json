@@ -10,7 +10,7 @@
     "stripe": "^8.195.0"
   },
   "scripts": {
-    "start": "node app.js",
+    "start": "node app",
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "engines": {
