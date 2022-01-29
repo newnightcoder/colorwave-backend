@@ -1,3 +1,5 @@
+import { actionTypes } from "../Types/types";
+
 const initialState = {
   shop: [],
   searchModalOpen: false,
@@ -5,13 +7,13 @@ const initialState = {
 
 const shopReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "GET_SHOP": {
+    case actionTypes.GET_SHOP: {
       return {
         ...state,
         shop: action.payload,
       };
     }
-    case "TOGGLE_SEARCH_MODAL": {
+    case actionTypes.TOGGLE_SEARCH_MODAL: {
       const toggle = !state.searchModalOpen;
       return {
         ...state,
