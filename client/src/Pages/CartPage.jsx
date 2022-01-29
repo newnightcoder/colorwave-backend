@@ -12,7 +12,9 @@ let stripePromise;
 
 (async () => {
   const { key } = await fetch("/stripe").then((res) => res.json());
-  stripePromise = await loadStripe(key, { locale: "en" });
+  if (key !== undefined) {
+    return (stripePromise = await loadStripe(key, { locale: "en" }));
+  }
 })();
 
 const CartPage = () => {
