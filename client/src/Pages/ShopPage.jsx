@@ -5,7 +5,7 @@ import { HashLink } from "react-router-hash-link";
 import { Footer, LoaderGaming, LoaderSound, ProductCard } from "../Components";
 import "../Styles/_variables.css";
 const ShopPage = () => {
-  const shop = useSelector((state) => state?.shop.shop);
+  const shop = useSelector((state) => state?.shop?.shop);
   const { pathname } = useLocation();
   const open = useSelector((state) => state?.shop.searchModalOpen);
 

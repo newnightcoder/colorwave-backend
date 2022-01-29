@@ -10,7 +10,7 @@ const ConfirmationPage = () => {
   const [orderId, setOrderId] = useState(null);
 
   const getConfirmation = async () => {
-    const url = "http://localhost:4242/user-order";
+    const url = "/user-order";
     const request = {
       headers: {
         "Content-type": "Application/json",
