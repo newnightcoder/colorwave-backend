@@ -4,10 +4,12 @@ import { actionTypes } from "../Types/types";
 export const getShopData = () => async (dispatch) => {
   const data = await listing();
   console.log("data", data);
-  dispatch({
-    type: actionTypes.GET_SHOP,
-    payload: data,
-  });
+  if (data !== undefined) {
+    dispatch({
+      type: actionTypes.GET_SHOP,
+      payload: data,
+    });
+  }
 };
 
 export const toggleSearchModal = () => (dispatch) => {
