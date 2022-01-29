@@ -52,7 +52,7 @@ const SearchModal = () => {
               type="search"
               placeholder="Type your search here..."
               className="h-8 w-full md:w-2/3 uppercase rounded-sm outline-none focus:ring-0 border-b border-t-0 border-l-0 border-r-0 border-2 border-white bg-transparent transition transition-border duration-300"
-              value={searchTerm}
+              value={searchTerm.toLowerCase()}
               onChange={handleSearch}
             />
             <button>
