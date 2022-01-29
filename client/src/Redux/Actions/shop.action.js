@@ -5,7 +5,7 @@ export const getShopData = () => async (dispatch) => {
   const data = await listing();
   console.log("data", data);
   if (data !== undefined) {
-    dispatch({
+    return dispatch({
       type: actionTypes.GET_SHOP,
       payload: data,
     });
