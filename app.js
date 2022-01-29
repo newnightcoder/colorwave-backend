@@ -7,6 +7,7 @@ import stripe from "stripe";
 const __dirname = path.resolve();
 
 const app = express();
+const stripeConnexion = stripe(`${process.env.STRIPE_SECRET_KEY}`);
 
 const normalizePort = (val) => {
   const port = parseInt(val, 10);
@@ -20,19 +21,20 @@ const normalizePort = (val) => {
   return false;
 };
 
-const PORT = normalizePort(process.env.PORT || "4242");
+const PORT = process.env.PORT || 4242;
 
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, "./client/build")));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-});
-app.get("/*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-});
+// app.get("/", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+// });
+
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+// });
 
 // app.use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "*");
@@ -46,8 +48,6 @@ app.get("/*", (req, res) => {
 //   );
 //   next();
 // });
-
-const stripeConnexion = stripe(`${process.env.STRIPE_SECRET_KEY}`);
 
 // switch (process.env.NODE_ENV) {
 //   case "production":
@@ -71,10 +71,12 @@ const stripeConnexion = stripe(`${process.env.STRIPE_SECRET_KEY}`);
 // }
 
 app.get("/stripe", (req, res, next) => {
+  console.log("stripe key request");
   res.send({ key: process.env.STRIPE_PUBLIC_KEY });
 });
 
 app.get("/commerce", (req, res, next) => {
+  console.log("commerce key request");
   res.send({ key: process.env.REACT_APP_CHEC_KEY });
 });
 
@@ -83,7 +85,6 @@ app.post("/payment-intent-secret", async (req, res) => {
   const paymentIntent = await stripeConnexion.paymentIntents.create({
     amount: 2000,
     currency: "eur",
-    // payment_method_types: ["card", "apple_pay"],
     automatic_payment_methods: {
       enabled: true,
     },

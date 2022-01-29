@@ -103,7 +103,7 @@ const ShopPage = () => {
             <span className="h-0.5 md:h-1 w-full absolute inset-x-0 mx-auto left-0 bottom-0.5 md:bottom-px bg-yellow-300"></span>
           </div>
           <div className="h-full w-full grid place-items-center gap-3 md:gap-8 grid-cols-2 lg:grid-cols-3 2xl:grid-cols-5 p-4">
-            {limitedItems.length === 0 ? (
+            {limitedItems?.length === 0 ? (
               <LoaderGaming />
             ) : (
               limitedItems.map((item, i) => (
@@ -120,7 +120,7 @@ const ShopPage = () => {
             <span className="h-0.5 md:h-1 w-full absolute inset-x-0 mx-auto left-0 bottom-1 md:bottom-px bg-blue-400"></span>
           </div>
           <div className="h-full w-full grid place-items-center gap-3 md:gap-8 grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 p-4">
-            {gamingItems.length === 0 ? (
+            {gamingItems?.length === 0 ? (
               <LoaderGaming />
             ) : (
               gamingItems.map((item, i) => (
@@ -140,7 +140,7 @@ const ShopPage = () => {
             <span className="h-0.5 md:h-1 w-full absolute inset-x-0 mx-auto left-0 bottom-1 md:bottom-px  bg-yellow-300"></span>
           </div>
           <div className="h-full w-full grid place-items-center gap-3 md:gap-8 grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 p-4">
-            {headphonesItems.length === 0 ? (
+            {headphonesItems?.length === 0 ? (
               <LoaderSound />
             ) : (
               headphonesItems.map((item, i) => (
@@ -160,7 +160,7 @@ const ShopPage = () => {
             <span className="h-0.5 md:h-1 w-full absolute inset-x-0 mx-auto left-0 bottom-1 md:bottom-px  bg-yellow-300"></span>
           </div>
           <div className="h-full w-full grid place-items-center gap-3 md:gap-8 grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 p-4">
-            {micsItems.length === 0 ? (
+            {micsItems?.length === 0 ? (
               <LoaderSound />
             ) : (
               micsItems.map((item, i) => (

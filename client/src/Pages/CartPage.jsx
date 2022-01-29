@@ -11,7 +11,7 @@ import useWindowSize from "../utils/useWindowSize";
 let stripePromise;
 
 (async () => {
-  const { key } = await fetch("/stripe").then((res) => res.json());
+  const { key } = await fetch("http://localhost:4242/stripe").then((res) => res.json());
   stripePromise = await loadStripe(key, { locale: "en" });
 })();
 
@@ -74,7 +74,7 @@ const CartPage = () => {
     const request = {
       method: "post",
     };
-    const paymentIntentUrl = "/payment-intent-secret";
+    const paymentIntentUrl = "http://localhost:4242/payment-intent-secret";
     const response = await fetch(paymentIntentUrl, request);
     const data = await response.json();
     setClientSecret(data.clientSecret);
