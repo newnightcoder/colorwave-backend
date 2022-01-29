@@ -10,8 +10,8 @@
     "stripe": "^8.195.0"
   },
   "scripts": {
-    "start": "node app",
-    "heroku-postbuild": "cd client && npm install && craco build"
+    "start": "node app.js",
+    "heroku-postbuild": "cd client && npm install && && npm install @craco/craco && craco build"
   },
   "engines": {
     "node": "14.17.6"
