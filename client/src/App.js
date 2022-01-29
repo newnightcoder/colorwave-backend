@@ -17,9 +17,9 @@ import {
 import { getShopData } from "./Redux/Actions/shop.action";
 import { persistor } from "./Redux/storeConfig.js";
 
+persistor.purge();
 const App = () => {
   const dispatch = useDispatch();
-  persistor.purge();
 
   useEffect(() => {
     WebFont.load({
