@@ -8,7 +8,7 @@ const __dirname = path.resolve();
 
 const app = express();
 const PORT = process.env.PORT || 4242;
-//test
+
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -16,7 +16,7 @@ app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 const stripeConnexion = stripe(`${process.env.STRIPE_SECRET_KEY}`);
 
-app.get("/", (req, res) => {
+app.get("*", (req, res) => {
   res.sendFile(path.resolve(__dirname, "../client/build", "index.html"));
 });
 
