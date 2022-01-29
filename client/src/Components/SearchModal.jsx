@@ -30,7 +30,6 @@ const SearchModal = () => {
             <h1 className="capitalize text-2xl md:text-4xl px-2 md:px-6 whitespace-nowrap">
               search a brand or product
             </h1>
-            <span className="h-px w-full absolute inset-x-0 mx-auto left-0 bottom-0.5 bg-white"></span>
           </div>
 
           <button
