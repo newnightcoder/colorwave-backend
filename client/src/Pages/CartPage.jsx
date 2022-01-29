@@ -11,7 +11,7 @@ import useWindowSize from "../utils/useWindowSize";
 let stripePromise;
 
 (async () => {
-  const { key } = await fetch("http://localhost:4242/").then((res) => res.json());
+  const { key } = await fetch("http://localhost:4242/stripe").then((res) => res.json());
   stripePromise = await loadStripe(key, { locale: "en" });
 })();
 
