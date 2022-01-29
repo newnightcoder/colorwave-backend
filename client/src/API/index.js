@@ -1,15 +1,18 @@
 import Commerce from "@chec/commerce.js";
 
-const commerce = new Commerce(process.env.REACT_APP_CHEC_KEY);
-
 const listing = async () => {
   try {
-    let { data } = await commerce.products.list({
-      category_slugs: ["gaming", "sound"],
-      limit: 200,
-    });
-    console.log("data", data);
-    return data;
+    const key = await fetch("/commerce", { method: "get" }).then((res) => res.json());
+    if (key !== undefined) {
+      console.log("commerce key", key);
+      const commerce = new Commerce(key.key);
+      let { data } = await commerce.products.list({
+        category_slugs: ["gaming", "sound"],
+        limit: 200,
+      });
+      console.log("data", data);
+      return data;
+    }
   } catch (error) {
     console.log(error.message);
   }
