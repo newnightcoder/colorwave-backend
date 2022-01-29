@@ -11,7 +11,7 @@
   },
   "scripts": {
     "start": "node app",
-    "build": "cd client && yarn && yarn build"
+    "heroku-postbuild": "cd client && yarn && yarn build"
   },
   "engines": {
     "node": "14.17.6"
