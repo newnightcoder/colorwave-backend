@@ -21,12 +21,12 @@ import useWindowSize from "../utils/useWindowSize";
 
 const HomePage = () => {
   const history = useHistory();
-  const shop = useSelector((state) => state?.shop.shop);
-  const airpods = shop.find((item) => item.name === "Apple AirPods 3rd Gen");
-  const proController = shop.find((item) => item.name === "Nintendo Switch Pro Controller");
-  const magicKeyboard = shop.find((item) => item.name === "Apple Magic Keyboards");
-  const sennheiser = shop.find((item) => item.name === "Custom Sennheiser e 945 Microphone");
-  const sennheiserMobile = shop.find((item) => item.name === "Custom Shure MV7 microphone");
+  const shop = useSelector((state) => state?.shop?.shop);
+  const airpods = shop?.find((item) => item.name === "Apple AirPods 3rd Gen");
+  const proController = shop?.find((item) => item.name === "Nintendo Switch Pro Controller");
+  const magicKeyboard = shop?.find((item) => item.name === "Apple Magic Keyboards");
+  const sennheiser = shop?.find((item) => item.name === "Custom Sennheiser e 945 Microphone");
+  const sennheiserMobile = shop?.find((item) => item.name === "Custom Shure MV7 microphone");
 
   const { pathname } = useLocation();
   const { height, width } = useWindowSize();
