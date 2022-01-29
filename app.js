@@ -4,7 +4,7 @@ import express from "express";
 import { customAlphabet } from "nanoid";
 import stripe from "stripe";
 const app = express();
-const PORT = 4242;
+const PORT = process.env.PORT || 4242;
 //test
 app.use(cors());
 app.use(express.json());
