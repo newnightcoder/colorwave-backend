@@ -63,7 +63,7 @@ const SearchModal = () => {
             style={{ visibility: open && searchTerm.length > 1 ? "visible" : "hidden" }}
             className="block text-sm uppercase text-gray-300 pt-2"
           >
-            <span className="text-blue-500 font-bold underline">{searchedItems.length}</span> results
+            <span className="text-blue-500 font-bold underline">{searchedItems?.length}</span> results
           </div>
         </div>
       </div>
