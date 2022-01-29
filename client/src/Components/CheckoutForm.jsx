@@ -21,7 +21,7 @@ const CheckoutForm = ({ formValidated }) => {
       const { error } = await stripe.confirmPayment({
         elements,
         confirmParams: {
-          return_url: "https://colorwave-shop.herokuapp.com/success",
+          return_url: "http://localhost:3001/success",
         },
       });
       if (error) return setIsLoading(false);
