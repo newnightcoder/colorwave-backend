@@ -16,7 +16,7 @@ const SearchModal = () => {
   const dispatch = useDispatch();
 
   const handleSearch = (e) => {
-    setSearchTerm(e.currentTarget.value);
+    setSearchTerm(e.currentTarget.value.toLowerCase());
   };
 
   return (
