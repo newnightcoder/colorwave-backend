@@ -1,6 +1,6 @@
 import Commerce from "@chec/commerce.js";
 
-const key = await fetch("localhost:4242/commerce", { method: "get" }).then((res) => res.json());
+const key = fetch("localhost:4242/commerce", { method: "get" }).then((res) => res.json());
 console.log("key", key);
 const commerce = new Commerce(key);
 
