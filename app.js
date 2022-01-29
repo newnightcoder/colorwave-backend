@@ -17,7 +17,7 @@ const stripeConnexion = stripe(`${process.env.STRIPE_SECRET_KEY}`);
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.resolve(__dirname, "./client/build")));
-  app.get("/", (req, res) => {
+  app.get("*", (req, res) => {
     res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
   });
 }
@@ -25,6 +25,7 @@ if (process.env.NODE_ENV === "production") {
 app.get("/stripe", (req, res, next) => {
   res.send({ key: process.env.STRIPE_PUBLIC_KEY });
 });
+
 app.get("/commerce", (req, res, next) => {
   res.send({ key: process.env.REACT_APP_CHEC_KEY });
 });
