@@ -12,15 +12,50 @@ const PORT = process.env.PORT || 4242;
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.resolve(__dirname, "./client/build")));
+
+app.get("/", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
+app.get("/*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
+
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+  );
+  next();
+});
 
 const stripeConnexion = stripe(`${process.env.STRIPE_SECRET_KEY}`);
 
-if (process.env.NODE_ENV === "production") {
-  app.use(express.static(path.resolve(__dirname, "./client/build")));
-  app.get("*", (req, res) => {
-    res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-  });
-}
+// switch (process.env.NODE_ENV) {
+//   case "production":
+//     {
+//       app.use(express.static(path.resolve(__dirname, "./client/build")));
+//       app.get("*", (req, res) => {
+//         res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+//       });
+//     }
+
+//     break;
+//   case "development": {
+//     app.use(express.static(path.resolve(__dirname, "./client/public")));
+//     app.get("/", (req, res) => {
+//       res.sendFile(path.resolve(__dirname, "./client/public", "index.html"));
+//     });
+//   }
+
+//   default:
+//     break;
+// }
 
 app.get("/stripe", (req, res, next) => {
   res.send({ key: process.env.STRIPE_PUBLIC_KEY });
