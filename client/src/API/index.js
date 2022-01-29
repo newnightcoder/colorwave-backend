@@ -2,7 +2,7 @@ import Commerce from "@chec/commerce.js";
 
 const listing = async () => {
   try {
-    let { key } = await fetch("http://localhost:4242/commerce", { method: "get" }).then((res) => res.json());
+    let { key } = await fetch("/commerce", { method: "get" }).then((res) => res.json());
     const commerce = new Commerce(key);
 
     let { data } = await commerce.products.list({
