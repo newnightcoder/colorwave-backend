@@ -26,7 +26,7 @@ const App = () => {
         families: ["Cabin:400,500,600,700"],
       },
     });
-    dispatch(getShopData());
+    dispatch(getShopData);
   }, []);
 
   return (
