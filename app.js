@@ -16,7 +16,7 @@ app.use(express.static(path.resolve(__dirname, "../client/build")));
 
 const stripeConnexion = stripe(`${process.env.STRIPE_SECRET_KEY}`);
 
-app.get("/", (req, res, next) => {
+app.get("/stripe", (req, res, next) => {
   res.send({ key: process.env.STRIPE_PUBLIC_KEY });
 });
 
