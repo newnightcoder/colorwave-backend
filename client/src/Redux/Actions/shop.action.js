@@ -1,7 +1,7 @@
 import listing from "../../API";
 import { actionTypes } from "../Types/types";
 
-export const getShopData = async () => (dispatch) => {
+export const getShopData = () => async (dispatch) => {
   const data = await listing();
   console.log("data", data);
   dispatch({
