@@ -4,6 +4,8 @@ import express from "express";
 import { customAlphabet } from "nanoid";
 import * as path from "path";
 import stripe from "stripe";
+const __dirname = path.resolve();
+
 const app = express();
 const PORT = process.env.PORT || 4242;
 //test
