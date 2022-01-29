@@ -6,7 +6,7 @@ const listing = async () => {
     console.log("key", key);
     if (key !== undefined) {
       console.log("commerce key", key);
-      const commerce = new Commerce(key.key);
+      const commerce = new Commerce(key);
       let { data } = await commerce.products.list({
         category_slugs: ["gaming", "sound"],
         limit: 200,
