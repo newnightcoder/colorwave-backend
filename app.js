@@ -54,6 +54,10 @@ app.get("/commerce", (req, res, next) => {
   console.log("commerce key request");
   res.json({ key: process.env.REACT_APP_CHEC_KEY });
 });
+app.get("/success", (req, res, next) => {
+  console.log("success page");
+  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
 
 app.post("/payment-intent-secret", async (req, res) => {
   //PAYMENT INTENT CREATION
