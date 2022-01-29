@@ -3,8 +3,8 @@ import Commerce from "@chec/commerce.js";
 const listing = async () => {
   try {
     const { key } = await fetch("/commerce").then((res) => res.json());
-    console.log(key);
     if (key !== undefined) {
+      console.log("commerce key", key);
       const commerce = new Commerce(key);
       let { data } = await commerce.products.list({
         category_slugs: ["gaming", "sound"],
