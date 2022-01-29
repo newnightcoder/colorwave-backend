@@ -1,6 +1,8 @@
 import Commerce from "@chec/commerce.js";
 
-const commerce = new Commerce(process.env.REACT_APP_CHEC_KEY);
+const key = await fetch("localhost:4242/commerce", { method: "get" }).then((res) => res.json());
+console.log("key", key);
+const commerce = new Commerce(key);
 
 const listing = async () => {
   try {
