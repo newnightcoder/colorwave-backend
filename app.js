@@ -23,10 +23,6 @@ const normalizePort = (val) => {
 
 const PORT = process.env.PORT || 4242;
 
-app.use(cors());
-app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.resolve(__dirname, "./client/build")));
 app.use((req, res, next) => {
   res.setHeader("Access-Control-Allow-Origin", "*");
   res.setHeader(
@@ -39,6 +35,11 @@ app.use((req, res, next) => {
   );
   next();
 });
+
+app.use(cors());
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+app.use(express.static(path.resolve(__dirname, "./client/build")));
 
 app.get("/", (req, res) => {
   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
