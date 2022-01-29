@@ -2,6 +2,7 @@ import cors from "cors";
 import "dotenv/config";
 import express from "express";
 import { customAlphabet } from "nanoid";
+import * as path from "path";
 import stripe from "stripe";
 const app = express();
 const PORT = process.env.PORT || 4242;
