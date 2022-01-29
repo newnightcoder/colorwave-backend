@@ -1,8 +1,8 @@
 import Commerce from "@chec/commerce.js";
 
 const listing = async () => {
+  const { key } = await fetch("/commerce").then((res) => res.json());
   try {
-    const { key } = await fetch("/commerce").then((res) => res.json());
     if (key !== undefined) {
       console.log("commerce key", key);
       const commerce = new Commerce(key);
