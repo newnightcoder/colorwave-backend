@@ -2,7 +2,6 @@
   "name": "frontend-shop",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:4242",
   "dependencies": {
     "@chec/commerce.js": "^2.7.1",
     "@craco/craco": "^6.1.2",
