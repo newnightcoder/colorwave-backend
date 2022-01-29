@@ -27,26 +27,60 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.resolve(__dirname, "./client/build")));
+app.use((req, res, next) => {
+  res.setHeader("Access-Control-Allow-Origin", "*");
+  res.setHeader(
+    "Access-Control-Allow-Headers",
+    "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
+  );
+  res.setHeader(
+    "Access-Control-Allow-Methods",
+    "GET, POST, PUT, DELETE, PATCH, OPTIONS"
+  );
+  next();
+});
 
-// app.get("/", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-// });
+app.get("/", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
+
+app.get("/stripe", (req, res, next) => {
+  console.log("stripe key request");
+  res.json({ key: process.env.STRIPE_PUBLIC_KEY });
+});
+
+app.get("/commerce", (req, res, next) => {
+  console.log("commerce key request");
+  res.json({ key: process.env.REACT_APP_CHEC_KEY });
+});
+
+app.post("/payment-intent-secret", async (req, res) => {
+  //PAYMENT INTENT CREATION
+  const paymentIntent = await stripeConnexion.paymentIntents.create({
+    amount: 2000,
+    currency: "eur",
+    automatic_payment_methods: {
+      enabled: true,
+    },
+  });
+  console.log("request received!");
+  res.json({ clientSecret: paymentIntent.client_secret });
+});
+
+app.post("/user-order", (req, res, next) => {
+  const order = req.body;
+  const nanoid = customAlphabet("1234567890abcdef", 10);
+  const orderId = nanoid();
+  res.json({ ...order, orderId });
+});
+
+app.listen(PORT, (err) => {
+  if (err) return console.log(`oops! problem: ${err.message}`);
+  console.log(`listening on port ${PORT}`);
+});
 
 // app.get("*", (req, res) => {
 //   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-// });
-
-// app.use((req, res, next) => {
-//   res.setHeader("Access-Control-Allow-Origin", "*");
-//   res.setHeader(
-//     "Access-Control-Allow-Headers",
-//     "Origin, X-Requested-With, Content, Accept, Content-Type, Authorization"
-//   );
-//   res.setHeader(
-//     "Access-Control-Allow-Methods",
-//     "GET, POST, PUT, DELETE, PATCH, OPTIONS"
-//   );
-//   next();
 // });
 
 // switch (process.env.NODE_ENV) {
@@ -69,38 +103,3 @@ app.use(express.static(path.resolve(__dirname, "./client/build")));
 //   default:
 //     break;
 // }
-
-app.get("/stripe", (req, res, next) => {
-  console.log("stripe key request");
-  res.send({ key: process.env.STRIPE_PUBLIC_KEY });
-});
-
-app.get("/commerce", (req, res, next) => {
-  console.log("commerce key request");
-  res.send({ key: process.env.REACT_APP_CHEC_KEY });
-});
-
-app.post("/payment-intent-secret", async (req, res) => {
-  //PAYMENT INTENT CREATION
-  const paymentIntent = await stripeConnexion.paymentIntents.create({
-    amount: 2000,
-    currency: "eur",
-    automatic_payment_methods: {
-      enabled: true,
-    },
-  });
-  console.log("request received!");
-  res.send({ clientSecret: paymentIntent.client_secret });
-});
-
-app.post("/user-order", (req, res, next) => {
-  const order = req.body;
-  const nanoid = customAlphabet("1234567890abcdef", 10);
-  const orderId = nanoid();
-  res.json({ ...order, orderId });
-});
-
-app.listen(PORT, (err) => {
-  if (err) return console.log(`oops! problem: ${err.message}`);
-  console.log(`listening on port ${PORT}`);
-});
