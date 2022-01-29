@@ -59,6 +59,10 @@ app.get("/success", (req, res, next) => {
   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
 
+app.get("*", (req, res) => {
+  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+});
+
 app.post("/payment-intent-secret", async (req, res) => {
   //PAYMENT INTENT CREATION
   const paymentIntent = await stripeConnexion.paymentIntents.create({
@@ -83,10 +87,6 @@ app.listen(PORT, (err) => {
   if (err) return console.log(`oops! problem: ${err.message}`);
   console.log(`listening on port ${PORT}`);
 });
-
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-// });
 
 // switch (process.env.NODE_ENV) {
 //   case "production":

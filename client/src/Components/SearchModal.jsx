@@ -72,7 +72,7 @@ const SearchModal = () => {
         style={{ height: "calc(100vh - 200px)" }}
         className="h-max w-10/12 grid place-items-center gap-4 md:gap-6 grid-cols-2 lg:grid-cols-3 px-6 pb-6 overflow-y-auto scrollbar-cart"
       >
-        {searchTerm.length > 1 && searchedItems.map((item, i) => <ProductCard key={i + 1} item={item} />)}
+        {searchTerm.length > 1 && searchedItems?.map((item, i) => <ProductCard key={i + 1} item={item} />)}
       </div>
     </div>
   );
