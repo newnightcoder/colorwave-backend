@@ -29,12 +29,12 @@ const ShopPage = () => {
     accessories: "accessories",
   };
 
-  const limitedItems = shop.filter((item) => item?.categories?.find((cat) => cat.name === "limited"));
-  const gamingItems = shop.filter((item) => item?.categories?.find((cat) => cat.name === "gaming"));
-  const headphonesItems = shop.filter((item) => item?.categories?.find((cat) => cat.name === "headphones"));
-  const micsItems = shop.filter((item) => item?.categories?.find((cat) => cat.name === "mics"));
-  const accessoriesItems = shop.filter((item) => item?.categories?.find((cat) => cat.name === "accessories"));
-  const skinsItems = shop.filter((item) => item?.categories?.find((cat) => cat.name === "skins"));
+  const limitedItems = shop?.filter((item) => item?.categories?.find((cat) => cat.name === "limited"));
+  const gamingItems = shop?.filter((item) => item?.categories?.find((cat) => cat.name === "gaming"));
+  const headphonesItems = shop?.filter((item) => item?.categories?.find((cat) => cat.name === "headphones"));
+  const micsItems = shop?.filter((item) => item?.categories?.find((cat) => cat.name === "mics"));
+  const accessoriesItems = shop?.filter((item) => item?.categories?.find((cat) => cat.name === "accessories"));
+  const skinsItems = shop?.filter((item) => item?.categories?.find((cat) => cat.name === "skins"));
 
   return (
     <div className="h-full w-full font-cabin" style={{ overflow: open ? "hidden" : "auto" }}>
