@@ -15,9 +15,11 @@ import {
   SupportPage,
 } from "./Pages";
 import { getShopData } from "./Redux/Actions/shop.action";
+import { persistor } from "./Redux/storeConfig.js";
 
 const App = () => {
   const dispatch = useDispatch();
+  persistor.purge();
 
   useEffect(() => {
     WebFont.load({
