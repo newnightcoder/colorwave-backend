@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <>
       {(location.pathname !== "/cart" || width < 768) && (
-        <div className="h-16 md:h-20 w-screen bg-black shadow-lg fixed top-0 z-40 font-cabin border-b-8 border-yellow-300 shadow-lg shadow-yellow-300">
+        <div className="h-16 md:h-20 w-screen bg-black shadow-lg fixed top-0 z-50 font-cabin border-b-8 border-yellow-300 shadow-lg shadow-yellow-300">
           <div className="nav-container h-full w-full mx-auto px-4">
             {/* 
                 /////////////////////////
@@ -105,20 +105,12 @@ const Navbar = () => {
 
                     <span className="capitalize">limited</span>
                   </NavLink>
-
                   <NavLink
                     to="/promotional"
                     className="relative text-gray-300 hover:text-white text-base font-medium whitespace-nowrap group px-3 py-2"
                   >
                     <span className="absolute inline-block inset-x-0 bottom-2 mx-auto h-0.5 w-full bg-yellow-300 transform scale-x-0 transition-scale origin-center duration-100 group-hover:scale-x-100"></span>
                     <span>Promotional</span>
-                  </NavLink>
-                  <NavLink
-                    to="/support"
-                    className="relative text-gray-300 hover:text-white text-base font-medium whitespace-nowrap group px-3 py-2"
-                  >
-                    <span className="absolute inline-block inset-x-0 bottom-2 mx-auto h-0.5 w-full bg-yellow-300 transform scale-x-0 transition-scale origin-center duration-100 group-hover:scale-x-100"></span>
-                    <span>Support</span>
                   </NavLink>
                 </nav>
                 {/* <!-- END DESKTOP NAVLINKS CONTAINER --> */}
@@ -243,14 +235,6 @@ const Navbar = () => {
               >
                 Promotional
               </Link>
-
-              <Link
-                onClick={toggleMenu}
-                to="/support"
-                className="text-gray-300 hover:text-blue-500 hover:font-bold block px-3 py-2 rounded-md text-base font-medium capitalize"
-              >
-                Support
-              </Link>
               {location.pathname !== "/cart" && (
                 <Link
                   onClick={toggleMenu}
@@ -269,20 +253,3 @@ const Navbar = () => {
 };
 
 export default Navbar;
-
-{
-  /* <NavLink
-                  to="/"
-                  className="h-min w-max md:hidden absolute inset-0 mx-auto flex items-center justify-center group"
-                >
-                  <div className="relative">
-                    <span
-                      className="block absolute -inset-1 transform transition-all duration-300 -skew-y-6 bg-yellow-300 group-hover:skew-y-3 group-hover:bg-blue-500"
-                      aria-hidden="true"
-                    ></span>
-                    <h1 className="relative text-lg transition-color duration-300 text-black group-hover:text-white px-1">
-                      COLORWAVE
-                    </h1>
-                  </div>
-                </NavLink> */
-}
