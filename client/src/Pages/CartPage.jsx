@@ -1,6 +1,7 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import React, { useEffect, useState } from "react";
+import { use100vh } from "react-div-100vh";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { CartContainer, CartRecap, CheckoutForm, Form, Steps } from "../Components";
@@ -20,6 +21,7 @@ let stripePromise;
 const CartPage = () => {
   const dispatch = useDispatch();
   const { height, width } = useWindowSize();
+  const responsiveHeight = use100vh();
   const items = useSelector((state) => state?.cart.items);
   const form = document.querySelector("#userInfo-form");
   const [formOpen, setFormOpen] = useState(false);
@@ -255,7 +257,7 @@ const CartPage = () => {
         <Steps formOpen={formOpen} formValidated={formValidated} />
 
         <div
-          style={{ height: width < 768 ? `calc(100vh - 4rem)` : `calc(100vh - 5.5rem)` }}
+          style={{ height: width < 768 ? `calc(${responsiveHeight} - 4rem)` : `calc(${responsiveHeight} - 5.5rem)` }}
           className="page relative w-screen overflow-y-hidden font-cabin flex flex-col items-center justify-center bg-sound md:mt-8"
         >
           {/*  PAGE CONTAINER */}
