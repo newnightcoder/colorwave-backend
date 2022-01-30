@@ -265,7 +265,7 @@ const CartPage = () => {
             style={{ contain: "content" }}
             className="page-container h-full w-full relative overflow-y-hidden flex flex-col items-start justify-start bg-sound"
           >
-            <div style={{ height: `calc(${responsiveHeight} - 4rem)` }} className="w-full flex flex-col md:flex-row">
+            <div style={{ height: `calc(${responsiveHeight} + 4rem)` }} className="w-full flex flex-col md:flex-row">
               <div className="h-full w-full md:w-3/5">
                 <div
                   className="cart-content-wrapper h-max w-full transition-transform duration-300"
