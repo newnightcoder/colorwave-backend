@@ -304,7 +304,7 @@ const CartPage = () => {
                 </div>
                 <CheckoutForm formValidated={formValidated} />
               </div>
-              <div className="h-auto w-full relative md:w-2/5 flex items-center justify-center ">
+              <div className="h-full w-full relative md:w-2/5 flex items-center justify-center ">
                 {items.length !== 0 && (
                   <CartRecap
                     totalPrice={totalPrice}
