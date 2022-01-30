@@ -34,10 +34,10 @@ const Form = ({
         <span className="h-px w-full absolute inset-x-0 mx-auto left-0 bottom-0.5 bg-black"></span>
       </div>
 
-      <div className="w-11/12 max-w-3xl overflow-y-auto flex flex-col items-center justify-center mt-16 md:mt-20 xl:mt-24 2xl:mt-32">
+      <div className="w-full max-w-3xl overflow-y-auto flex flex-col items-center justify-start mt-16 md:mt-20 xl:mt-24 2xl:mt-32">
         <form
           // style={{ height: width < 768 ? "calc(100vh - 300px)" : "calc(100vh - 128px)" }}
-          className="form-solid h-max w-11/12 flex flex-col items-center justify-start gap-2 text-gray-900 pb-48 md:pt-2 md:pb-12"
+          className="form-solid h-max w-10/12 flex flex-col items-center justify-start gap-2 text-gray-900 pb-48 md:pt-2 md:pb-12"
         >
           <div className="w-full flex flex-col md:flex-row gap-2">
             <div className="flex flex-col w-full md:w-1/2">
