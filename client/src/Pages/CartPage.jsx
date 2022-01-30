@@ -257,7 +257,8 @@ const CartPage = () => {
         <Steps formOpen={formOpen} formValidated={formValidated} />
 
         <div
-          style={{ height: width < 768 ? `calc(100vh - 4rem)` : `calc(100vh - 5.5rem)` }}
+          // style={{ height: width < 768 ? `calc(100vh - 4rem)` : `calc(100vh - 5.5rem)` }}
+          style={{ height: responsiveHeight }}
           className="page relative w-screen overflow-y-hidden font-cabin flex flex-col items-center justify-center bg-sound md:mt-8"
         >
           {/*  PAGE CONTAINER */}
@@ -265,7 +266,7 @@ const CartPage = () => {
             style={{ contain: "content" }}
             className="page-container h-full w-full relative overflow-y-hidden flex flex-col items-start justify-start bg-sound"
           >
-            <div style={{ height: responsiveHeight }} className="w-full flex flex-col md:flex-row">
+            <div className="h-full w-full flex flex-col md:flex-row">
               <div className="h-full w-full md:w-3/5">
                 <div
                   className="cart-content-wrapper h-max w-full transition-transform duration-300"
