@@ -253,11 +253,11 @@ const CartPage = () => {
     clientSecret && (
       <Elements stripe={stripePromise} options={options}>
         <Steps formOpen={formOpen} formValidated={formValidated} />
-        <div
-          className="h-max transition-transform duration-1000 overflow-hidden"
-          style={{ transform: formOpen && `translateY(calc(-50% + 64px))` }}
-        >
-          <Div100vh className="page transition-transform duration-1000 border-4 border-red-500 pt-16 md:pt-24 relative w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden">
+        <Div100vh className="overflow-y-hidden">
+          <Div100vh
+            style={{ transform: formOpen && `translateY(-100%)` }}
+            className="page transition-transform duration-1000 border-4 border-red-500 pt-16 md:pt-24 relative w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden"
+          >
             <div
               style={{ contain: "content" }}
               className="page-container h-full w-full relative flex flex-col items-start justify-start bg-sound"
@@ -277,8 +277,8 @@ const CartPage = () => {
             </div>
           </Div100vh>
           <Div100vh
-            className="w-full overflow-y-auto bg-sound"
-            // style={{ visibility: formOpen ? "visible" : "hidden" }}
+            className="w-full overflow-y-auto bg-sound transition-transform duration-1000"
+            style={{ transform: formOpen && `translateY(-100%)` }}
           >
             <Form
               formOpen={formOpen}
@@ -297,7 +297,7 @@ const CartPage = () => {
               errorPhone={errorPhone}
             />
           </Div100vh>
-        </div>
+        </Div100vh>
         <div className="h-max w-full md:h-full md:w-2/5 fixed bottom-0 md:inset-y-0 md:right-0 flex items-center justify-center ">
           {items.length !== 0 && (
             <CartRecap
