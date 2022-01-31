@@ -13,7 +13,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
 
   return (
     <div
-      className="border-4 border-red-500 cart-container h-full w-full relative flex flex-col items-center justify-start gap-4 text-gray-900 bg-sound"
+      className="cart-container h-full w-full relative flex flex-col items-center justify-start gap-4 text-gray-900 bg-sound"
       // style={{ height: width < 768 ? "calc(100vh - 64px)" : "calc(100vh - 96px)" }}
     >
       {items.length !== 0 && (

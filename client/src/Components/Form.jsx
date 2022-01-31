@@ -28,8 +28,8 @@ const Form = ({
   return (
     <div
       id="userInfo-form"
-      // style={{ height: width < 768 ? responsiveHeight - 190 : "calc(100vh - 6rem)" }}
-      className="mt-16 border-4 border-blue-500 form-container h-full w-full z-30 relative flex flex-col items-center justify-start md:justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900"
+      style={{ height: responsiveHeight - 64 }}
+      className="mt-16 border-4 border-blue-500 form-container w-full z-30 relative flex flex-col items-center justify-start md:justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900"
     >
       <div className="h-max w-max relative self-start pt-4 ml-3 md:ml-10">
         <h2 className="w-full text-center md:text-left uppercase text-xl md:text-2xl font-bold px-3">
@@ -38,7 +38,7 @@ const Form = ({
         <span className="h-px w-full absolute inset-x-0 mx-auto left-0 bottom-0.5 bg-black"></span>
       </div>
       <div
-        style={{ height: width < 768 ? responsiveHeight - 308 : "calc(100vh - 250px)" }}
+        style={{ height: width < 768 ? responsiveHeight - 208 : "calc(100vh - 250px)" }}
         className="border-4 border-yellow-500 w-full overflow-hidden max-w-3xl flex flex-col items-center justify-start self-end"
       >
         <div className="border-2 border-black h-max w-11/12 flex flex-col items-center justify-start overflow-y-auto">
