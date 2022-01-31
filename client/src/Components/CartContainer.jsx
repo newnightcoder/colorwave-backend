@@ -51,7 +51,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
       ) : (
         <div
           style={{
-            height: width < 768 ? "calc(100vh - 315px)" : "calc(100vh - 220px)",
+            height: width < 768 ? "calc(100vh - 214px)" : "calc(100vh - 150px)",
           }}
           className="items-container scrollbar-cart relative w-full md:w-11/12 xl:w-10/12 overflow-y-auto flex flex-col justify-start items-center gap-4 pb-8 md:pb-4 pt-4"
         >
