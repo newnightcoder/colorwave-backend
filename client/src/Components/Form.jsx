@@ -29,7 +29,7 @@ const Form = ({
     <div
       id="userInfo-form"
       // style={{ height: `calc(${responsiveHeight} - 64px)` }}
-      className="form-container pt-24 h-full w-full z-30 relative flex flex-col items-center justify-center md:justify-start transition duration-300 text-gray-900"
+      className="form-container pt-32 md:pt-20  2xl:pt-24 h-full w-full z-30 relative flex flex-col items-center justify-center md:justify-start transition duration-300 text-gray-900"
     >
       <div className="w-max relative">
         <h2 className="w-full text-center uppercase text-xl md:text-2xl font-bold px-3">Your delivery information</h2>
