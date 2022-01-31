@@ -39,7 +39,7 @@ const Form = ({
       </div>
       <div
         style={{ height: width < 768 ? responsiveHeight - 308 : "calc(100vh - 250px)" }}
-        className="border-4 border-yellow-500 h-full w-full overflow-hidden max-w-3xl flex flex-col items-center justify-start self-end"
+        className="border-4 border-yellow-500 w-full overflow-hidden max-w-3xl flex flex-col items-center justify-start self-end"
       >
         <div className="border-2 border-black h-max w-11/12 flex flex-col items-center justify-start overflow-y-auto">
           <form
