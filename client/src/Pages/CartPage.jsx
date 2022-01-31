@@ -149,6 +149,7 @@ const CartPage = () => {
 
   const toggleForm = () => {
     setFormOpen((formOpen) => !formOpen);
+    window.scrollTo(0, -responsiveHeight - 64);
   };
 
   const handleInput = (e) => {
