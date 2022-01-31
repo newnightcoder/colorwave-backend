@@ -28,8 +28,8 @@ const Form = ({
   return (
     <div
       id="userInfo-form"
-      style={{ height: responsiveHeight }}
-      className="mt-16 border-4 border-blue-500 form-container w-full z-30 relative flex flex-col items-center justify-start md:justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900"
+      style={{ height: responsiveHeight - 64 }}
+      className="border-4 border-blue-500 form-container w-full z-30 relative flex flex-col items-center justify-start md:justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900"
     >
       <div className="h-max w-max relative self-start pt-4 ml-3 md:ml-10">
         <h2 className="w-full text-center md:text-left uppercase text-xl md:text-2xl font-bold px-3">
