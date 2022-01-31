@@ -278,7 +278,7 @@ const CartPage = () => {
           </Div100vh>
           <Div100vh
             className="z-30 w-full overflow-y-auto transition-transform duration-1000"
-            style={{ visibility: formOpen ? "visible" : "hidden" }}
+            // style={{ visibility: formOpen ? "visible" : "hidden" }}
           >
             <Form
               formOpen={formOpen}
