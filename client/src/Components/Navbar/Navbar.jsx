@@ -28,7 +28,7 @@ const Navbar = () => {
   return (
     <>
       {(location.pathname !== "/cart" || width < 768) && (
-        <div className="h-16 md:h-20 w-screen bg-black shadow-lg fixed top-0 z-50 font-cabin border-b-8 border-yellow-300 shadow-lg shadow-yellow-300">
+        <div className="hidden h-16 md:h-20 w-screen bg-black shadow-lg fixed top-0 z-50 font-cabin border-b-8 border-yellow-300 shadow-lg shadow-yellow-300">
           <div className="nav-container h-full w-full mx-auto px-4">
             {/* 
                 /////////////////////////
