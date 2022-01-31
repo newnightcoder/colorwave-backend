@@ -256,7 +256,7 @@ const CartPage = () => {
         <Div100vh>
           <div
             style={{
-              transform: formOpen && `translateY(${responsiveHeight ? -responsiveHeight : "-100"}vh)`,
+              transform: formOpen && `translateY( ${responsiveHeight ? -responsiveHeight : "-100vh"})`,
             }}
             className="page transition-transform duration-1000 border-4 border-red-500 pt-16 md:pt-24 relative h-full w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden"
           >
@@ -283,8 +283,8 @@ const CartPage = () => {
             style={{
               transform:
                 formOpen && width < 768
-                  ? `translateY(${responsiveHeight ? -responsiveHeight : "-100"}vh)`
-                  : formOpen && width > 768 && `translateY(${responsiveHeight ? -responsiveHeight : "-100"}vh)`,
+                  ? `translateY(${responsiveHeight ? -responsiveHeight : "-100vh"})`
+                  : formOpen && width > 768 && `translateY(${responsiveHeight ? -responsiveHeight : "-100vh"})`,
             }}
           >
             <Form
