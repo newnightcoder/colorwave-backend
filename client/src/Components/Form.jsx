@@ -38,8 +38,8 @@ const Form = ({
         <span className="h-px w-full absolute inset-x-0 mx-auto left-0 bottom-0.5 bg-black"></span>
       </div>
       <div
-        style={{ height: width < 768 ? responsiveHeight - 208 : "calc(100vh - 250px)" }}
-        className="border-4 border-yellow-500 w-full overflow-hidden max-w-3xl flex flex-col items-center justify-start self-end"
+        // style={{ height: width < 768 ? responsiveHeight - 208 : "calc(100vh - 250px)" }}
+        className="border-4 border-yellow-500 h-full w-full overflow-hidden max-w-3xl flex flex-col items-center justify-start self-end"
       >
         <div className="border-2 border-black h-max w-11/12 flex flex-col items-center justify-start overflow-y-auto">
           <form
