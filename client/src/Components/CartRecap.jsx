@@ -1,10 +1,12 @@
 import React from "react";
+import { use100vh } from "react-div-100vh";
 import { useSelector } from "react-redux";
 import useWindowSize from "../utils/useWindowSize";
 
 const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice }) => {
   const items = useSelector((state) => state?.cart.items);
   const { height, width } = useWindowSize();
+  const responsiveHeight = use100vh;
   const totalItems =
     items.length !== 0 &&
     items.reduce((acc, curr) => {
@@ -45,7 +47,7 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
       <button
         type="submit"
         className="w-48 flex items-center justify-center gap-2 text-sm md:text-base uppercase text-black bg-yellow-300 shadow-md py-1 md:mt-4"
-        onClick={!formOpen ? toggleForm : handleForm}
+        onClick={!formOpen ? (toggleForm, window.scrollTo(0, -responsiveHeight - 64)) : handleForm}
       >
         {!formOpen ? <span>checkout</span> : <span>next</span>}
         <svg
