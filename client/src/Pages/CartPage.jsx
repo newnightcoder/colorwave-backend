@@ -278,7 +278,7 @@ const CartPage = () => {
           </Div100vh>
           <Div100vh
             className="w-full overflow-y-auto bg-sound transition-transform duration-1000"
-            style={{ transform: formOpen && `translateY(-100%)` }}
+            style={{ transform: formOpen && `translateY(-100% + 64px)` }}
           >
             <Form
               formOpen={formOpen}
