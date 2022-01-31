@@ -44,7 +44,7 @@ const CheckoutForm = ({ formValidated }) => {
         style={{
           height: width < 768 ? "calc(100vh - 160px)" : "calc(100vh - 190px)",
         }}
-        className="pt-16 h-full w-full md:w-11/12 md:px-2 relative flex flex-col md:flex-row items-start md:items-center justify-center "
+        className="pt-24 h-full w-full md:w-11/12 md:px-2 relative flex flex-col md:flex-row items-start md:items-center justify-center "
       >
         {/* <div className="hidden md:inline-block w-1/5 px-3 border-2 border-white justify-start">
           <div className="w-max relative">

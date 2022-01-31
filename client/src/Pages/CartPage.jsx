@@ -258,7 +258,7 @@ const CartPage = () => {
         <Div100vh
           // style={{ height: `calc(${responsiveHeight} - 4rem)` }}
           // style={{ height: width < 768 ? `calc(100vh - 4rem)` : `calc(100vh - 5.5rem)` }}
-          className="page pt-16 relative w-screen overflow-y-hidden font-cabin flex flex-col items-center justify-center bg-sound md:mt-8"
+          className="page pt-24 relative w-screen overflow-y-hidden font-cabin flex flex-col items-center justify-center bg-sound"
         >
           <Steps formOpen={formOpen} formValidated={formValidated} />
 
@@ -272,12 +272,7 @@ const CartPage = () => {
                 <div
                   className="cart-content-wrapper h-full w-full transition-transform duration-300"
                   style={{
-                    transform:
-                      formOpen && width < 768
-                        ? "translateY(calc(-100vh + 64px))"
-                        : formOpen && width > 768
-                        ? "translateY(calc(-100vh + 76px))"
-                        : formValidated && "translateY(calc(-100vh - 10px))",
+                    transform: formOpen ? "translateY(-100vh)" : formValidated && "translateY(-100vh)",
                   }}
                 >
                   <CartContainer

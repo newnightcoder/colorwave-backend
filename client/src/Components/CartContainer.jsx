@@ -11,7 +11,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
 
   return (
     <div
-      className="cart-container h-full w-full relative flex flex-col items-center justify-start gap-4 text-gray-900 bg-sound"
+      className="border-4 border-red-500 cart-container h-full w-full relative flex flex-col items-center justify-start gap-4 text-gray-900 bg-sound"
       // style={{ height: width < 768 ? "calc(100vh - 64px)" : "calc(100vh - 96px)" }}
     >
       {items.length !== 0 && (
@@ -51,7 +51,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
       ) : (
         <div
           style={{
-            height: width < 768 ? "calc(100vh - 264px)" : "calc(100vh - 150px)",
+            height: width < 768 ? "calc(100vh - 264px)" : "calc(100vh - 250px)",
           }}
           className="items-container scrollbar-cart relative w-11/12 xl:w-10/12 overflow-y-auto flex flex-col justify-start items-center gap-4 pb-8 md:pb-4 pt-4"
         >
