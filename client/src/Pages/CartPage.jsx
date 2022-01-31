@@ -253,12 +253,12 @@ const CartPage = () => {
     clientSecret && (
       <Elements stripe={stripePromise} options={options}>
         <Steps formOpen={formOpen} formValidated={formValidated} />
-        <Div100vh>
-          <div
+        <div>
+          <Div100vh
             style={{
-              transform: formOpen && `translateY( ${responsiveHeight ? -responsiveHeight : "-100vh"})`,
+              transform: formOpen && `translateY( ${responsiveHeight ? -responsiveHeight : "-100"}vh)`,
             }}
-            className="page transition-transform duration-1000 border-4 border-red-500 pt-16 md:pt-24 relative h-full w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden"
+            className="page transition-transform duration-1000 border-4 border-red-500 pt-16 md:pt-24 relative w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden"
           >
             <div
               style={{ contain: "content" }}
@@ -277,14 +277,14 @@ const CartPage = () => {
                 <div className="h-max w-full md:h-full md:w-2/5 fixed bottom-0 md:relative flex items-center justify-center "></div>
               </div>
             </div>
-          </div>
-          <div
-            className="z-30 h-max w-full overflow-y-auto transition-transform duration-1000"
+          </Div100vh>
+          <Div100vh
+            className="z-30 w-full overflow-y-auto transition-transform duration-1000"
             style={{
               transform:
                 formOpen && width < 768
-                  ? `translateY(${responsiveHeight ? -responsiveHeight : "-100vh"})`
-                  : formOpen && width > 768 && `translateY(${responsiveHeight ? -responsiveHeight : "-100vh"})`,
+                  ? `translateY(${responsiveHeight ? -responsiveHeight : "-100"}vh)`
+                  : formOpen && width > 768 && `translateY(${responsiveHeight ? -responsiveHeight : "-100"}vh)`,
             }}
           >
             <Form
@@ -303,8 +303,8 @@ const CartPage = () => {
               errorLastName={errorLastName}
               errorPhone={errorPhone}
             />
-          </div>
-        </Div100vh>
+          </Div100vh>
+        </div>
         <div className="h-max w-full md:h-full md:w-2/5 fixed bottom-0 md:inset-y-0 md:right-0 flex items-center justify-center ">
           {items.length !== 0 && (
             <CartRecap
