@@ -254,8 +254,8 @@ const CartPage = () => {
       <Elements stripe={stripePromise} options={options}>
         <Steps formOpen={formOpen} formValidated={formValidated} />
         <div
-          className="h-max transition-transform duration-1000"
-          style={{ transform: formOpen && `translateY(calc(-100% + 64px))` }}
+          className="h-max transition-transform duration-1000 overflow-hidden"
+          style={{ transform: formOpen && `translateY(calc(-50% + 64px))` }}
         >
           <Div100vh className="page transition-transform duration-1000 border-4 border-red-500 pt-16 md:pt-24 relative w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden">
             <div
