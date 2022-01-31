@@ -253,13 +253,8 @@ const CartPage = () => {
     clientSecret && (
       <Elements stripe={stripePromise} options={options}>
         <Steps formOpen={formOpen} formValidated={formValidated} />
-        <div>
-          <Div100vh
-            style={{
-              transform: formOpen && `translateY(-100%)`,
-            }}
-            className="page transition-transform duration-1000 border-4 border-red-500 pt-16 md:pt-24 relative w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden"
-          >
+        <div style={{ transform: formOpen && `translateY(-50%)` }}>
+          <Div100vh className="page transition-transform duration-1000 border-4 border-red-500 pt-16 md:pt-24 relative w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden">
             <div
               style={{ contain: "content" }}
               className="page-container h-full w-full relative flex flex-col items-start justify-start bg-sound"
@@ -278,12 +273,7 @@ const CartPage = () => {
               </div>
             </div>
           </Div100vh>
-          <Div100vh
-            className="z-30 w-full overflow-y-auto transition-transform duration-1000"
-            style={{
-              transform: formOpen && `translateY(-100%)`,
-            }}
-          >
+          <Div100vh className="z-30 w-full overflow-y-auto transition-transform duration-1000">
             <Form
               formOpen={formOpen}
               inputFirstName={inputFirstName}
