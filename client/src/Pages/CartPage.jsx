@@ -149,7 +149,8 @@ const CartPage = () => {
 
   const toggleForm = () => {
     setFormOpen((formOpen) => !formOpen);
-    window.scrollTo(0, -responsiveHeight - 64);
+    document.querySelector(".cart-content-wrapper").style.transform = `translate-y(${-responsiveHeight + 64}px)`;
+    // window.scrollTo(0, -responsiveHeight - 64);
   };
 
   const handleInput = (e) => {
