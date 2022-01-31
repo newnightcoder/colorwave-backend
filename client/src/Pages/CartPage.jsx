@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { use100vh } from "react-div-100vh";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { CartContainer, CartRecap, CheckoutForm, Steps } from "../Components";
+import { CartContainer, CartRecap, CheckoutForm, Form, Steps } from "../Components";
 import { addToCart, deleteCart, deleteItem, removeOne, saveOrder } from "../Redux/Actions/cart.action";
 import "../Styles/_variables.css";
 import useWindowSize from "../utils/useWindowSize";
@@ -287,7 +287,7 @@ const CartPage = () => {
                     handleDeleteCart={handleDeleteCart}
                     formOpen={formOpen}
                   />
-                  {/* <Form
+                  <Form
                     formOpen={formOpen}
                     inputFirstName={inputFirstName}
                     inputLastName={inputLastName}
@@ -302,7 +302,7 @@ const CartPage = () => {
                     errorFirstName={errorFirstName}
                     errorLastName={errorLastName}
                     errorPhone={errorPhone}
-                  /> */}
+                  />
                 </div>
                 <CheckoutForm formValidated={formValidated} />
               </div>
