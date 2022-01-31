@@ -270,7 +270,7 @@ const CartPage = () => {
             <div className="h-full w-full flex flex-col md:flex-row">
               <div className="h-full w-full md:w-3/5">
                 <div
-                  className="cart-content-wrapper h-max w-full transition-transform duration-300"
+                  className="cart-content-wrapper h-full w-full transition-transform duration-300"
                   style={{
                     transform:
                       formOpen && width < 768
