@@ -29,13 +29,13 @@ const Form = ({
     <div
       id="userInfo-form"
       // style={{ height: `calc(${responsiveHeight} - 64px)` }}
-      className="form-container pt-32 md:pt-20  2xl:pt-24 h-full w-full z-30 relative flex flex-col items-center justify-center md:justify-start transition duration-300 text-gray-900"
+      className="form-container pt-32 h-full w-full z-30 relative flex flex-col items-center justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900"
     >
       <div className="w-max relative">
         <h2 className="w-full text-center uppercase text-xl md:text-2xl font-bold px-3">Your delivery information</h2>
         <span className="h-px w-full absolute inset-x-0 mx-auto left-0 bottom-0.5 bg-black"></span>
       </div>
-      <div className="w-full max-w-3xl overflow-y-auto flex flex-col items-center justify-start md:mt-20 xl:mt-24 2xl:mt-32 pt-2 md:pt-6">
+      <div className="w-full max-w-3xl overflow-y-auto flex flex-col items-center justify-start pt-2 md:pt-6">
         <form
           // style={{ height: width < 768 ? "calc(100vh - 300px)" : "calc(100vh - 128px)" }}
           className="form-solid h-max w-10/12 flex flex-col items-center justify-start gap-2 text-gray-900 pb-48 md:pt-2 md:pb-12"
