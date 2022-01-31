@@ -146,10 +146,10 @@ const CartPage = () => {
   const handleDeleteCart = () => {
     dispatch(deleteCart());
   };
-
+  const wrapper = document.querySelector(".cart-content-wrapper");
   const toggleForm = () => {
     setFormOpen((formOpen) => !formOpen);
-    document.querySelector(".cart-content-wrapper").style.transform = `translate-y(${-responsiveHeight + 64}px)`;
+    wrapper.style.transform = `translateY(calc(${-responsiveHeight + 64}))`;
     // window.scrollTo(0, -responsiveHeight - 64);
   };
 
