@@ -254,7 +254,7 @@ const CartPage = () => {
       <Elements stripe={stripePromise} options={options}>
         <Steps formOpen={formOpen} formValidated={formValidated} />
         <Div100vh
-          className="transition-transform duration-1000"
+          className="transition-transform duration-1000 bg-black"
           style={{ transform: formOpen && `translateY(calc(-100% + 64px))` }}
         >
           <Div100vh className="page transition-transform duration-1000 border-4 border-red-500 pt-16 md:pt-24 relative w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden">
@@ -276,7 +276,10 @@ const CartPage = () => {
               </div>
             </div>
           </Div100vh>
-          <Div100vh className="z-30 w-full overflow-y-auto transition-transform duration-1000">
+          <Div100vh
+            className="z-30 w-full overflow-y-auto transition-transform duration-1000"
+            style={{ visibility: formOpen ? "visible" : "hidden" }}
+          >
             <Form
               formOpen={formOpen}
               inputFirstName={inputFirstName}
