@@ -255,7 +255,7 @@ const CartPage = () => {
         <Steps formOpen={formOpen} formValidated={formValidated} />
         <Div100vh className="overflow-y-hidden">
           <Div100vh
-            style={{ transform: formOpen && `translateY(-100%)` }}
+            style={{ transform: formOpen && `translateY(calc(-100% + 64px))` }}
             className="page transition-transform duration-1000 border-4 border-red-500 pt-16 md:pt-24 relative w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden"
           >
             <div
