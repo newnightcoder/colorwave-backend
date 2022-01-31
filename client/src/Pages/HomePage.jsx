@@ -79,7 +79,7 @@ const HomePage = () => {
   };
 
   return (
-    <div className="pt-16 min-h-screen w-screen relative flex flex-col items-center gap-1 font-cabin bg-black -mt-1 md:-mt-0 md:pt-4">
+    <div className="pt-16 min-h-screen w-screen relative flex flex-col items-center gap-1 font-cabin bg-black -mt-1 md:-mt-0">
       <Navbar />
 
       <div className="h-96 md:h-full w-full flex flex-col items-center justify-center">
