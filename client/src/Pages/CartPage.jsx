@@ -274,7 +274,7 @@ const CartPage = () => {
                   style={{
                     transform:
                       formOpen && width < 768
-                        ? `translateY(calc(-100vh + 4rem))`
+                        ? `translateY(calc(-100vh + 64px))`
                         : formOpen && width > 768
                         ? `translateY(calc(-100vh + 6rem))`
                         : formValidated && "translateY(-100vh)",
