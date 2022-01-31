@@ -253,7 +253,7 @@ const CartPage = () => {
     clientSecret && (
       <Elements stripe={stripePromise} options={options}>
         <Steps formOpen={formOpen} formValidated={formValidated} />
-        <div style={{ transform: formOpen && `translateY(-50%)` }}>
+        <Div100vh className="transition-transform duration-1000" style={{ transform: formOpen && `translateY(-50%)` }}>
           <Div100vh className="page transition-transform duration-1000 border-4 border-red-500 pt-16 md:pt-24 relative w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden">
             <div
               style={{ contain: "content" }}
@@ -291,7 +291,7 @@ const CartPage = () => {
               errorPhone={errorPhone}
             />
           </Div100vh>
-        </div>
+        </Div100vh>
         <div className="h-max w-full md:h-full md:w-2/5 fixed bottom-0 md:inset-y-0 md:right-0 flex items-center justify-center ">
           {items.length !== 0 && (
             <CartRecap
