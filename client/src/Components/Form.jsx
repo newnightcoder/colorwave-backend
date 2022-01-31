@@ -1,5 +1,5 @@
 import React from "react";
-import Div100vh, { use100vh } from "react-div-100vh";
+import { use100vh } from "react-div-100vh";
 import { useSelector } from "react-redux";
 import "../Styles/form.css";
 import "../Styles/_variables.css";
@@ -26,10 +26,10 @@ const Form = ({
   const responsiveHeight = use100vh();
 
   return (
-    <Div100vh
+    <div
       id="userInfo-form"
       // style={{ height: width < 768 ? responsiveHeight - 190 : "calc(100vh - 6rem)" }}
-      className="border-2 border-blue-500 form-container pt-16 h-full w-full z-30 relative flex flex-col items-center justify-start md:justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900"
+      className="border-2 border-blue-500 form-container h-full w-full z-30 relative flex flex-col items-center justify-start md:justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900"
     >
       <div className="w-max relative self-start ml-3 md:ml-10">
         <h2 className="w-full text-center md:text-left uppercase text-xl md:text-2xl font-bold px-3">
@@ -165,7 +165,7 @@ const Form = ({
           </form>
         </div>
       </div>
-    </Div100vh>
+    </div>
   );
 };
 
