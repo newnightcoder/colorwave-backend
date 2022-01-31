@@ -53,9 +53,9 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
       ) : (
         <div
           style={{
-            height: width < 768 ? "calc(100vh - 328px)" : "calc(100vh - 250px)",
+            height: width < 768 ? "calc(100vh - 358px)" : "calc(100vh - 250px)",
           }}
-          className="items-container scrollbar-cart relative w-11/12 xl:w-10/12 overflow-y-auto flex flex-col justify-start items-center gap-4 pb-8 md:pb-4 pt-4"
+          className="border-4 border-blue-400 items-container scrollbar-cart relative w-11/12 xl:w-10/12 overflow-y-auto flex flex-col justify-start items-center gap-4 pb-8 md:pb-4 pt-4"
         >
           {items.map((item, i) => (
             <div
