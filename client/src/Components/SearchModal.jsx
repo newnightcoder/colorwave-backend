@@ -21,7 +21,7 @@ const SearchModal = () => {
 
   return (
     <div
-      style={{ opacity: open ? 1 : 0, zIndex: open ? 1000 : -1, backgroundColor: "rgba(0,0,0,.95)" }}
+      style={{ opacity: open ? 1 : 0, zIndex: open ? 5000 : -1, backgroundColor: "rgba(0,0,0,.95)" }}
       className="h-screen w-screen fixed inset-0 flex flex-col items-center overflow-x-hidden text-white pt-2 pb-8 px-2 md:px-8 transition-opacity duration-700 font-cabin"
     >
       <div className="h-max w-full flex flex-col items-center justify-start gap-8 py-4">

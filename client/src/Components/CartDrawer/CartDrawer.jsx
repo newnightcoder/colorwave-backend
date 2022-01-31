@@ -49,7 +49,7 @@ const CartDrawer = () => {
 
   return (
     <Div100vh
-      style={{ transform: cartDrawerOpen ? "translateY(0)" : "translateY(-100%)", zIndex: 2000 }}
+      style={{ transform: cartDrawerOpen ? "translateY(0)" : "translateY(-100%)", zIndex: 4000 }}
       className="w-full fixed md:w-2/3 lg:w-1/2 2xl:w-1/3 font-cabin flex flex-col items-center justify-center overflow-x-hidden overflow-y-auto transition-transform duration-300 text-gray-900 right-0 top-0 bg-sound pt-6 pb-12 px-5 md:px-10"
     >
       <button onClick={() => dispatch(toggleCartDrawer())} className="h-max w-max">
