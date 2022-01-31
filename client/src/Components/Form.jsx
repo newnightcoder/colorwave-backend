@@ -1,4 +1,5 @@
 import React from "react";
+import { use100vh } from "react-div-100vh";
 import { useSelector } from "react-redux";
 import "../Styles/form.css";
 import "../Styles/_variables.css";
@@ -22,11 +23,12 @@ const Form = ({
 }) => {
   const items = useSelector((state) => state?.cart.items);
   const { height, width } = useWindowSize();
+  const responsiveHeight = use100vh();
 
   return (
     <div
       id="userInfo-form"
-      style={{ height: "calc(100vh - 64px)" }}
+      style={{ height: `calc(${responsiveHeight} - 64px)` }}
       className="form-container w-full z-30 relative flex flex-col items-center justify-center md:justify-start transition duration-300 text-gray-900"
     >
       <div className="w-max relative left-4 md:top-12 md:left-10">
