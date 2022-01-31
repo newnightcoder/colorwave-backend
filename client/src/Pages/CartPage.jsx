@@ -1,6 +1,6 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Div100vh, { use100vh } from "react-div-100vh";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -59,6 +59,8 @@ const CartPage = () => {
   let errorPhoneRegexRef = "";
   let errorAddressRef = "";
   let errorCheckboxRef = "";
+
+  const ref = useRef();
 
   const totalPrice =
     items.length !== 0 &&
@@ -146,10 +148,9 @@ const CartPage = () => {
   const handleDeleteCart = () => {
     dispatch(deleteCart());
   };
-  const wrapper = document.querySelector(".cart-content-wrapper");
   const toggleForm = () => {
     setFormOpen((formOpen) => !formOpen);
-    wrapper.style.transform = `translateY(calc(${-responsiveHeight + 64}))`;
+    ref.style.transform = `translateY(calc(${-responsiveHeight + 64}))`;
     // window.scrollTo(0, -responsiveHeight - 64);
   };
 
@@ -272,6 +273,7 @@ const CartPage = () => {
             <div className="h-full w-full flex flex-col md:flex-row">
               <div className="h-full w-full md:w-3/5">
                 <div
+                  ref={ref}
                   className="cart-content-wrapper h-full w-full transition-transform duration-300"
                   // style={{
                   //   transform:
