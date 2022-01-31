@@ -12,5 +12,5 @@ body {
 body::before {
   content: "";
   display: block;
-  height: 64px;
+  height: 0px;
 }

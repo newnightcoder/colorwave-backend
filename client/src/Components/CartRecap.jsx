@@ -13,7 +13,7 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
 
   return (
     <div
-      style={{ height: width > 768 ? "calc(100% - 64px)" : "5rem", display: formValidated && "none" }}
+      style={{ height: width > 768 ? "calc(100vh - 64px)" : "5rem", display: formValidated && "none" }}
       className="recap w-full md:w-5/6 lg:w-2/3 absolute bottom-0 md:top-0 md:my-auto md:left-10 z-30 flex flex-col items-center justify-center gap-4 md:gap-0 md:justify-evenly bg-black md:bg-white text-white md:text-gray-900 p-16 md:p-8 md:shadow"
     >
       <div className="hidden md:block w-max relative">
