@@ -36,7 +36,7 @@ const CheckoutForm = ({ formValidated }) => {
     <div
       style={{
         opacity: formValidated ? "1" : "0",
-        zIndex: formValidated ? 9999 : -1,
+        zIndex: formValidated ? 2000 : -1,
       }}
       className="h-full w-full bg-black text-gray-100 fixed inset-0 flex flex-col items-center justify-start md:gap-2 transition duration-300"
     >

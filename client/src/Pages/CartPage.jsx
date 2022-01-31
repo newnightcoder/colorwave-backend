@@ -1,6 +1,6 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import Div100vh, { use100vh } from "react-div-100vh";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
@@ -59,8 +59,6 @@ const CartPage = () => {
   let errorPhoneRegexRef = "";
   let errorAddressRef = "";
   let errorCheckboxRef = "";
-
-  const ref = useRef();
 
   const totalPrice =
     items.length !== 0 &&
@@ -150,8 +148,6 @@ const CartPage = () => {
   };
   const toggleForm = () => {
     setFormOpen((formOpen) => !formOpen);
-    ref.style.transform = `translateY(calc(${-responsiveHeight + 64}))`;
-    // window.scrollTo(0, -responsiveHeight - 64);
   };
 
   const handleInput = (e) => {
@@ -256,34 +252,18 @@ const CartPage = () => {
   return (
     clientSecret && (
       <Elements stripe={stripePromise} options={options}>
-        {/* WHOLE PAGE */}
-
-        <Div100vh
-          // style={{ height: `calc(${responsiveHeight} - 4rem)` }}
-          // style={{ height: width < 768 ? `calc(100vh - 4rem)` : `calc(100vh - 5.5rem)` }}
-          className="page border-4 border-red-500 pt-16 md:pt-24 relative w-screen overflow-y-hidden font-cabin flex flex-col items-center justify-center bg-sound"
-        >
-          <Steps formOpen={formOpen} formValidated={formValidated} />
-
-          {/*  PAGE CONTAINER */}
+        <Steps formOpen={formOpen} formValidated={formValidated} />
+        <Div100vh>
           <div
-            style={{ contain: "content" }}
-            className="page-container h-full w-full relative overflow-y-hidden flex flex-col items-start justify-start bg-sound"
+            style={{ transform: formOpen && `translateY(calc(-100vh + 64px))` }}
+            className="page transition-transform duration-1000 border-4 border-red-500 pt-16 md:pt-24 relative h-full w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden"
           >
-            <div className="h-full w-full flex flex-col md:flex-row">
-              <div className="h-full w-full md:w-3/5">
-                <div
-                  ref={ref}
-                  className="cart-content-wrapper h-full w-full transition-transform duration-300"
-                  // style={{
-                  //   transform:
-                  //     formOpen && width < 768
-                  //       ? `translateY(calc(-100vh + 64px))`
-                  //       : formOpen && width > 768
-                  //       ? `translateY(calc(-100vh + 6rem))`
-                  //       : formValidated && "translateY(-100vh)",
-                  // }}
-                >
+            <div
+              style={{ contain: "content" }}
+              className="page-container h-full w-full relative flex flex-col items-start justify-start bg-sound"
+            >
+              <div className="h-full w-full flex flex-col md:flex-row">
+                <div className="h-max w-full md:w-3/5">
                   <CartContainer
                     handleRemoveOne={handleRemoveOne}
                     handleAddToCart={handleAddToCart}
@@ -291,39 +271,50 @@ const CartPage = () => {
                     handleDeleteCart={handleDeleteCart}
                     formOpen={formOpen}
                   />
-                  <Form
-                    formOpen={formOpen}
-                    inputFirstName={inputFirstName}
-                    inputLastName={inputLastName}
-                    inputEmail={inputEmail}
-                    inputPhone={inputPhone}
-                    inputCheckbox={inputCheckbox}
-                    handleInput={handleInput}
-                    totalPrice={totalPrice}
-                    errorAddress={errorAddress}
-                    errorCheckbox={errorCheckbox}
-                    errorEmail={errorEmail}
-                    errorFirstName={errorFirstName}
-                    errorLastName={errorLastName}
-                    errorPhone={errorPhone}
-                  />
                 </div>
-                <CheckoutForm formValidated={formValidated} />
-              </div>
-              <div className="h-max w-full md:h-full md:w-2/5 absolute bottom-0 md:relative flex items-center justify-center ">
-                {items.length !== 0 && (
-                  <CartRecap
-                    totalPrice={totalPrice}
-                    handleForm={handleForm}
-                    toggleForm={toggleForm}
-                    formOpen={formOpen}
-                    formValidated={formValidated}
-                  />
-                )}
+                <div className="h-max w-full md:h-full md:w-2/5 fixed bottom-0 md:relative flex items-center justify-center "></div>
               </div>
             </div>
           </div>
+          <div
+            className="z-30 h-max w-full overflow-y-auto transition-transform duration-1000"
+            style={{
+              transform:
+                formOpen && width < 768
+                  ? `translateY(calc(-100vh + 64px))`
+                  : formOpen && width > 768 && `translateY(calc(-100vh + 96px))`,
+            }}
+          >
+            <Form
+              formOpen={formOpen}
+              inputFirstName={inputFirstName}
+              inputLastName={inputLastName}
+              inputEmail={inputEmail}
+              inputPhone={inputPhone}
+              inputCheckbox={inputCheckbox}
+              handleInput={handleInput}
+              totalPrice={totalPrice}
+              errorAddress={errorAddress}
+              errorCheckbox={errorCheckbox}
+              errorEmail={errorEmail}
+              errorFirstName={errorFirstName}
+              errorLastName={errorLastName}
+              errorPhone={errorPhone}
+            />
+          </div>
         </Div100vh>
+        <div className="h-max w-full md:h-full md:w-2/5 fixed bottom-0 md:inset-y-0 md:right-0 flex items-center justify-center ">
+          {items.length !== 0 && (
+            <CartRecap
+              totalPrice={totalPrice}
+              handleForm={handleForm}
+              toggleForm={toggleForm}
+              formOpen={formOpen}
+              formValidated={formValidated}
+            />
+          )}
+        </div>
+        <CheckoutForm formValidated={formValidated} />
       </Elements>
     )
   );
