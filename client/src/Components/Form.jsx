@@ -29,7 +29,7 @@ const Form = ({
     <div
       id="userInfo-form"
       // style={{ height: width < 768 ? responsiveHeight - 190 : "calc(100vh - 6rem)" }}
-      className="border-2 border-blue-500 form-container h-full w-full z-30 relative flex flex-col items-center justify-start md:justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900"
+      className="border-4 border-blue-500 form-container h-max w-full z-30 relative flex flex-col items-center justify-start md:justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900"
     >
       <div className="w-max relative self-start ml-3 md:ml-10">
         <h2 className="w-full text-center md:text-left uppercase text-xl md:text-2xl font-bold px-3">
@@ -37,8 +37,8 @@ const Form = ({
         </h2>
         <span className="h-px w-full absolute inset-x-0 mx-auto left-0 bottom-0.5 bg-black"></span>
       </div>
-      <div className="border-2 border-yellow-500 h-full w-full overflow-hidden max-w-3xl flex flex-col items-center justify-start self-end">
-        <div className="h-max w-full flex flex-col items-center justify-start overflow-y-auto">
+      <div className="border-4 border-yellow-500 h-full w-full overflow-hidden max-w-3xl flex flex-col items-center justify-start self-end">
+        <div className="h-max w-11/12 border-2 border-black flex flex-col items-center justify-start overflow-y-auto">
           <form
             // style={{ height: width < 768 ? "calc(100vh - 300px)" : "calc(100vh - 128px)" }}
             className="form-solid h-max w-10/12 flex flex-col items-center justify-start gap-2 text-gray-900 md:pb-12"
