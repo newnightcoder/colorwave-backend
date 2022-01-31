@@ -1,5 +1,6 @@
 import React from "react";
 import { ChevronDoubleLeft, Trash } from "react-bootstrap-icons";
+import { use100vh } from "react-div-100vh";
 import { useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import "../Styles/_variables.css";
@@ -7,6 +8,7 @@ import useWindowSize from "../utils/useWindowSize";
 
 const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, handleDeleteCart, formOpen }) => {
   const { height, width } = useWindowSize();
+  const responsiveHeight = use100vh();
   const items = useSelector((state) => state?.cart.items);
 
   return (
@@ -51,7 +53,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
       ) : (
         <div
           style={{
-            height: width < 768 ? "calc(100vh - 308px)" : "calc(100vh - 250px)",
+            height: width < 768 ? `calc(${responsiveHeight} - 308px)` : "calc(100vh - 250px)",
           }}
           className="items-container scrollbar-cart relative w-11/12 xl:w-10/12 overflow-y-auto flex flex-col justify-start items-center gap-4 pb-8 md:pb-4 pt-4"
         >
