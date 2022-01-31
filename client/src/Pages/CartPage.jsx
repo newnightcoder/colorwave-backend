@@ -258,7 +258,7 @@ const CartPage = () => {
         <Div100vh
           // style={{ height: `calc(${responsiveHeight} - 4rem)` }}
           // style={{ height: width < 768 ? `calc(100vh - 4rem)` : `calc(100vh - 5.5rem)` }}
-          className="page border-4 border-red-500 md:pt-24 relative w-screen overflow-y-hidden font-cabin flex flex-col items-center justify-center bg-sound"
+          className="page border-4 border-red-500 pt-16 md:pt-24 relative w-screen overflow-y-hidden font-cabin flex flex-col items-center justify-center bg-sound"
         >
           <Steps formOpen={formOpen} formValidated={formValidated} />
 
