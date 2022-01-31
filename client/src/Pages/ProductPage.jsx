@@ -91,7 +91,7 @@ const ProductPage = () => {
   };
 
   return (
-    <div className="font-cabin overflow-x-hidden relative">
+    <div className="pt-16 font-cabin overflow-x-hidden relative">
       <div className="breadcrumb w-full flex items-center justify-start gap-1 whitespace-nowrap text-gray-900 bg-white px-2 md:pl-10 pt-3 md:pt-8 pb-3">
         <Link to="/" className="w-max flex items-center justify-center gap-1 capitalize hover:underline">
           home <ChevronDoubleRight size={12} className="transform translate-y-px" />

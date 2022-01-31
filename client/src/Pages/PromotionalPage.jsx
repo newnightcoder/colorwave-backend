@@ -26,7 +26,7 @@ const PromotionalPage = () => {
   }, []);
 
   return (
-    <div className="snap-always snap-mandatory snap-y	h-screen w-full relative bg-black font-cabin">
+    <div className="pt-16 snap-always snap-mandatory snap-y	h-screen w-full relative bg-black font-cabin">
       <div
         style={{ background: `url("${img1}") no-repeat fixed center/cover` }}
         className="snap-top h-full relative flex flex-col items-center justify-between"

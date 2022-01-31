@@ -29,10 +29,7 @@ const ConfirmationPage = () => {
 
   return (
     <>
-      <div
-        style={{ height: "calc(100vh - 64px)" }}
-        className="w-screen  relative flex flex-col gap-8 items-center justify-center bg-gray-300 border-red-500 "
-      >
+      <div className="pt-16 h-screen w-screen relative flex flex-col gap-8 items-center justify-center bg-gray-300 border-red-500 ">
         <span className="text-center">
           Congratulations <span className="capitalize">{userOrder?.userFirstName}</span>! <br /> Your order n&deg;&nbsp;
           {orderId?.toUpperCase()} was successful. <br />
