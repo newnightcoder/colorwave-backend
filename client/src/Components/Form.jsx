@@ -28,7 +28,7 @@ const Form = ({
   return (
     <div
       id="userInfo-form"
-      className="border-4 border-blue-500 bg-sound form-container h-full w-full relative flex flex-col items-center justify-start md:justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900"
+      className="bg-sound form-container h-full w-full relative flex flex-col items-center justify-start md:justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900"
     >
       <div className="h-max w-max relative self-start pt-4 ml-3 md:ml-10">
         <h2 className="w-full text-center md:text-left uppercase text-xl md:text-2xl font-bold px-3">
@@ -38,12 +38,12 @@ const Form = ({
       </div>
       <div
         // style={{ height: width < 768 ? responsiveHeight - 208 : "calc(100vh - 250px)" }}
-        className="border-4 border-yellow-500 h-full w-full overflow-hidden max-w-3xl flex flex-col items-center justify-start self-sart"
+        className="h-full w-full overflow-hidden max-w-3xl flex flex-col items-center justify-start self-sart"
       >
         <div className="border-2 border-black h-max w-11/12 flex flex-col items-center justify-start overflow-y-auto">
           <form
             // style={{ height: width < 768 ? "calc(100vh - 300px)" : "calc(100vh - 128px)" }}
-            className="form-solid h-max w-10/12 flex flex-col items-center justify-start gap-2 text-gray-900 pb-36 md:pb-12"
+            className="form-solid h-max w-10/12 flex flex-col items-center justify-start gap-2 text-gray-900 pb-56 md:pb-12"
           >
             <div className="w-full flex flex-col md:flex-row gap-2">
               <div className="flex flex-col w-full md:w-1/2">
