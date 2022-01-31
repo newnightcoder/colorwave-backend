@@ -36,7 +36,7 @@ const ShopPage = () => {
   const skinsItems = shop?.filter((item) => item?.categories?.find((cat) => cat.name === "skins"));
 
   return (
-    <div className="h-full w-full font-cabin" style={{ overflow: open ? "hidden" : "auto" }}>
+    <div className="pt-16 h-full w-full font-cabin" style={{ overflow: open ? "hidden" : "auto" }}>
       <header className="h-full flex flex-col items-center justify-center gap-6 bg-white text-black pt-4 md:pt-10 pb-4">
         <div className="w-max relative">
           <h1 className="text-center text-xl md:text-3xl font-bold uppercase px-6">Products</h1>
