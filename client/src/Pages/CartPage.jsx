@@ -272,7 +272,12 @@ const CartPage = () => {
                 <div
                   className="cart-content-wrapper h-full w-full transition-transform duration-300"
                   style={{
-                    transform: formOpen ? `translateY(-100vh)` : formValidated && "translateY(-100vh)",
+                    transform:
+                      formOpen && width < 768
+                        ? `translateY(calc(-100vh + 4rem))`
+                        : formOpen && width > 768
+                        ? `translateY(calc(-100vh + 6rem))`
+                        : formValidated && "translateY(-100vh)",
                   }}
                 >
                   <CartContainer
