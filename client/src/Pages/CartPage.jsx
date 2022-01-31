@@ -1,7 +1,7 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import React, { useEffect, useState } from "react";
-import { use100vh } from "react-div-100vh";
+import Div100vh, { use100vh } from "react-div-100vh";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { CartContainer, CartRecap, CheckoutForm, Form, Steps } from "../Components";
@@ -255,8 +255,8 @@ const CartPage = () => {
       <Elements stripe={stripePromise} options={options}>
         {/* WHOLE PAGE */}
 
-        <div
-          style={{ height: `calc(${responsiveHeight} - 4rem)` }}
+        <Div100vh
+          // style={{ height: `calc(${responsiveHeight} - 4rem)` }}
           // style={{ height: width < 768 ? `calc(100vh - 4rem)` : `calc(100vh - 5.5rem)` }}
           className="page pt-16 relative w-screen overflow-y-hidden font-cabin flex flex-col items-center justify-center bg-sound md:mt-8"
         >
@@ -267,7 +267,7 @@ const CartPage = () => {
             style={{ contain: "content" }}
             className="page-container h-full w-full relative overflow-y-hidden flex flex-col items-start justify-start bg-sound"
           >
-            <div style={{ height: `calc(${responsiveHeight} - 4rem)` }} className="w-full flex flex-col md:flex-row">
+            <div className="h-full w-full flex flex-col md:flex-row">
               <div className="h-full w-full md:w-3/5">
                 <div
                   className="cart-content-wrapper h-full w-full transition-transform duration-300"
@@ -319,7 +319,7 @@ const CartPage = () => {
               </div>
             </div>
           </div>
-        </div>
+        </Div100vh>
       </Elements>
     )
   );
