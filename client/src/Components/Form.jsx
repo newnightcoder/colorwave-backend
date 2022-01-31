@@ -28,8 +28,8 @@ const Form = ({
   return (
     <div
       id="userInfo-form"
-      // style={{ height: `calc(${responsiveHeight} - 64px)` }}
-      className="form-container pt-32 h-full w-full z-30 relative flex flex-col items-center justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900"
+      style={{ height: width < 768 ? responsiveHeight - 308 : "calc(100vh - 250px)" }}
+      className="form-container h-full w-full z-30 relative flex flex-col items-center justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900"
     >
       <div className="w-max relative">
         <h2 className="w-full text-center uppercase text-xl md:text-2xl font-bold px-3">Your delivery information</h2>
