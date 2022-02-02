@@ -31,8 +31,12 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
 
   return (
     <div
-      style={{ display: formValidated && "none", minWidth: width > 768 && "300px", maxWidth: width > 768 && "500px" }}
-      className="recap relative h-20 w-full md:h-5/6 md:w-2/3 z-40 flex flex-col items-center justify-center md:justify-start gap-4 bg-black md:bg-white text-white md:text-gray-900 p-16 md:p-8 overflow-x-hidden overflow-y-hidden md:overflow-y-auto scrollbar-cart font-cabin"
+      style={{
+        display: formValidated && width < 768 && "none",
+        minWidth: width > 768 && "300px",
+        maxWidth: width > 768 && "500px",
+      }}
+      className="recap relative h-20 w-full md:h-5/6 md:w-2/3 z-10 flex flex-col items-center justify-center md:justify-start gap-4 bg-black md:bg-white text-white md:text-gray-900 p-16 md:p-8 overflow-x-hidden overflow-y-hidden md:overflow-y-auto scrollbar-cart font-cabin"
     >
       <div className="w-full flex flex-col items-center justify-start gap-2 2xl:gap-4 pb-2 pt-2 md:pt-4 2xl:pt-8">
         <div className="hidden md:block w-max relative">
@@ -98,47 +102,49 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
           <span className="w-1/5 text-right">{totalPrice}&nbsp;€</span>
         </div>
       </div>
-      <button
-        type="submit"
-        className="w-48 flex items-center justify-center gap-2 text-sm md:text-base uppercase text-black bg-yellow-300 shadow-md py-2 md:mt-12"
-        onClick={!formOpen ? toggleForm : handleForm}
-      >
-        {!formOpen ? <span>checkout</span> : <span>next</span>}
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 52.4 29.75"
-          alt="Shopping Cart"
-          fill="currentColor"
-          width="1.75rem"
-          height=".75rem"
-          className="transition-color duration-300 group-hover:text-blue-500"
+      {!formValidated && (
+        <button
+          type="submit"
+          className="w-48 flex items-center justify-center gap-2 text-sm md:text-base uppercase text-black bg-yellow-300 shadow-md py-2 md:mt-12"
+          onClick={!formOpen ? toggleForm : handleForm}
         >
-          <path
-            d="M158.92,284H127.83V267a1.5,1.5,0,0,0-1.5-1.5h-6.57a1.5,1.5,0,1,0,0,3h5.07v16.91a1.5,1.5,0,0,0,1.5,1.5h32.59a1.5,1.5,0,1,0,0-3Z"
-            transform="translate(-118.26 -265.51)"
-          ></path>
-          <path
-            d="M162.34,277.81h-30a1.5,1.5,0,1,0,0,3h30a1.5,1.5,0,0,0,0-3Z"
-            transform="translate(-118.26 -265.51)"
-          ></path>
-          <path
-            d="M165.75,271.66H132.33a1.5,1.5,0,1,0,0,3h33.42a1.5,1.5,0,0,0,0-3Z"
-            transform="translate(-118.26 -265.51)"
-          ></path>
-          <path
-            d="M169.16,265.51H132.33a1.5,1.5,0,0,0,0,3h36.83a1.5,1.5,0,0,0,0-3Z"
-            transform="translate(-118.26 -265.51)"
-          ></path>
-          <path
-            d="M127.83,288.7a3.29,3.29,0,1,0,3.29,3.28A3.29,3.29,0,0,0,127.83,288.7Z"
-            transform="translate(-118.26 -265.51)"
-          ></path>
-          <path
-            d="M151.66,288.7A3.29,3.29,0,1,0,155,292,3.28,3.28,0,0,0,151.66,288.7Z"
-            transform="translate(-118.26 -265.51)"
-          ></path>
-        </svg>
-      </button>
+          {!formOpen ? <span>checkout</span> : <span>next</span>}
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 52.4 29.75"
+            alt="Shopping Cart"
+            fill="currentColor"
+            width="1.75rem"
+            height=".75rem"
+            className="transition-color duration-300 group-hover:text-blue-500"
+          >
+            <path
+              d="M158.92,284H127.83V267a1.5,1.5,0,0,0-1.5-1.5h-6.57a1.5,1.5,0,1,0,0,3h5.07v16.91a1.5,1.5,0,0,0,1.5,1.5h32.59a1.5,1.5,0,1,0,0-3Z"
+              transform="translate(-118.26 -265.51)"
+            ></path>
+            <path
+              d="M162.34,277.81h-30a1.5,1.5,0,1,0,0,3h30a1.5,1.5,0,0,0,0-3Z"
+              transform="translate(-118.26 -265.51)"
+            ></path>
+            <path
+              d="M165.75,271.66H132.33a1.5,1.5,0,1,0,0,3h33.42a1.5,1.5,0,0,0,0-3Z"
+              transform="translate(-118.26 -265.51)"
+            ></path>
+            <path
+              d="M169.16,265.51H132.33a1.5,1.5,0,0,0,0,3h36.83a1.5,1.5,0,0,0,0-3Z"
+              transform="translate(-118.26 -265.51)"
+            ></path>
+            <path
+              d="M127.83,288.7a3.29,3.29,0,1,0,3.29,3.28A3.29,3.29,0,0,0,127.83,288.7Z"
+              transform="translate(-118.26 -265.51)"
+            ></path>
+            <path
+              d="M151.66,288.7A3.29,3.29,0,1,0,155,292,3.28,3.28,0,0,0,151.66,288.7Z"
+              transform="translate(-118.26 -265.51)"
+            ></path>
+          </svg>
+        </button>
+      )}
       <MobileRecap openMobileRecap={openMobileRecap} toggleMobileRecap={toggleMobileRecap} />
     </div>
   );

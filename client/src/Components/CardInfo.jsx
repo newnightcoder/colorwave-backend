@@ -11,12 +11,12 @@ const CardInfo = ({ formValidated }) => {
   return (
     <div
       style={{
-        height: width > 768 ? "23.5rem" : "8rem",
+        height: width > 768 ? "min-content" : "9rem",
         animation: formValidated && "500ms fadeInLeft 300ms forwards ease-out",
       }}
-      className="w-full md:w-60 opacity-0 text-sm md:text-base text-white bg-gray-900 md:border md:border-gray-100 flex flex-col items-center md:items-start justify-center gap-3 md:gap-6 z-40 py-2 md:py-4 rounded-sm"
+      className="w-full opacity-0 absolute bottom-0 md:static text-sm md:text-base text-black bg-yellow-300 md:border md:border-gray-100 flex flex-col items-center justify-center md:items-start md:justify-start gap-2 md:gap-6 z-40 px-2 py-4"
     >
-      <h3 className="uppercase underline font-bold text-center">Please use one of the following credit cards</h3>
+      <h3 className="uppercase underline font-bold text-center">Please choose a credit card below:</h3>
       <div className="h-max w-full flex md:flex-col items-center justify-evenly md:gap-4">
         <div className="h-max w-max md:w-full flex flex-col items-start justify-center gap-1 md:pl-6">
           <div className="flex items-center justify-center gap-2">

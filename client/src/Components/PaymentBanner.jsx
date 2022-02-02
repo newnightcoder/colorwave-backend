@@ -4,7 +4,7 @@ import paymentLogos from "../Assets/cards.png";
 
 const PaymentBanner = () => {
   return (
-    <div className="banner-container h-24 2xl:h-28 w-full flex items-center justify-center bg-white fixed top-16  md:top-auto md:bottom-0 z-50 shadow">
+    <div className="banner-container h-24 2xl:h-28 w-full flex items-center justify-center bg-white md:fixed md:inset-x-0 md:bottom-0 z-50 shadow pb-4">
       <div className="banner h-full w-full max-w-8xl flex items-center justify-evenly text-gray-500">
         <div className="h-3/4 flex flex-col items-center justify-start gap-3 md:gap-2 pt-1 pb-2 2xl:mt-3">
           <div className="uppercase font-bold text-lg md:text-base underline flex items-center justify-center gap-1">

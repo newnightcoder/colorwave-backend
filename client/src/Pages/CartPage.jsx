@@ -274,13 +274,13 @@ const CartPage = () => {
 
   const transition = () => {
     if (formValidated && width < 768) {
-      return { transform: "translateY(calc(-200% + 64px))" };
+      return { transform: "translateY(-200%)" };
     } else if (formValidated && width > 768) {
-      return { transform: "translateY(calc(-200% + 96px))" };
+      return { transform: "translateY(-200%)" };
     } else if (formOpen && width < 768) {
-      return { transform: `translateY(calc(-100% + 64px))` };
+      return { transform: `translateY(-100%)` };
     } else if (formOpen && width > 768) {
-      return { transform: `translateY(calc(-100% + 96px))` };
+      return { transform: `translateY(-100%)` };
     }
   };
 
@@ -312,7 +312,7 @@ const CartPage = () => {
             </div>
           </Div100vh>
           <Div100vh
-            className="w-full overflow-y-auto md:flex md:items-center md:justify-center transition-transform duration-700 bg-sound"
+            className="w-full overflow-y-auto md:flex md:items-center md:justify-center transition-transform duration-700 bg-sound pt-16 md:pt-24"
             style={transition()}
           >
             <Form
@@ -337,12 +337,22 @@ const CartPage = () => {
             />
             <div className="hidden md:flex h-full w-2/5"></div>
           </Div100vh>
-          <Div100vh style={transition()} className="relative transition-transform duration-700 bg-sound">
+          <Div100vh
+            style={transition()}
+            className="relative transition-transform duration-700 bg-sound flex items-start justify-center pt-16 md:pt-24"
+          >
             <CheckoutForm formValidated={formValidated} />
+            {formValidated && width > 768 && <PaymentBanner />}
           </Div100vh>
         </Div100vh>
         <div
-          style={{ height: width > 768 && "calc(100vh - 96px)" }}
+          style={{
+            height:
+              width > 768 && !formValidated
+                ? "calc(100vh - 96px)"
+                : width > 768 && formValidated && "calc(100vh - 192px)",
+            top: formValidated && width > 768 && 0,
+          }}
           className="h-max w-full md:w-2/5 fixed bottom-0 md:my-auto md:right-0 flex items-center justify-center"
         >
           {items.length !== 0 && (
@@ -356,7 +366,6 @@ const CartPage = () => {
             />
           )}
         </div>
-        {formValidated && <PaymentBanner />}
       </Elements>
     )
   );

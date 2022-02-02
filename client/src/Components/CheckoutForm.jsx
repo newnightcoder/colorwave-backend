@@ -2,7 +2,7 @@ import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js"
 import React, { useState } from "react";
 import { use100vh } from "react-div-100vh";
 import { useDispatch, useSelector } from "react-redux";
-import { CardInfo } from ".";
+import { CardInfo, PaymentBanner } from ".";
 import { validatePayment } from "../Redux/Actions/cart.action";
 import useWindowSize from "../utils/useWindowSize";
 
@@ -37,21 +37,27 @@ const CheckoutForm = ({ formValidated }) => {
   return (
     <div
       style={{
-        height: width < 768 ? responsiveHeight - 160 : "calc(100vh - 192px)",
+        height: width < 768 ? responsiveHeight - 64 : "calc(100vh - 192px)",
       }}
-      className="pt-16 border-2 border-red-500 md:pt-10 w-full md:w-11/12 md:px-2 relative flex flex-col md:flex-row items-start md:items-center justify-center "
+      className="border-2 border-red-500 w-full md:w-11/12 md:px-2 flex flex-col md:flex-row items-start md:items-center justify-center"
     >
-      <div className="w-full h-full md:w-max md:flex md:items-center  md:justify-center md:gap-8 overflow-y-auto scrollbar-cart overflow-x-hidden">
-        <CardInfo formValidated={formValidated} />
-        <div className="h-full md:h-max flex flex-col items-center justify-center">
+      <div className="relative w-full h-full md:w-3/5 flex flex-col items-center justify-start md:flex-row md:justify-end md:gap-8 md:overflow-y-auto md:scrollbar-cart overflow-x-hidden">
+        <div
+          style={{ height: width < 768 ? responsiveHeight - 64 : "83.33%" }}
+          className="w-full md:max-w-xl relative flex flex-col items-center justify-start md:justify-center bg-white border-2 border-blue-500"
+        >
+          {formValidated && width < 768 && <PaymentBanner />}
+
+          <CardInfo formValidated={formValidated} />
           <form
             action="post"
-            className="h-max w-max flex flex-col items-center justify-center gap-4"
+            style={{ height: width < 768 ? responsiveHeight - 326 : "100%" }}
+            className="w-11/12 md:w-full flex flex-col items-center justify-start gap-4 overflow-y-auto scrollbar-cart md:scrollbar-description mt-2 md:mt-0"
             onSubmit={handleSubmit}
           >
-            <div className="h-max w-full bg-white relative flex flex-col items-center justify-center pt-8 pb-24 md:pb-32 px-12 rounded-sm">
-              <PaymentElement />
-              <button className="w-9/12 absolute bottom-5 py-2 md:py-3 uppercase md:text-lg text-gray-100 bg-blue-400 rounded-sm mb-2 md:mb-4">
+            <div className="h-min md:h-full w-full bg-white relative flex flex-col items-center justify-start gap-8 pt-6 md:pt-4 md:pb-40 px-12 rounded-sm">
+              <PaymentElement className="w-full md:pt-2" />
+              <button className="w-full md:w-10/12 py-2 md:py-3 uppercase md:text-lg text-gray-100 bg-blue-400 rounded-sm mb-2 md:mb-4">
                 <>
                   {isLoading ? (
                     <span className="flex items-center justify-center gap-2">
@@ -86,6 +92,7 @@ const CheckoutForm = ({ formValidated }) => {
           </form>
         </div>
       </div>
+      <div className="hidden md:block md:w-2/5"> </div>
     </div>
   );
 };

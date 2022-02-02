@@ -29,7 +29,8 @@ const Form = ({
   return (
     <div
       id="userInfo-form"
-      className="form-container h-full w-full md:w-3/5 relative flex flex-col items-center justify-start md:justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900 bg-sound"
+      style={{ height: width < 768 ? responsiveHeight - 212 : "100%" }}
+      className="form-container w-full md:w-3/5 relative flex flex-col items-center justify-start md:justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900 bg-sound"
     >
       <div className="h-max w-max relative self-start pt-4 md:pt-6 ml-3 md:ml-10">
         <h2 className="w-full text-center md:text-left uppercase text-xl md:text-2xl px-3">
@@ -39,7 +40,7 @@ const Form = ({
       </div>
       <div className="h-full w-full overflow-hidden max-w-3xl flex flex-col items-center justify-start md:justify-center">
         <div className="h-max w-11/12 flex flex-col items-center justify-start overflow-y-auto scrollbar-cart md:self-end pt-4 md:pt-0">
-          <form className="form-solid h-max w-10/12 flex flex-col items-center justify-start gap-2 text-gray-900 pb-56 md:pb-32">
+          <form className="form-solid h-max w-10/12 flex flex-col items-center justify-start gap-2 text-gray-900 md:pb-32">
             <div className="w-full flex flex-col md:flex-row gap-2">
               <div className="flex flex-col w-full md:w-1/2">
                 <label className="hidden md:block w-max text-left px-1" htmlFor="firstName">
