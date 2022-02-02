@@ -11,6 +11,8 @@ const Form = ({
   inputEmail,
   inputPhone,
   inputAddress,
+  inputCity,
+  inputZip,
   inputCheckbox,
   handleInput,
   errorAddress,
@@ -19,7 +21,6 @@ const Form = ({
   errorFirstName,
   errorPhone,
   errorLastName,
-  formOpen,
 }) => {
   const items = useSelector((state) => state?.cart.items);
   const { height, width } = useWindowSize();
@@ -28,23 +29,17 @@ const Form = ({
   return (
     <div
       id="userInfo-form"
-      className="bg-sound form-container h-full w-full relative flex flex-col items-center justify-start md:justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900"
+      className="form-container h-full w-full md:w-3/5 relative flex flex-col items-center justify-start md:justify-center gap-2 md:gap-4 2xl:gap-8 md:justify-start transition duration-300 text-gray-900 bg-sound"
     >
-      <div className="h-max w-max relative self-start pt-4 ml-3 md:ml-10">
-        <h2 className="w-full text-center md:text-left uppercase text-xl md:text-2xl font-bold px-3">
+      <div className="h-max w-max relative self-start pt-4 md:pt-6 ml-3 md:ml-10">
+        <h2 className="w-full text-center md:text-left uppercase text-xl md:text-2xl px-3">
           Your delivery information
         </h2>
         <span className="h-px w-full absolute inset-x-0 mx-auto left-0 bottom-0.5 bg-black"></span>
       </div>
-      <div
-        // style={{ height: width < 768 ? responsiveHeight - 208 : "calc(100vh - 250px)" }}
-        className="h-full w-full overflow-hidden max-w-3xl flex flex-col items-center justify-start self-sart"
-      >
-        <div className="border-2 border-black h-max w-11/12 flex flex-col items-center justify-start overflow-y-auto">
-          <form
-            // style={{ height: width < 768 ? "calc(100vh - 300px)" : "calc(100vh - 128px)" }}
-            className="form-solid h-max w-10/12 flex flex-col items-center justify-start gap-2 text-gray-900 pb-56 md:pb-12"
-          >
+      <div className="h-full w-full overflow-hidden max-w-3xl flex flex-col items-center justify-start md:justify-center">
+        <div className="h-max w-11/12 flex flex-col items-center justify-start overflow-y-auto scrollbar-cart md:self-end pt-4 md:pt-0">
+          <form className="form-solid h-max w-10/12 flex flex-col items-center justify-start gap-2 text-gray-900 pb-56 md:pb-32">
             <div className="w-full flex flex-col md:flex-row gap-2">
               <div className="flex flex-col w-full md:w-1/2">
                 <label className="hidden md:block w-max text-left px-1" htmlFor="firstName">
@@ -109,11 +104,11 @@ const Form = ({
                   City
                 </label>
                 <input
-                  id="address"
+                  id="city"
                   type="text"
                   className="form-input w-full px-4 py-2"
                   placeholder="Your city"
-                  value={inputAddress}
+                  value={inputCity}
                   onChange={handleInput}
                 />
                 {/* ❗️ create errorCity */}
@@ -124,11 +119,11 @@ const Form = ({
                   Zip Code
                 </label>
                 <input
-                  id="address"
+                  id="zip"
                   type="text"
                   className="form-input w-full px-4 py-2"
                   placeholder="Your Zip Code"
-                  value={inputAddress}
+                  value={inputZip}
                   onChange={handleInput}
                 />
                 {/* ❗️ create errorZipCode */}
@@ -153,9 +148,10 @@ const Form = ({
               <div className="flex items-center justify-center gap-2">
                 <input
                   type="checkbox"
-                  name=""
+                  name="checkbox"
                   id="checkbox"
                   className="rounded-sm ring-0 outline-0 focus:outline-0 checked:outline-0 focus:border-0 checked:ring-0 checked:border-0 focus:ring-0"
+                  value={inputCheckbox}
                   onChange={handleInput}
                 />
                 <p>

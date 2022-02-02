@@ -10,6 +10,7 @@ export { default as Footer } from "./Footer/Footer";
 export { default as Form } from "./Form";
 export { default as LoaderGaming } from "./Loader/LoaderGaming";
 export { default as LoaderSound } from "./Loader/LoaderSound";
+export { default as MobileRecap } from "./MobileRecap";
 export { default as Navbar } from "./Navbar/Navbar";
 export { default as PaymentBanner } from "./PaymentBanner";
 export { default as ProductCard } from "./Product/ProductCard";

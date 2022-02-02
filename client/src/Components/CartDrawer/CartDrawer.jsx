@@ -2,12 +2,14 @@ import React from "react";
 import { ChevronDoubleLeft, ChevronDoubleRight, XCircle, XLg } from "react-bootstrap-icons";
 import Div100vh from "react-div-100vh";
 import { useDispatch, useSelector } from "react-redux";
+import { useLocation } from "react-router";
 import { useHistory } from "react-router-dom";
 import { deleteItem, toggleCartDrawer } from "../../Redux/Actions/cart.action";
 import "../../Styles/_variables.css";
 
 const CartDrawer = () => {
   const history = useHistory();
+  const location = useLocation();
   const dispatch = useDispatch();
   const items = useSelector((state) => state.cart.items);
   const cartDrawerOpen = useSelector((state) => state?.cart.cartDrawerOpen);
@@ -49,7 +51,10 @@ const CartDrawer = () => {
 
   return (
     <Div100vh
-      style={{ transform: cartDrawerOpen ? "translateY(0)" : "translateY(-100%)", zIndex: 4000 }}
+      style={{
+        transform: cartDrawerOpen && !location.pathname.includes("cart") ? "translateY(0)" : "translateY(-100%)",
+        zIndex: 4000,
+      }}
       className="w-full fixed md:w-2/3 lg:w-1/2 2xl:w-1/3 font-cabin flex flex-col items-center justify-center overflow-x-hidden overflow-y-auto transition-transform duration-300 text-gray-900 right-0 top-0 bg-sound pt-6 pb-12 px-5 md:px-10"
     >
       <button onClick={() => dispatch(toggleCartDrawer())} className="h-max w-max">
@@ -81,7 +86,9 @@ const CartDrawer = () => {
                 >
                   <img src={item.product.media.source} alt="" className="object-cover h-24 w-full" />
                 </div>
-                <div className="w-1/3 text-left text-sm pl-2 md:pl-5">{item.product.name}</div>
+                <div className="w-1/3 text-left text-sm pl-2 md:pl-5 whitespace-nowrap truncate">
+                  {item.product.name}
+                </div>
                 <div className="w-1/3 text-right text-sm pr-2">{item.product.price.formatted}&nbsp;€</div>
                 <button
                   onClick={() => handleDeleteItem(item.product.id)}

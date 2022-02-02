@@ -37,12 +37,16 @@ const CartPage = () => {
   const [inputLastName, setInputLastName] = useState("");
   const [inputEmail, setInputEmail] = useState("");
   const [inputAddress, setInputAddress] = useState("");
+  const [inputCity, setInputCity] = useState("");
+  const [inputZip, setInputZip] = useState("");
   const [inputPhone, setInputPhone] = useState("");
   const [inputCheckbox, setInputCheckbox] = useState(false);
   const [errorFirstName, setErrorFirstName] = useState("");
   const [errorLastName, setErrorLastName] = useState("");
   const [errorEmail, setErrorEmail] = useState("");
   const [errorAddress, setErrorAddress] = useState("");
+  const [errorZip, setErrorZip] = useState("");
+  const [errorCity, setErrorCity] = useState("");
   const [errorPhone, setErrorPhone] = useState("");
   const [errorCheckbox, setErrorCheckbox] = useState("");
   const [formChecked, setFormChecked] = useState(false);
@@ -58,6 +62,8 @@ const CartPage = () => {
   let errorPhoneRef = "";
   let errorPhoneRegexRef = "";
   let errorAddressRef = "";
+  let errorCityRef = "";
+  let errorZipRef = "";
   let errorCheckboxRef = "";
 
   const totalPrice =
@@ -94,14 +100,11 @@ const CartPage = () => {
       userFirstName: inputFirstName,
       userLastName: inputLastName,
       userEmail: inputEmail,
-      userAddress: inputAddress,
-      userPhone: inputPhone,
       userOrder: {
         items: items,
         totalPrice,
       },
     };
-    console.log("userOrder", order);
     dispatch(saveOrder(order));
   };
 
@@ -155,6 +158,8 @@ const CartPage = () => {
     if (e.target === form.querySelector("#lastName")) return setInputLastName(e.currentTarget.value);
     if (e.target === form.querySelector("#email")) return setInputEmail(e.currentTarget.value);
     if (e.target === form.querySelector("#address")) return setInputAddress(e.currentTarget.value);
+    if (e.target === form.querySelector("#city")) return setInputCity(e.currentTarget.value);
+    if (e.target === form.querySelector("#zip")) return setInputZip(e.currentTarget.value);
     if (e.target === form.querySelector("#phone")) return setInputPhone(e.currentTarget.value);
     if (e.target === form.querySelector("#checkbox")) return setInputCheckbox(e.currentTarget.checked);
   };
@@ -166,6 +171,8 @@ const CartPage = () => {
       email: "Please enter your email",
       emailRegex: "Please enter a valid email",
       address: "Please enter your address",
+      city: "Please enter your city",
+      zip: "Please enter your zip code",
       phoneNumber: "Please enter your phone number",
       phoneNumberRegex: "Please enter a valid phone number",
       checkbox: "You need to accept our Terms and Services to confirm your order.",
@@ -206,6 +213,20 @@ const CartPage = () => {
       setErrorAddress("");
       errorAddressRef = "";
     }
+    if (inputCity.length === 0) {
+      setErrorCity(errorMsg.city);
+      errorCityRef = errorMsg.city;
+    } else {
+      setErrorCity("");
+      errorCityRef = "";
+    }
+    if (inputZip.length === 0) {
+      setErrorZip(errorMsg.zip);
+      errorZipRef = errorMsg.zip;
+    } else {
+      setErrorZip("");
+      errorZipRef = "";
+    }
     if (inputPhone.length === 0) {
       setErrorPhone(errorMsg.phoneNumber);
       errorPhoneRef = errorMsg.phoneNumber;
@@ -235,6 +256,8 @@ const CartPage = () => {
       errorFirstNameRef.length === 0 &&
       errorLastNameRef.length === 0 &&
       errorAddressRef.length === 0 &&
+      errorCityRef.length === 0 &&
+      errorZipRef.length === 0 &&
       errorEmailRef.length === 0 &&
       errorPhoneRef.length === 0 &&
       errorPhoneRegexRef.length === 0 &&
@@ -255,8 +278,13 @@ const CartPage = () => {
         <Steps formOpen={formOpen} formValidated={formValidated} />
         <Div100vh className="overflow-y-hidden bg-black">
           <Div100vh
-            style={{ transform: formOpen && `translateY(calc(-100% + 64px))` }}
-            className="page transition-transform duration-1000 pt-16 md:pt-24 relative w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden"
+            style={{
+              transform:
+                formOpen && width < 768
+                  ? `translateY(calc(-100% + 64px))`
+                  : formOpen && width > 768 && `translateY(calc(-100% + 96px))`,
+            }}
+            className="page transition-transform duration-700 pt-16 md:pt-24 relative w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden"
           >
             <div
               style={{ contain: "content" }}
@@ -272,36 +300,50 @@ const CartPage = () => {
                     formOpen={formOpen}
                   />
                 </div>
-                <div className="h-max w-full md:h-full md:w-2/5 fixed bottom-0 md:relative flex items-center justify-center "></div>
+                <div className="h-max w-full md:h-full md:w-2/5 fixed bottom-0 md:relative flex items-center justify-center"></div>
               </div>
             </div>
           </Div100vh>
           <Div100vh
-            className="w-full overflow-y-auto bg-sound transition-transform duration-1000"
-            style={{ transform: formOpen && `translateY(calc(-100% + 64px))` }}
+            className="w-full overflow-y-auto md:flex md:items-center md:justify-center transition-transform duration-700 bg-sound"
+            style={{
+              transform:
+                formOpen && width < 768
+                  ? `translateY(calc(-100% + 64px))`
+                  : formOpen && width > 768 && `translateY(calc(-100% + 96px))`,
+            }}
           >
             <Form
-              formOpen={formOpen}
               inputFirstName={inputFirstName}
               inputLastName={inputLastName}
               inputEmail={inputEmail}
               inputPhone={inputPhone}
+              inputAddress={inputAddress}
+              inputZip={inputZip}
+              inputCity={inputCity}
               inputCheckbox={inputCheckbox}
-              handleInput={handleInput}
               totalPrice={totalPrice}
               errorAddress={errorAddress}
+              errorCity={errorCity}
+              errorZip={errorZip}
               errorCheckbox={errorCheckbox}
               errorEmail={errorEmail}
               errorFirstName={errorFirstName}
               errorLastName={errorLastName}
               errorPhone={errorPhone}
+              handleInput={handleInput}
             />
+            <div className="hidden md:flex h-full w-2/5"></div>
           </Div100vh>
         </Div100vh>
-        <div className="h-max w-full md:h-full md:w-2/5 fixed bottom-0 md:inset-y-0 md:right-0 flex items-center justify-center ">
+        <div
+          style={{ height: width > 768 && "calc(100vh - 96px)" }}
+          className="h-max w-full md:w-2/5 fixed bottom-0 md:my-auto md:right-0 flex items-center justify-center"
+        >
           {items.length !== 0 && (
             <CartRecap
               totalPrice={totalPrice}
+              handleDeleteItem={handleDeleteItem}
               handleForm={handleForm}
               toggleForm={toggleForm}
               formOpen={formOpen}

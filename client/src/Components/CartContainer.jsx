@@ -12,10 +12,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
   const items = useSelector((state) => state?.cart.items);
 
   return (
-    <div
-      className="cart-container h-full w-full relative flex flex-col items-center justify-start gap-4 text-gray-900 bg-sound"
-      // style={{ height: width < 768 ? "calc(100vh - 64px)" : "calc(100vh - 96px)" }}
-    >
+    <div className="cart-container h-full w-full relative flex flex-col items-center justify-start gap-4 text-gray-900 bg-sound">
       {items.length !== 0 && (
         <div className="h-max w-full flex flex-col items-start justify-center gap-2 pt-4 pl-4 md:pl-10 md:pt-6">
           <div className="w-max relative">
@@ -59,7 +56,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
             <div
               key={i}
               style={{
-                height: width < 500 ? "7rem" : width < 768 ? "12rem" : "14rem",
+                height: width < 500 ? "7rem" : "12rem",
                 animation: `750ms fadeIn ${100 + i * 50}ms forwards`,
               }}
               className="item opacity-0 w-11/12 flex items-center justify-start gap-1 md:gap-6 pr-1 md:px-0 bg-white shadow"

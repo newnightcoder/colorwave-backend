@@ -10,7 +10,6 @@ import useWindowSize from "../../utils/useWindowSize";
 const Navbar = () => {
   const items = useSelector((state) => state?.cart.items);
   const [menuOpen, setMenuOpen] = useState(false);
-  const cartDrawerOpen = useSelector((state) => state?.cart.cartDrawerOpen);
   const dispatch = useDispatch();
   const location = useLocation();
   const { height, width } = useWindowSize();
