@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Div100vh, { use100vh } from "react-div-100vh";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { CartContainer, CartRecap, CheckoutForm, Form, Steps } from "../Components";
+import { CartContainer, CartRecap, CheckoutForm, Form, PaymentBanner, Steps } from "../Components";
 import { addToCart, deleteCart, deleteItem, removeOne, saveOrder } from "../Redux/Actions/cart.action";
 import "../Styles/_variables.css";
 import useWindowSize from "../utils/useWindowSize";
@@ -272,18 +272,25 @@ const CartPage = () => {
     validateForm();
   };
 
+  const transition = () => {
+    if (formValidated && width < 768) {
+      return { transform: "translateY(calc(-200% + 64px))" };
+    } else if (formValidated && width > 768) {
+      return { transform: "translateY(calc(-200% + 96px))" };
+    } else if (formOpen && width < 768) {
+      return { transform: `translateY(calc(-100% + 64px))` };
+    } else if (formOpen && width > 768) {
+      return { transform: `translateY(calc(-100% + 96px))` };
+    }
+  };
+
   return (
     clientSecret && (
       <Elements stripe={stripePromise} options={options}>
         <Steps formOpen={formOpen} formValidated={formValidated} />
-        <Div100vh className="overflow-y-hidden bg-black">
+        <Div100vh className="overflow-y-hidden bg-sound">
           <Div100vh
-            style={{
-              transform:
-                formOpen && width < 768
-                  ? `translateY(calc(-100% + 64px))`
-                  : formOpen && width > 768 && `translateY(calc(-100% + 96px))`,
-            }}
+            style={transition()}
             className="page transition-transform duration-700 pt-16 md:pt-24 relative w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden"
           >
             <div
@@ -306,12 +313,7 @@ const CartPage = () => {
           </Div100vh>
           <Div100vh
             className="w-full overflow-y-auto md:flex md:items-center md:justify-center transition-transform duration-700 bg-sound"
-            style={{
-              transform:
-                formOpen && width < 768
-                  ? `translateY(calc(-100% + 64px))`
-                  : formOpen && width > 768 && `translateY(calc(-100% + 96px))`,
-            }}
+            style={transition()}
           >
             <Form
               inputFirstName={inputFirstName}
@@ -335,6 +337,9 @@ const CartPage = () => {
             />
             <div className="hidden md:flex h-full w-2/5"></div>
           </Div100vh>
+          <Div100vh style={transition()} className="relative transition-transform duration-700 bg-sound">
+            <CheckoutForm formValidated={formValidated} />
+          </Div100vh>
         </Div100vh>
         <div
           style={{ height: width > 768 && "calc(100vh - 96px)" }}
@@ -351,7 +356,7 @@ const CartPage = () => {
             />
           )}
         </div>
-        <CheckoutForm formValidated={formValidated} />
+        {formValidated && <PaymentBanner />}
       </Elements>
     )
   );
