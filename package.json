@@ -11,8 +11,8 @@
   },
   "scripts": {
     "start": "node app",
-    "heroku-postbuild": "cd client && yarn && yarn build",
-    "test": "cd client && yarn build && cd ../../backend-shop && nodemon app"
+    "dev": "cd client && yarn build && cd ../../backend-shop && nodemon app",
+    "heroku-postbuild": "cd client && yarn && yarn build"
   },
   "engines": {
     "node": "14.17.6"
