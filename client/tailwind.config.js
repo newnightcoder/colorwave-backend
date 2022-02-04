@@ -35,6 +35,7 @@ module.exports = {
   plugins: [require("@tailwindcss/forms"), require("tailwindcss/colors")],
   variants: {
     scale: ["hover", "group-hover"],
+    scaleX: ["hover", "group-hover"],
     skew: ["group-hover"],
     translate: ["group-hover"],
     fill: ["hover", "group-hover"],

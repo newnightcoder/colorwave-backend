@@ -92,7 +92,7 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
             <span className="italic">free</span>
           </div>
         </div>
-        <div className="w-full flex items-center justify-between md:pt-2 border-b md:border-b-0 md:border-t md:border-gray-900 px-2">
+        <div className="w-full flex items-center justify-between md:pt-2 border-b md:border-b-0 md:border-t md:border-yellow-300 px-2">
           <span className="uppercase w-4/5 whitespace-nowrap">
             TOTAL&nbsp;
             <span className="lowercase italic">
@@ -107,7 +107,7 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
       {!formValidated && (
         <>
           <button
-            className="w-max md:w-48 flex items-center justify-center gap-2 text-sm uppercase text-black underline border border-black px-3 md:px-0 py-1"
+            className="w-max md:w-48 flex items-center justify-center gap-2 text-sm uppercase text-black underline px-3 md:px-0 py-1"
             onClick={handleDeleteCart}
           >
             <span>delete cart</span>

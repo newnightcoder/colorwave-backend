@@ -18,7 +18,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
           style={{ height: width > 768 ? "8.33%" : "max-content" }}
           className="w-full flex flex-col items-start justify-center md:flex-row md:items-center md:justify-between gap-2 md:gap-0 pt-4 md:pt-0 pl-4 md:pl-10"
         >
-          <div className="w-max relative">
+          <div className="w-max relative md:hidden">
             <h2 className="text-center text-xl md:text-2xl uppercase px-3 md:px-6">Your cart</h2>
             <span className="h-px w-full absolute inset-x-0 mx-auto left-0 bottom-0.5 bg-black"></span>
           </div>

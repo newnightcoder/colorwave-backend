@@ -359,6 +359,7 @@ const CartPage = () => {
             <CartRecap
               totalPrice={totalPrice}
               handleDeleteItem={handleDeleteItem}
+              handleDeleteCart={handleDeleteCart}
               handleForm={handleForm}
               toggleForm={toggleForm}
               formOpen={formOpen}

@@ -36,7 +36,7 @@ const Form = ({
         style={{ height: width > 768 ? "8.33%" : "max-content" }}
         className="w-full relative flex flex-col items-start justify-center ml-3 md:pl-10"
       >
-        <div className="h-max w-max relative ml-4 md:ml-0">
+        <div className="h-max w-max relative ml-4 md:hidden">
           <h2 className="w-full text-center md:text-left uppercase text-xl md:text-2xl px-3 pt-6 md:pt-0 ">
             Your delivery information
           </h2>

@@ -2,7 +2,7 @@ import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import WebFont from "webfontloader";
-import { CartDrawer, Navbar } from "./Components";
+import { CartDrawer } from "./Components";
 import SearchModal from "./Components/SearchModal";
 import {
   CartPage,
@@ -34,7 +34,6 @@ const App = () => {
       <Switch>
         <Route exact path="/" component={HomePage} />
         <>
-          <Navbar />
           <CartDrawer />
           <SearchModal />
           <Route path="/shop" component={ShopPage} />

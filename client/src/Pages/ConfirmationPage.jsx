@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
 import { Check2Circle } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { Footer } from "../Components";
+import { Footer, Steps } from "../Components";
 import { deleteCart } from "../Redux/Actions/cart.action";
 
 const ConfirmationPage = () => {
   const userOrder = useSelector((state) => state?.cart.userOrder);
   const dispatch = useDispatch();
   const [orderId, setOrderId] = useState(null);
-
   const getConfirmation = async () => {
     const url = "/user-order";
     const request = {
@@ -29,6 +28,7 @@ const ConfirmationPage = () => {
 
   return (
     <>
+      <Steps />
       <div className="pt-16 h-screen w-screen relative flex flex-col gap-8 items-center justify-center bg-gray-300 border-red-500 ">
         <span className="text-center">
           Congratulations <span className="capitalize">{userOrder?.userFirstName}</span>! <br /> Your order n&deg;&nbsp;
