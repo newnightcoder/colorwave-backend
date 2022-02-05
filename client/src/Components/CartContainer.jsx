@@ -40,14 +40,14 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
       )}
 
       {items.length === 0 ? (
-        <div className="fixed z-50 inset-0 m-auto w-max flex flex-col items-center justify-center">
-          <h1 className="text-lg md:text-xl">YOUR CART IS EMPTY</h1>
+        <div className="fixed z-50 inset-0 m-auto w-max flex flex-col items-center justify-center gap-1">
+          <h1 className="text-lg md:text-xl uppercase">YOUR CART IS EMPTY...</h1>
           <Link
             to="/shop"
             className="flex items-center justify-center gap-1 text-blue-500 hover:underline hover:font-bold"
           >
             <ChevronDoubleLeft size={12} />
-            <span className="capitalize text-lg">go back to the shop</span>
+            <span className="text-base uppercase">go back to the shop</span>
           </Link>
         </div>
       ) : (

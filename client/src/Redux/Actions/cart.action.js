@@ -41,6 +41,19 @@ export const saveOrder = (order) => (dispatch) => {
   dispatch({ type: actionTypes.SAVE_ORDER, payload: order });
 };
 
-export const validatePayment = () => (dispatch) => {
-  dispatch({ type: actionTypes.VALIDATE_PAYMENT, payload: true });
+export const validatePayment = (order) => async (dispatch) => {
+  try {
+    const url = "/user-order";
+    const request = {
+      headers: {
+        "Content-type": "Application/json",
+      },
+      method: "post",
+      body: JSON.stringify(order),
+    };
+    const confirmation = await fetch(url, request).then((res) => res.json());
+    dispatch({ type: actionTypes.VALIDATE_PAYMENT, payload: confirmation });
+  } catch (error) {
+    console.log(error);
+  }
 };

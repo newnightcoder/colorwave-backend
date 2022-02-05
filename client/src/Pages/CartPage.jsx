@@ -100,10 +100,8 @@ const CartPage = () => {
       userFirstName: inputFirstName,
       userLastName: inputLastName,
       userEmail: inputEmail,
-      userOrder: {
-        items: items,
-        totalPrice,
-      },
+      items,
+      totalPrice,
     };
     dispatch(saveOrder(order));
   };
@@ -341,7 +339,7 @@ const CartPage = () => {
             style={transition()}
             className="relative transition-transform duration-700 bg-sound flex items-start justify-center pt-16 md:pt-24"
           >
-            <CheckoutForm formValidated={formValidated} />
+            <CheckoutForm formValidated={formValidated} clientSecret={clientSecret} />
             {formValidated && width > 768 && <PaymentBanner />}
           </Div100vh>
         </Div100vh>

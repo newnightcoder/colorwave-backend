@@ -1,30 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Check2Circle } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { Footer, Steps } from "../Components";
-import { deleteCart } from "../Redux/Actions/cart.action";
+import { deleteCart, validatePayment } from "../Redux/Actions/cart.action";
 
 const ConfirmationPage = () => {
   const userOrder = useSelector((state) => state?.cart.userOrder);
+  const orderId = useSelector((state) => state?.cart.userOrder.orderId);
   const dispatch = useDispatch();
-  const [orderId, setOrderId] = useState(null);
-  const getConfirmation = async () => {
-    const url = "/user-order";
-    const request = {
-      headers: {
-        "Content-type": "Application/json",
-      },
-      method: "post",
-      body: JSON.stringify(userOrder),
-    };
-    const confirmation = await fetch(url, request).then((res) => res.json());
-    setOrderId(confirmation.orderId);
-  };
 
   useEffect(() => {
-    getConfirmation();
+    dispatch(validatePayment(userOrder));
     dispatch(deleteCart());
-  }, [userOrder]);
+  }, []);
 
   return (
     <>

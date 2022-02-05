@@ -3,10 +3,9 @@ import React, { useState } from "react";
 import { use100vh } from "react-div-100vh";
 import { useDispatch, useSelector } from "react-redux";
 import { CardInfo, PaymentBanner } from ".";
-import { validatePayment } from "../Redux/Actions/cart.action";
 import useWindowSize from "../utils/useWindowSize";
 
-const CheckoutForm = ({ formValidated }) => {
+const CheckoutForm = ({ formValidated, clientSecret }) => {
   const elements = useElements();
   const stripe = useStripe();
   const userOrder = useSelector((state) => state?.cart.userOrder);
@@ -14,25 +13,21 @@ const CheckoutForm = ({ formValidated }) => {
   const { height, width } = useWindowSize();
   const [isLoading, setIsLoading] = useState(false);
   const responsiveHeight = use100vh();
+  const [message, setMessage] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     console.log(userOrder);
     setIsLoading(true);
-    try {
-      const { error } = await stripe.confirmPayment({
-        elements,
-        confirmParams: {
-          // return_url: "https://colorwave-shop.herokuapp.com/success",
-          return_url: "http://localhost:4242/success",
-        },
-      });
-      if (error) return setIsLoading(false);
-      setIsLoading(false);
-      dispatch(validatePayment());
-    } catch (err) {
-      throw err;
-    }
+
+    const { error } = await stripe.confirmPayment({
+      elements,
+      confirmParams: {
+        // return_url: "https://colorwave-shop.herokuapp.com/success",
+        return_url: "http://localhost:4242/success",
+      },
+    });
+    if (error) return setIsLoading(false);
   };
 
   return (
@@ -50,6 +45,7 @@ const CheckoutForm = ({ formValidated }) => {
           {formValidated && width < 768 && <PaymentBanner />}
 
           <CardInfo formValidated={formValidated} />
+          <span className="text-black">{message}</span>
           <div
             style={{ height: width < 768 ? responsiveHeight - 306 : "100%" }}
             className="w-full overflow-hidden flex flex-col items-center justify-center"
