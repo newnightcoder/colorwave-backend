@@ -57,3 +57,7 @@ export const validatePayment = (order) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const confirmSuccess = () => (dispatch) => {
+  dispatch({ type: actionTypes.CONFIRM_SUCCESS });
+};

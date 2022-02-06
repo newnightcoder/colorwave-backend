@@ -1,9 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
+import { useLocation } from "react-router";
 import useWindowSize from "../utils/useWindowSize";
 
 const Steps = ({ formOpen, formValidated }) => {
   const { height, width } = useWindowSize();
+  const location = useLocation();
   const paymentValidated = useSelector((state) => state.cart.paymentValidated);
   const items = useSelector((state) => state?.cart.items);
   const [dotColor1, setDotColor1] = useState("rgb(100,100,100)");
@@ -18,21 +20,21 @@ const Steps = ({ formOpen, formValidated }) => {
   const [prevStepsConfirmed, setPrevStepsConfirmed] = useState(false);
 
   const delayStyle = () => {
-    if (paymentValidated) {
+    if (location.pathname.includes("success")) {
       return setTimeout(() => {
         setDotColor3("rgb(253 224 71)");
         setTextColor3("rgb(253 224 71)");
         setBorderColor3("rgb(253 224 71)");
       }, 700);
     }
-    if (formValidated || paymentValidated) {
+    if (formValidated) {
       return setTimeout(() => {
         setDotColor2("rgb(253 224 71)");
         setTextColor2("white");
         setBorderColor2("rgb(253 224 71)");
       }, 700);
     }
-    if (formOpen || prevStepsConfirmed) {
+    if (formOpen) {
       return setTimeout(() => {
         setDotColor1("rgb(253 224 71)");
         setTextColor1("white");
@@ -50,7 +52,7 @@ const Steps = ({ formOpen, formValidated }) => {
   useEffect(() => {
     delayStyle();
     validateAllSteps();
-  }, [formOpen, formValidated, paymentValidated, prevStepsConfirmed]);
+  }, [formOpen, formValidated, paymentValidated]);
 
   const stepStyle = {
     transform: {

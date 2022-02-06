@@ -6,6 +6,7 @@ const initialState = {
   stripeClientSecret: "",
   userOrder: {},
   paymentValidated: false,
+  confirmSuccess: false,
   orderId: null,
 };
 
@@ -94,6 +95,12 @@ const cartReducer = (state = initialState, action) => {
         ...state,
         userOrder: { ...state.userOrder, orderId: confirmation.orderId },
         paymentValidated: true,
+      };
+    }
+    case actionTypes.CONFIRM_SUCCESS: {
+      return {
+        ...state,
+        confirmSuccess: true,
       };
     }
     default:
