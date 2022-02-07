@@ -7,7 +7,7 @@ import useWindowSize from "../utils/useWindowSize";
 const Steps = ({ formOpen, formValidated }) => {
   const { height, width } = useWindowSize();
   const location = useLocation();
-  const paymentValidated = useSelector((state) => state.cart.paymentValidated);
+  const confirmationSuccess = useSelector((state) => state.cart.confirmationSuccess);
   const items = useSelector((state) => state?.cart.items);
   const [dotColor1, setDotColor1] = useState("rgb(100,100,100)");
   const [textColor1, setTextColor1] = useState("rgb(100,100,100)");
@@ -31,7 +31,7 @@ const Steps = ({ formOpen, formValidated }) => {
         setDotColor3("white");
         setTextColor3("rgb(253 224 71)");
         setBorderColor3("white");
-      }, 700);
+      }, 300);
     }
     if (formValidated) {
       return setTimeout(() => {
@@ -51,7 +51,7 @@ const Steps = ({ formOpen, formValidated }) => {
 
   useEffect(() => {
     delayStyle();
-  }, [formOpen, formValidated, paymentValidated]);
+  }, [formOpen, formValidated, confirmationSuccess]);
 
   const stepStyle = {
     transform: {
@@ -64,7 +64,7 @@ const Steps = ({ formOpen, formValidated }) => {
         transform: formValidated || location.pathname.includes("success") ? "scaleX(1)" : "scaleX(0)",
       },
       step3: {
-        transform: paymentValidated ? "scaleX(1)" : "scaleX(0)",
+        transform: confirmationSuccess ? "scaleX(1)" : "scaleX(0)",
       },
     },
     textColor: {

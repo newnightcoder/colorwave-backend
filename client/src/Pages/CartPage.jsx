@@ -1,7 +1,7 @@
 import { Elements } from "@stripe/react-stripe-js";
 import { loadStripe } from "@stripe/stripe-js";
 import React, { useEffect, useState } from "react";
-import Div100vh, { use100vh } from "react-div-100vh";
+import Div100vh from "react-div-100vh";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { CartContainer, CartRecap, CheckoutForm, Form, PaymentBanner, Steps } from "../Components";
@@ -21,15 +21,9 @@ let stripePromise;
 const CartPage = () => {
   const dispatch = useDispatch();
   const { height, width } = useWindowSize();
-  const responsiveHeight = use100vh();
   const items = useSelector((state) => state?.cart.items);
   const form = document.querySelector("#userInfo-form");
   const [formOpen, setFormOpen] = useState(false);
-  const [formPosition, setFormPosition] = useState(0);
-  const checkoutForm = document.querySelector("#payment-form");
-  const [checkoutFormOpen, setCheckoutFormOpen] = useState(false);
-  const [checkoutFormPosition, setCheckoutFormPosition] = useState(0);
-  const [userOrder, setUserOrder] = useState({});
   const [clientSecret, setClientSecret] = useState("");
 
   // FORM VALIDATION variables

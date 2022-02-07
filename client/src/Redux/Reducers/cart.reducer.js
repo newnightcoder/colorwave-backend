@@ -3,11 +3,8 @@ import { actionTypes } from "../Types/types";
 const initialState = {
   items: [],
   cartDrawerOpen: false,
-  stripeClientSecret: "",
   userOrder: {},
-  paymentValidated: false,
-  confirmSuccess: false,
-  orderId: null,
+  confirmationSuccess: false,
 };
 
 const cartReducer = (state = initialState, action) => {
@@ -75,10 +72,10 @@ const cartReducer = (state = initialState, action) => {
     }
 
     case actionTypes.OPEN_CART: {
-      const toggled = !state.cartDrawerOpen;
+      const toggle = !state.cartDrawerOpen;
       return {
         ...state,
-        cartDrawerOpen: toggled,
+        cartDrawerOpen: toggle,
       };
     }
 
@@ -94,13 +91,14 @@ const cartReducer = (state = initialState, action) => {
       return {
         ...state,
         userOrder: { ...state.userOrder, orderId: confirmation.orderId },
-        paymentValidated: true,
       };
     }
+
     case actionTypes.CONFIRM_SUCCESS: {
+      const toggle = !state.confirmationSuccess;
       return {
         ...state,
-        confirmSuccess: true,
+        confirmationSuccess: toggle,
       };
     }
     default:

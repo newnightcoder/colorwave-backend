@@ -1,22 +1,22 @@
 import React, { useEffect } from "react";
 import { Check2Circle, HouseFill } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { useHistory } from "react-router";
 import { Link } from "react-router-dom";
 import { Footer, Steps } from "../Components";
-import { deleteCart, validatePayment } from "../Redux/Actions/cart.action";
+import { confirmSuccess, deleteCart, validatePayment } from "../Redux/Actions/cart.action";
 
 const ConfirmationPage = () => {
   const userOrder = useSelector((state) => state?.cart.userOrder);
   const orderId = useSelector((state) => state?.cart.userOrder.orderId);
-  const paymentValidated = useSelector((state) => state?.cart.paymentValidated);
-  const confirmationSuccess = useSelector((state) => state?.cart.confirmSuccess);
   const dispatch = useDispatch();
-  const history = useHistory();
 
   useEffect(() => {
     dispatch(validatePayment(userOrder));
+    dispatch(confirmSuccess());
     dispatch(deleteCart());
+    return () => {
+      dispatch(confirmSuccess());
+    };
   }, []);
 
   return (

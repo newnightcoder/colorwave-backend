@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { ChevronDoubleLeft, Trash } from "react-bootstrap-icons";
 import { use100vh } from "react-div-100vh";
 import { useSelector } from "react-redux";
@@ -10,6 +10,16 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
   const { height, width } = useWindowSize();
   const responsiveHeight = use100vh();
   const items = useSelector((state) => state?.cart.items);
+  const itemsContainer = items.length !== 0 && document.querySelector(".items");
+
+  useEffect(() => {
+    window.addEventListener("DOMContentloaded", () => {
+      itemsContainer.classList.add("scrollbar-cart");
+    });
+    return () => {
+      window.removeEventListener("DOMContentloaded");
+    };
+  }, []);
 
   return (
     <div className="cart-container h-full w-full relative flex flex-col items-center justify-start md:items-end gap-4 md:gap-0 text-gray-900 bg-sound">
@@ -57,7 +67,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
           }}
           className="items-container relative w-11/12 xl:w-10/12 flex flex-col justify-center items-center  pb-8 md:pb-4 pt-4 md:pt-0"
         >
-          <div className="h-max overflow-y-auto scrollbar-cart flex flex-col items-center justify-start gap-4">
+          <div className="items overflow-y-auto  h-max flex flex-col items-center justify-start gap-4">
             {items.map((item, i) => (
               <div
                 key={i}

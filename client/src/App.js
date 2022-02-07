@@ -3,13 +3,14 @@ import { useDispatch } from "react-redux";
 import { Redirect } from "react-router";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import WebFont from "webfontloader";
-import { persistor } from "../src/Redux/storeConfig.js";
+// import { persistor } from "../src/Redux/storeConfig.js";
 import { CartDrawer, Navbar } from "./Components";
 import SearchModal from "./Components/SearchModal";
 import { CartPage, CategoryPage, ConfirmationPage, HomePage, ProductPage, PromotionalPage, ShopPage } from "./Pages";
 import { getShopData } from "./Redux/Actions/shop.action";
 import useWindowSize from "./utils/useWindowSize";
-persistor.purge();
+
+// persistor.purge();
 
 const RefreshRoute = ({ component: Component, redirectionPath, ...rest }) => {
   redirectionPath = redirectionPath ?? "/";
