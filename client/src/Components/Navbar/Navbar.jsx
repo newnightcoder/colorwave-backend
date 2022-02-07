@@ -198,7 +198,7 @@ const Navbar = () => {
             ///   MOBILE MENU  - SHOW/HIDE BASED ON MENU STATE   ///
             /////////////////////////////////////////////////////// */}
         <div
-          style={{ transform: menuOpen ? "scaleX(100%)" : "scaleX(0)" }}
+          style={{ transform: menuOpen ? "scale(1, 1)" : "scale(0, 1)" }}
           className="w-max pl-2 pr-10 flex flex-col bg-black origin-left transition-scale duration-100"
           id="mobile-menu"
         >
