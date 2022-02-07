@@ -21,6 +21,7 @@ const Form = ({
   errorFirstName,
   errorPhone,
   errorLastName,
+  formOpen,
 }) => {
   const items = useSelector((state) => state?.cart.items);
   const { height, width } = useWindowSize();
@@ -29,7 +30,7 @@ const Form = ({
   return (
     <div
       id="userInfo-form"
-      style={{ height: width < 768 ? responsiveHeight - 192 : "100%" }}
+      style={{ height: width < 768 ? responsiveHeight - 192 : "100%", visibility: formOpen ? "visible" : "hidden" }}
       className="form-container w-full md:w-3/5 relative flex flex-col items-center justify-start gap-2 md:gap-0 transition duration-300 text-gray-900 bg-sound"
     >
       <div

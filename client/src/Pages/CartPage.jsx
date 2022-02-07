@@ -72,13 +72,13 @@ const CartPage = () => {
       return acc + curr.product.price.raw * curr.quantity;
     }, 0);
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-    if (formOpen) {
-      setFormPosition(form?.getBoundingClientRect().y - 64);
-      window.scrollTo(0, formPosition);
-    }
-  }, [formOpen, formPosition]);
+  // useEffect(() => {
+  //   window.scrollTo(0, 0);
+  //   if (formOpen) {
+  //     setFormPosition(form?.getBoundingClientRect().y - 64);
+  //     window.scrollTo(0, formPosition);
+  //   }
+  // }, [formOpen, formPosition]);
 
   const fetchPaymentIntentSecret = async () => {
     const request = {
@@ -282,91 +282,96 @@ const CartPage = () => {
     }
   };
 
-  return (
-    clientSecret && (
-      <Elements stripe={stripePromise} options={options}>
-        <Steps formOpen={formOpen} formValidated={formValidated} />
-        <Div100vh className="overflow-y-hidden bg-sound">
-          <Div100vh
-            style={transition()}
-            className="page transition-transform duration-700 pt-16 md:pt-24 relative w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden"
-          >
-            <div
-              style={{ contain: "content" }}
-              className="page-container h-full w-full relative flex flex-col items-start justify-start bg-sound"
-            >
-              <div className="h-full w-full flex flex-col md:flex-row">
-                <div className="h-max w-full md:w-3/5">
-                  <CartContainer
-                    handleRemoveOne={handleRemoveOne}
-                    handleAddToCart={handleAddToCart}
-                    handleDeleteItem={handleDeleteItem}
-                    handleDeleteCart={handleDeleteCart}
-                    formOpen={formOpen}
-                  />
-                </div>
-                <div className="h-max w-full md:h-full md:w-2/5 fixed bottom-0 md:relative flex items-center justify-center"></div>
-              </div>
-            </div>
-          </Div100vh>
-          <Div100vh
-            className="w-full overflow-y-auto md:flex md:items-center md:justify-center transition-transform duration-700 bg-sound pt-16 md:pt-24"
-            style={transition()}
-          >
-            <Form
-              inputFirstName={inputFirstName}
-              inputLastName={inputLastName}
-              inputEmail={inputEmail}
-              inputPhone={inputPhone}
-              inputAddress={inputAddress}
-              inputZip={inputZip}
-              inputCity={inputCity}
-              inputCheckbox={inputCheckbox}
-              totalPrice={totalPrice}
-              errorAddress={errorAddress}
-              errorCity={errorCity}
-              errorZip={errorZip}
-              errorCheckbox={errorCheckbox}
-              errorEmail={errorEmail}
-              errorFirstName={errorFirstName}
-              errorLastName={errorLastName}
-              errorPhone={errorPhone}
-              handleInput={handleInput}
-            />
-            <div className="hidden md:flex h-full w-2/5"></div>
-          </Div100vh>
-          <Div100vh
-            style={transition()}
-            className="relative transition-transform duration-700 bg-sound flex items-start justify-center pt-16 md:pt-24"
-          >
-            <CheckoutForm formValidated={formValidated} clientSecret={clientSecret} />
-            {formValidated && width > 768 && <PaymentBanner />}
-          </Div100vh>
-        </Div100vh>
-        <div
-          style={{
-            height:
-              width > 768 && !formValidated
-                ? "calc(100vh - 96px)"
-                : width > 768 && formValidated && "calc(100vh - 192px)",
-            top: formValidated && width > 768 && 0,
-          }}
-          className="h-max w-full md:w-2/5 fixed bottom-0 md:my-auto md:right-0 flex items-center justify-center"
+  return !clientSecret ? (
+    <Div100vh className="bg-black flex items-center justify-center ">
+      <span className="text-white text-lg uppercase">loading cart...</span>
+    </Div100vh>
+  ) : (
+    <Elements stripe={stripePromise} options={options}>
+      <Steps formOpen={formOpen} formValidated={formValidated} />
+      <Div100vh className="overflow-y-hidden bg-sound">
+        <Div100vh
+          style={transition()}
+          className="page transition-transform duration-700 pt-16 md:pt-24 relative w-screen font-cabin flex flex-col items-center justify-center bg-sound overflow-y-hidden"
         >
-          {items.length !== 0 && (
-            <CartRecap
-              totalPrice={totalPrice}
-              handleDeleteItem={handleDeleteItem}
-              handleDeleteCart={handleDeleteCart}
-              handleForm={handleForm}
-              toggleForm={toggleForm}
-              formOpen={formOpen}
-              formValidated={formValidated}
-            />
-          )}
-        </div>
-      </Elements>
-    )
+          <div
+            style={{ contain: "content" }}
+            className="page-container h-full w-full relative flex flex-col items-start justify-start bg-sound"
+          >
+            <div className="h-full w-full flex flex-col md:flex-row">
+              <div className="h-max w-full md:w-3/5">
+                <CartContainer
+                  handleRemoveOne={handleRemoveOne}
+                  handleAddToCart={handleAddToCart}
+                  handleDeleteItem={handleDeleteItem}
+                  handleDeleteCart={handleDeleteCart}
+                  formOpen={formOpen}
+                />
+              </div>
+              <div className="h-max w-full md:h-full md:w-2/5 fixed bottom-0 md:relative flex items-center justify-center"></div>
+            </div>
+          </div>
+        </Div100vh>
+
+        <Div100vh
+          className="w-full overflow-y-auto md:flex md:items-center md:justify-center transition-transform duration-700 bg-sound pt-16 md:pt-24"
+          style={transition()}
+        >
+          <Form
+            formOpen={formOpen}
+            inputFirstName={inputFirstName}
+            inputLastName={inputLastName}
+            inputEmail={inputEmail}
+            inputPhone={inputPhone}
+            inputAddress={inputAddress}
+            inputZip={inputZip}
+            inputCity={inputCity}
+            inputCheckbox={inputCheckbox}
+            totalPrice={totalPrice}
+            errorAddress={errorAddress}
+            errorCity={errorCity}
+            errorZip={errorZip}
+            errorCheckbox={errorCheckbox}
+            errorEmail={errorEmail}
+            errorFirstName={errorFirstName}
+            errorLastName={errorLastName}
+            errorPhone={errorPhone}
+            handleInput={handleInput}
+          />
+          <div className="hidden md:flex h-full w-2/5"></div>
+        </Div100vh>
+
+        <Div100vh
+          style={transition()}
+          className="relative transition-transform duration-700 bg-sound flex items-start justify-center pt-16 md:pt-24"
+        >
+          <CheckoutForm formValidated={formValidated} clientSecret={clientSecret} />
+          {formValidated && width > 768 && <PaymentBanner />}
+        </Div100vh>
+      </Div100vh>
+      <div
+        style={{
+          height:
+            width > 768 && !formValidated
+              ? "calc(100vh - 96px)"
+              : width > 768 && formValidated && "calc(100vh - 192px)",
+          top: formValidated && width > 768 && 0,
+        }}
+        className="h-max w-full md:w-2/5 fixed bottom-0 md:my-auto md:right-0 flex items-center justify-center"
+      >
+        {items.length !== 0 && (
+          <CartRecap
+            totalPrice={totalPrice}
+            handleDeleteItem={handleDeleteItem}
+            handleDeleteCart={handleDeleteCart}
+            handleForm={handleForm}
+            toggleForm={toggleForm}
+            formOpen={formOpen}
+            formValidated={formValidated}
+          />
+        )}
+      </div>
+    </Elements>
   );
 };
 

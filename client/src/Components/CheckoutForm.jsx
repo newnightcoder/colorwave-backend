@@ -34,6 +34,7 @@ const CheckoutForm = ({ formValidated, clientSecret }) => {
     <div
       style={{
         height: width < 768 ? responsiveHeight - 64 : "calc(100vh - 192px)",
+        visibility: formValidated ? "visible" : "hidden",
       }}
       className="w-full md:w-11/12 md:px-2 flex flex-col md:flex-row items-start md:items-center justify-center"
     >
