@@ -4,7 +4,7 @@ import img1 from "../Assets/promotional/1.png";
 import img2 from "../Assets/promotional/2.png";
 import img3 from "../Assets/promotional/3.png";
 import img4 from "../Assets/promotional/4.png";
-import { Footer } from "../Components";
+import { Footer, Navbar } from "../Components";
 import useWindowSize from "../utils/useWindowSize";
 
 const promotionalImages = {
@@ -27,6 +27,7 @@ const PromotionalPage = () => {
 
   return (
     <div className="pt-16 snap-always snap-mandatory snap-y	h-screen w-full relative bg-black font-cabin">
+      <Navbar />
       <div
         style={{ background: `url("${img1}") no-repeat fixed center/cover` }}
         className="snap-top h-full relative flex flex-col items-center justify-between"

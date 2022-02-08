@@ -4,7 +4,7 @@ import { use100vh } from "react-div-100vh";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import { LoaderGaming, ProductCard } from "../Components";
+import { LoaderGaming, Navbar, ProductCard } from "../Components";
 import "../Styles/_variables.css";
 import useWindowSize from "../utils/useWindowSize";
 
@@ -114,6 +114,7 @@ const CategoryPage = () => {
       className="pt-24 min-h-screen w-full flex flex-col items-center justify-start pb-12 font-cabin"
       style={pageConditionalStyle.colors}
     >
+      <Navbar />
       <div className="w-full relative flex items-center justify-center md:justify-start relative mt-4 mb-4 md:mb-0">
         <Link
           to={{ pathname: location.state?.from?.includes("shop") ? "/shop" : "/" }}

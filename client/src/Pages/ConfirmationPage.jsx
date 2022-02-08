@@ -2,13 +2,15 @@ import React, { useEffect } from "react";
 import { Check2Circle, HouseFill } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import { Footer, Steps } from "../Components";
+import { Footer, Navbar, Steps } from "../Components";
 import { confirmSuccess, deleteCart, validatePayment } from "../Redux/Actions/cart.action";
+import useWindowSize from "../utils/useWindowSize";
 
 const ConfirmationPage = () => {
   const userOrder = useSelector((state) => state?.cart.userOrder);
   const orderId = useSelector((state) => state?.cart.userOrder.orderId);
   const dispatch = useDispatch();
+  const { height, width } = useWindowSize();
 
   useEffect(() => {
     dispatch(validatePayment(userOrder));
@@ -21,7 +23,7 @@ const ConfirmationPage = () => {
 
   return (
     <>
-      <Steps />
+      {width < 768 ? <Navbar /> : <Steps />}
       <div className="pt-16 h-screen w-screen relative flex flex-col gap-8 items-center justify-center bg-gray-300 border-red-500 ">
         <span className="text-center">
           Congratulations <span className="capitalize">{userOrder?.userFirstName}</span>! <br /> Your order n&deg;&nbsp;

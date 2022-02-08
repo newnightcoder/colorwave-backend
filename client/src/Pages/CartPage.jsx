@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import Div100vh from "react-div-100vh";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
-import { CartContainer, CartRecap, CheckoutForm, Form, PaymentBanner, Steps } from "../Components";
+import { CartContainer, CartRecap, CheckoutForm, Form, Navbar, PaymentBanner, Steps } from "../Components";
 import { addToCart, deleteCart, deleteItem, removeOne, saveOrder } from "../Redux/Actions/cart.action";
 import "../Styles/_variables.css";
 import useWindowSize from "../utils/useWindowSize";
@@ -282,7 +282,7 @@ const CartPage = () => {
     </Div100vh>
   ) : (
     <Elements stripe={stripePromise} options={options}>
-      <Steps formOpen={formOpen} formValidated={formValidated} />
+      {width < 768 ? <Navbar /> : <Steps formOpen={formOpen} formValidated={formValidated} />}
       <Div100vh className="overflow-y-hidden bg-sound">
         <Div100vh
           style={transition()}

@@ -57,14 +57,14 @@ const Steps = ({ formOpen, formValidated }) => {
     transform: {
       step1: {
         transition: formOpen && "transform 700ms",
-        transform: formOpen || location.pathname.includes("success") ? "scaleX(1)" : "scaleX(0)",
+        transform: formOpen || location.pathname.includes("success") ? "scale(1, 1)" : "scale(0, 1)",
       },
       step2: {
         transition: formValidated && "transform 700ms",
-        transform: formValidated || location.pathname.includes("success") ? "scaleX(1)" : "scaleX(0)",
+        transform: formValidated || location.pathname.includes("success") ? "scale(1, 1)" : "scale(0, 1)",
       },
       step3: {
-        transform: confirmationSuccess ? "scaleX(1)" : "scaleX(0)",
+        transform: confirmationSuccess ? "scale(1, 1)" : "scale(0, 1)",
       },
     },
     textColor: {

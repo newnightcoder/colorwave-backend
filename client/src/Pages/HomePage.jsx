@@ -14,7 +14,7 @@ import img4 from "../Assets/sliderImg/4.png";
 import imgMob4 from "../Assets/sliderImg/4mob.png";
 import imgPromote1 from "../Assets/sliderImg/5.png";
 import imgPromote2 from "../Assets/sliderImg/6.png";
-import { CartDrawer, CategoriesGrid, Footer, SearchModal } from "../Components";
+import { CartDrawer, CategoriesGrid, Footer, Navbar, SearchModal } from "../Components";
 import "../Styles/_variables.css";
 import useWindowSize from "../utils/useWindowSize";
 
@@ -84,6 +84,7 @@ const HomePage = () => {
 
   return (
     <div className="pt-16 min-h-screen w-screen relative flex flex-col items-center gap-1 font-cabin bg-black -mt-1 md:-mt-0">
+      <Navbar />
       <div className="h-96 md:h-full w-full flex flex-col items-center justify-center">
         <ImageGallery
           items={width > 768 ? images : imagesMob}

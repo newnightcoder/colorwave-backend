@@ -62,9 +62,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
         </div>
       ) : (
         <div
-          style={{
-            height: width > 768 ? "83.33%" : responsiveHeight - 308,
-          }}
+          style={{ height: width > 768 ? "83.33%" : responsiveHeight - 308 }}
           className="items-container relative w-11/12 xl:w-10/12 flex flex-col justify-center items-center  pb-8 md:pb-4 pt-4 md:pt-0"
         >
           <div className="items overflow-y-auto  h-max flex flex-col items-center justify-start gap-4">

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import AnimateHeight from "react-animate-height";
-import { PlayFill, Trash } from "react-bootstrap-icons";
+import { EyeFill, PlayFill, Trash } from "react-bootstrap-icons";
 import { useSelector } from "react-redux";
 import { MobileRecap } from ".";
 import useWindowSize from "../utils/useWindowSize";
@@ -36,7 +36,7 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
         minWidth: width > 768 && "300px",
         maxWidth: width > 768 && "500px",
       }}
-      className="recap relative h-20 w-full md:h-5/6 md:w-2/3 z-10 flex flex-col items-center justify-center md:justify-start gap-4 bg-black md:bg-white text-white md:text-gray-900 p-16 md:p-8 overflow-x-hidden overflow-y-hidden md:overflow-y-auto scrollbar-cart font-cabin"
+      className="recap relative h-20 w-full md:h-5/6 md:w-2/3 z-10 flex flex-col items-center justify-center md:justify-start gap-1 md:gap-4 bg-black md:bg-white text-white md:text-gray-900 p-16 md:p-8 overflow-x-hidden overflow-y-hidden md:overflow-y-auto scrollbar-cart font-cabin"
     >
       <div className="hidden md:block w-max relative">
         <h2 className="text-lg uppercase px-3">Your order</h2>
@@ -48,10 +48,11 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
             className="inline-block text-sm flex items-center justify-center gap-1 md:py-2"
             onClick={width < 768 ? toggleMobileRecap : toggleCartInRecap}
           >
+            <EyeFill size={16} className="md:hidden text-white" />
             <span className="uppercase italic underline">{btnContent} items in the cart</span>
             <PlayFill
               size={16}
-              className="transition-transform duration-300"
+              className="hidden md:block transition-transform duration-300"
               style={{
                 color: width < 768 ? "white" : "rgb(17 24 39)",
                 transform: itemsDivHeight !== 0 && "rotate(90deg)",
@@ -59,7 +60,7 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
             />
           </button>
           <AnimateHeight duration={500} height={itemsDivHeight}>
-            <div className="h-56 2xl:h-44 flex flex-col items-center justify-start overflow-y-auto scrollbar-cart pr-2">
+            <div className="hidden md:flex h-56 2xl:h-44 flex-col items-center justify-start overflow-y-auto scrollbar-cart pr-2">
               {items.map((item, i) => (
                 <div
                   key={i}
@@ -81,7 +82,7 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
         </>
       )}
 
-      <div className="h-full w-full flex flex-col items-center justify-evenly gap-4">
+      <div className="h-max w-full flex flex-col items-center justify-center md:justify-evenly md:gap-4">
         <div className="hidden w-full px-2 md:flex flex-col items-center 2xl:gap-4 justify-center">
           <div className="w-full flex items-center justify-between py-2 border-b border-gray-200">
             <span>Total items:</span>
@@ -92,7 +93,7 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
             <span className="italic">free</span>
           </div>
         </div>
-        <div className="w-full flex items-center justify-between md:pt-2 border-b md:border-b-0 md:border-t md:border-yellow-300 px-2">
+        <div className="h-max w-full flex items-center justify-between md:pt-2 border-b border-white md:border-b-0 md:border-t md:border-yellow-300 px-2">
           <span className="uppercase w-4/5 whitespace-nowrap">
             TOTAL&nbsp;
             <span className="lowercase italic">
@@ -107,7 +108,7 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
       {!formValidated && (
         <>
           <button
-            className="w-max md:w-48 flex items-center justify-center gap-2 text-sm uppercase text-black underline px-3 md:px-0 py-1"
+            className="hidden md:flex w-max w-48 items-center justify-center gap-2 text-sm uppercase text-black underline px-3 px-0 py-1"
             onClick={handleDeleteCart}
           >
             <span>delete cart</span>
