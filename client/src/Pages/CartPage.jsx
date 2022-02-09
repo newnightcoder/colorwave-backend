@@ -5,7 +5,7 @@ import Div100vh from "react-div-100vh";
 import { useDispatch, useSelector } from "react-redux";
 import { withRouter } from "react-router-dom";
 import { CartContainer, CartRecap, CheckoutForm, Form, Navbar, PaymentBanner, Steps } from "../Components";
-import { addToCart, deleteCart, deleteItem, removeOne, saveOrder } from "../Redux/Actions/cart.action";
+import { addToCart, confirmSuccess, deleteCart, deleteItem, removeOne, saveOrder } from "../Redux/Actions/cart.action";
 import "../Styles/_variables.css";
 import useWindowSize from "../utils/useWindowSize";
 
@@ -25,6 +25,7 @@ const CartPage = () => {
   const form = document.querySelector("#userInfo-form");
   const [formOpen, setFormOpen] = useState(false);
   const [clientSecret, setClientSecret] = useState("");
+  const confirmationSuccess = useSelector((state) => state?.cart.confirmationSuccess);
 
   // FORM VALIDATION variables
   const [inputFirstName, setInputFirstName] = useState("");
@@ -66,14 +67,6 @@ const CartPage = () => {
       return acc + curr.product.price.raw * curr.quantity;
     }, 0);
 
-  // useEffect(() => {
-  //   window.scrollTo(0, 0);
-  //   if (formOpen) {
-  //     setFormPosition(form?.getBoundingClientRect().y - 64);
-  //     window.scrollTo(0, formPosition);
-  //   }
-  // }, [formOpen, formPosition]);
-
   const fetchPaymentIntentSecret = async () => {
     const request = {
       method: "post",
@@ -87,6 +80,7 @@ const CartPage = () => {
   useEffect(() => {
     fetchPaymentIntentSecret();
     console.log(clientSecret);
+    if (confirmationSuccess) dispatch(confirmSuccess());
   }, []);
 
   const createOrder = () => {

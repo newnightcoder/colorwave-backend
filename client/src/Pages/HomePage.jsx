@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { ChevronDoubleRight } from "react-bootstrap-icons";
 import ImageGallery from "react-image-gallery";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useHistory, useLocation } from "react-router";
 import { Link } from "react-router-dom";
 import img1 from "../Assets/sliderImg/1.png";
@@ -20,6 +20,7 @@ import useWindowSize from "../utils/useWindowSize";
 
 const HomePage = () => {
   const history = useHistory();
+  const dispatch = useDispatch();
   const shop = useSelector((state) => state?.shop?.shop);
   const airpods = shop?.find((item) => item.name === "Apple AirPods 3rd Gen");
   const proController = shop?.find((item) => item.name === "Nintendo Switch Pro Controller");

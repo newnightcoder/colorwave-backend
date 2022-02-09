@@ -34,7 +34,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
           </div>
           <Link
             to="/shop"
-            className="flex items-center justify-center gap-1 text-gray-900 hover:underline hover:font-bold group md:pl-6"
+            className="flex items-center justify-center gap-1 text-gray-900 hover:underline hover:font-bold group md:pl-6 md:pt-2"
           >
             <ChevronDoubleLeft size={12} />
             <span>Continue shopping</span>
@@ -63,7 +63,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
       ) : (
         <div
           style={{ height: width > 768 ? "83.33%" : responsiveHeight - 308 }}
-          className="items-container relative w-11/12 xl:w-10/12 flex flex-col justify-center items-center  pb-8 md:pb-4 pt-4 md:pt-0"
+          className="items-container relative w-11/12 flex flex-col justify-center items-center  pb-8 md:pb-4 pt-4 md:pt-0"
         >
           <div className="items overflow-y-auto  h-max flex flex-col items-center justify-start gap-4">
             {items.map((item, i) => (
@@ -73,7 +73,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
                   height: width < 500 ? "7rem" : "12rem",
                   animation: `750ms fadeIn ${100 + i * 50}ms forwards`,
                 }}
-                className="item opacity-0 w-11/12 flex items-center justify-start gap-1 md:gap-6 pr-1 md:px-0 bg-white shadow"
+                className="item opacity-0 w-full flex items-center justify-start gap-1 md:gap-6 pr-1 md:px-0 bg-white shadow"
               >
                 <div
                   className="h-full w-full md:w-80 border-r border-gray-100"
@@ -84,7 +84,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
                   <img src={item.product.media.source} alt={item.product.name} className="object-cover h-full w-full" />
                 </div>
                 <div className="details h-full w-full md:w-1/3 flex items-center justify-center gap-2">
-                  <div className="h-full w-full flex flex-col items-start justify-center gap-1 md:gap-2 pl-1 xl:pl-4">
+                  <div className="h-full w-full flex flex-col items-start justify-center gap-1 md:gap-2 pl-1">
                     <div className="capitalize w-32 whitespace-nowrap truncate">{item.product.name}</div>
                     <div>{item.product.price.formatted} €</div>
                     <div className="w-max flex items-center justify-center gap-1">
@@ -106,7 +106,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
                     </div>
                   </div>
                 </div>
-                <div className="h-full flex flex-col items-center justify-end md:justify-center">
+                <div className="h-full flex flex-col items-center justify-end md:justify-center pr-4">
                   <button
                     onClick={() => handleDeleteItem(item.product.id)}
                     className="h-10 w-10 rounded-full flex items-center justify-center bg-transparent transition-color duration-300 hover:bg-gray-300"

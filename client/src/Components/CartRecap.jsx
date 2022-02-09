@@ -36,59 +36,61 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
         minWidth: width > 768 && "300px",
         maxWidth: width > 768 && "500px",
       }}
-      className="recap relative h-20 w-full md:h-5/6 md:w-2/3 z-10 flex flex-col items-center justify-center md:justify-start gap-1 md:gap-4 bg-black md:bg-white text-white md:text-gray-900 p-16 md:p-8 overflow-x-hidden overflow-y-hidden md:overflow-y-auto scrollbar-cart font-cabin"
+      className="recap relative h-20 w-full md:h-5/6 md:w-2/3 z-10 flex flex-col items-center justify-center md:justify-start gap-1 md:gap-4 bg-black md:bg-white text-white md:text-gray-900 p-16 md:p-8 2xl:p-16 overflow-x-hidden overflow-y-hidden md:overflow-y-auto scrollbar-cart font-cabin"
     >
       <div className="hidden md:block w-max relative">
         <h2 className="text-lg uppercase px-3">Your order</h2>
         <span className="h-px w-full absolute inset-x-0 mx-auto left-0 bottom-0.5 bg-black"></span>
       </div>
-      {formOpen && (
-        <>
-          <button
-            className="inline-block text-sm flex items-center justify-center gap-1 md:py-2"
-            onClick={width < 768 ? toggleMobileRecap : toggleCartInRecap}
-          >
-            <EyeFill size={16} className="md:hidden text-white" />
-            <span className="uppercase italic underline">{btnContent} items in the cart</span>
-            <PlayFill
-              size={16}
-              className="hidden md:block transition-transform duration-300"
-              style={{
-                color: width < 768 ? "white" : "rgb(17 24 39)",
-                transform: itemsDivHeight !== 0 && "rotate(90deg)",
-              }}
-            />
-          </button>
-          <AnimateHeight duration={500} height={itemsDivHeight}>
-            <div className="hidden md:flex h-56 2xl:h-44 flex-col items-center justify-start overflow-y-auto scrollbar-cart pr-2">
-              {items.map((item, i) => (
-                <div
-                  key={i}
-                  className="w-full flex flex items-center justify-left border-b border-gray-300 only:border-b-0 last:border-b-0 bg-white"
-                >
+      <div className="h-max md:h-1/5 w-full flex flex-col items-center justify-end">
+        {formOpen && (
+          <>
+            <button
+              className="inline-block text-sm flex items-center justify-center gap-1 md:py-2"
+              onClick={width < 768 ? toggleMobileRecap : toggleCartInRecap}
+            >
+              <EyeFill size={16} className="md:hidden text-white" />
+              <span className="uppercase italic md:underline">{btnContent} items in the cart</span>
+              <PlayFill
+                size={16}
+                className="hidden md:block transition-transform duration-300"
+                style={{
+                  color: width < 768 ? "white" : "rgb(17 24 39)",
+                  transform: itemsDivHeight !== 0 && "rotate(90deg)",
+                }}
+              />
+            </button>
+            <AnimateHeight duration={500} height={itemsDivHeight}>
+              <div className="hidden md:flex h-56 2xl:h-44 flex-col items-center justify-start overflow-y-auto scrollbar-cart pr-2">
+                {items.map((item, i) => (
                   <div
-                    style={{
-                      backgroundColor: item.product.categories.find((x) => x.name === "limited") ? "black" : "white",
-                    }}
+                    key={i}
+                    className="w-full flex flex items-center justify-left border-b border-gray-300 only:border-b-0 last:border-b-0 bg-white"
                   >
-                    <img src={item.product.media.source} alt="" className="object-cover h-20 w-full" />
+                    <div
+                      style={{
+                        backgroundColor: item.product.categories.find((x) => x.name === "limited") ? "black" : "white",
+                      }}
+                    >
+                      <img src={item.product.media.source} alt="" className="object-cover h-20 w-full" />
+                    </div>
+                    <div className="w-1/3 text-left text-sm pl-2 whitespace-nowrap truncate">{item.product.name}</div>
+                    <div className="w-1/3 text-right text-sm pr-2">{item.product.price.formatted}&nbsp;€</div>
                   </div>
-                  <div className="w-1/3 text-left text-sm pl-2 whitespace-nowrap truncate">{item.product.name}</div>
-                  <div className="w-1/3 text-right text-sm pr-2">{item.product.price.formatted}&nbsp;€</div>
-                </div>
-              ))}
-            </div>
-          </AnimateHeight>
-        </>
-      )}
+                ))}
+              </div>
+            </AnimateHeight>
+          </>
+        )}
+      </div>
 
-      <div className="h-max w-full flex flex-col items-center justify-center md:justify-evenly md:gap-4">
+      <div className="h-max md:h-full w-full flex flex-col items-center justify-center md:gap-8 2xl:gap-16">
         <div className="hidden w-full px-2 md:flex flex-col items-center 2xl:gap-4 justify-center">
           <div className="w-full flex items-center justify-between py-2 border-b border-gray-200">
             <span>Total items:</span>
             <span>{totalItems}</span>
           </div>
-          <div className="w-full flex items-center justify-between py-2 border-b border-gray-200">
+          <div className="w-full flex items-center justify-between py-2">
             <span>Delivery fees:</span>
             <span className="italic">free</span>
           </div>
@@ -105,18 +107,11 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
         </div>
       </div>
 
-      {!formValidated && (
-        <>
-          <button
-            className="hidden md:flex w-max w-48 items-center justify-center gap-2 text-sm uppercase text-black underline px-3 px-0 py-1"
-            onClick={handleDeleteCart}
-          >
-            <span>delete cart</span>
-            <Trash size={16} />
-          </button>
+      <div className="h-max flex flex-col items-center justify-center gap-6">
+        {!formValidated && (
           <button
             type="submit"
-            className="w-48 flex items-center justify-center gap-2 text-sm md:text-base uppercase text-black bg-yellow-300 shadow-md py-2 md:mt-12"
+            className="w-48 flex items-center justify-center gap-2 text-sm md:text-base uppercase text-black bg-yellow-300 shadow-md py-2"
             onClick={!formOpen ? toggleForm : handleForm}
           >
             {!formOpen ? <span>checkout</span> : <span>next</span>}
@@ -155,8 +150,17 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
               ></path>
             </svg>
           </button>
-        </>
-      )}
+        )}
+        {!formOpen && !formValidated && (
+          <button
+            className="hidden md:flex w-max w-48 items-center justify-center gap-2 text-sm uppercase text-black underline py-1 justify-self-end"
+            onClick={handleDeleteCart}
+          >
+            <span>delete cart</span>
+            <Trash size={16} />
+          </button>
+        )}
+      </div>
       <MobileRecap openMobileRecap={openMobileRecap} toggleMobileRecap={toggleMobileRecap} />
     </div>
   );
