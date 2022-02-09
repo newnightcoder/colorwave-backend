@@ -83,7 +83,7 @@ const CartDrawer = () => {
                   style={{
                     backgroundColor: item.product.categories.find((x) => x.name === "limited") ? "black" : "white",
                   }}
-                  className="h-24"
+                  className="h-full w-full"
                 >
                   <img src={item.product.media.source} alt="" className="object-cover h-full w-full" />
                 </div>
