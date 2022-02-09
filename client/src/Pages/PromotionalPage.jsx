@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ChevronDown } from "react-bootstrap-icons";
 import img1 from "../Assets/promotional/1.png";
 import img2 from "../Assets/promotional/2.png";
@@ -16,21 +16,43 @@ const promotionalImages = {
 
 const PromotionalPage = () => {
   const { height, width } = useWindowSize();
-  const [offsetY, setOffsetY] = useState(0);
-  const handleScroll = () => setOffsetY(window.pageYOffset);
+  const [parallaxDivs, setParallaxDivs] = useState(null);
 
-  useEffect(() => {
-    window.addEventListener("scroll", handleScroll);
+  const supportForBackgroundFixed = () => {
+    parallaxDivs.forEach((div, i) => {
+      if (div.style.backgroundAttachment !== undefined) {
+        return div.setAttribute(
+          "style",
+          `background: url("${Object.values(promotionalImages)[i]}") no-repeat fixed center/cover`
+        );
+      } else {
+        return div.setAttribute(
+          "style",
+          `background: url("${Object.values(promotionalImages)[i]}") no-repeat scroll center/cover`
+        );
+      }
+    });
+  };
 
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+  // useEffect(() => {
+  //   setParallaxDivs(document.body.querySelectorAll(".parallax"));
+  //   if (parallaxDivs) supportForBackgroundFixed();
+  // }, []);
+
+  // PARALLAX WITH JS _ I USED CSS BACKGROUND-ATTACHEMENT:FIXED INSTEAD
+  // const [offsetY, setOffsetY] = useState(0);
+  // const handleScroll = () => setOffsetY(window.pageYOffset);
+  // useEffect(() => {
+  //   window.addEventListener("scroll", handleScroll);
+  //   return () => window.removeEventListener("scroll", handleScroll);
+  // }, []);
 
   return (
     <div className="pt-16 snap-always snap-mandatory snap-y	h-screen w-full relative bg-black font-cabin">
       <Navbar />
       <div
-        style={{ background: `url("${img1}") no-repeat fixed center/cover` }}
-        className="snap-top h-full relative flex flex-col items-center justify-between"
+        style={{ background: `url("${promotionalImages.img1}") no-repeat fixed center/cover` }}
+        className="parallax snap-top h-full relative flex flex-col items-center justify-between"
       >
         <h2 className="relative md:right-12 text-gray-100 capitalize capitalize text-5xl md:text-6xl self-end pt-7 mr-4">
           Promotional
@@ -44,15 +66,12 @@ const PromotionalPage = () => {
           techniques, we turn everyday items into breathtaking displays of advertising for your company.
           <br /> Contact branding@colorware.com to discuss the nearly limitless possibilities.
         </div>
-        <ChevronDown
-          className="text-6xl absolute top-1/3 right-4 md:top-2/3 md:right-36 md:mt-20 text-white animate-bounce"
-          style={{ opacity: `${1 - offsetY}` }}
-        />
+        <ChevronDown className="text-6xl absolute top-1/3 right-4 md:top-2/3 md:right-36 md:mt-20 text-white animate-bounce" />
       </div>
 
       <div
-        style={{ background: `url("${img2}") no-repeat fixed center/cover` }}
-        className="snap-top h-full relative md:flex md:flex-center md:justify-start md:gap-8 overflow-hidden"
+        style={{ background: `url("${promotionalImages.img2}") no-repeat fixed center/cover` }}
+        className="parallax snap-top h-full relative md:flex md:flex-center md:justify-start md:space-x-8 overflow-hidden"
       >
         <h2 className="w-full md:w-min relative top-4 left-8 z-10 md:top-8 pt-4 text-black text-left capitalize text-5xl md:text-6xl whitespace-nowrap">
           Cost Effective
@@ -69,7 +88,10 @@ const PromotionalPage = () => {
         </div>
       </div>
 
-      <div style={{ background: `url("${img3}") no-repeat fixed center/cover` }} className="snap-top h-full relative">
+      <div
+        style={{ background: `url("${promotionalImages.img3}") no-repeat fixed center/cover` }}
+        className="parallax snap-top h-full relative"
+      >
         <h2 className="relative w-full right-5 md:right-16 top-5 text-gray-100 text-right capitalize text-5xl md:text-6xl md:whitespace-nowrap">
           Custom Color Matching
         </h2>
@@ -85,8 +107,8 @@ const PromotionalPage = () => {
       </div>
 
       <div
-        style={{ background: `url("${img4}") no-repeat fixed center/cover` }}
-        className="snap-top h-full relative flex flex-col items-center justify-center md:block"
+        style={{ background: `url("${promotionalImages.img4}") no-repeat fixed center/cover` }}
+        className="parallax snap-top h-full relative flex flex-col items-center justify-center md:block"
       >
         <h2 className="relative top-2 pl-4 md:left-6 md:top-2/4 text-gray-100 capitalize text-5xl md:text-6xl whitespace-nowrap">
           custom Art
@@ -101,7 +123,6 @@ const PromotionalPage = () => {
           filtration system.
         </div>
       </div>
-
       <Footer />
     </div>
   );

@@ -13,7 +13,7 @@ const MobileRecap = ({ openMobileRecap, toggleMobileRecap }) => {
         transform: openMobileRecap ? "translateY(0)" : "translateY(100%)",
         zIndex: 4000,
       }}
-      className="md:hidden fixed inset-0 font-cabin flex flex-col items-center justify-center gap-6 rounded-sm overflow-x-hidden overflow-y-auto transition-transform duration-300 text-white bg-black pt-6 pb-12 px-2"
+      className="md:hidden fixed inset-0 font-cabin flex flex-col items-center justify-center space-y-6 rounded-sm overflow-x-hidden overflow-y-auto transition-transform duration-300 text-white bg-black pt-6 pb-12 px-2"
     >
       <div
         style={{ animation: openMobileRecap && items.length !== 0 && "750ms fadeIn 100ms forwards" }}
@@ -23,7 +23,7 @@ const MobileRecap = ({ openMobileRecap, toggleMobileRecap }) => {
         <span className="h-px w-full absolute inset-x-0 mx-auto left-0 bottom-0.5 bg-white"></span>
       </div>
 
-      <div className="h-2/3 w-11/12 overflow-y-auto scrollbar-description text-gray-900 overflow-x-hidden flex flex-col items-center justify-start gap-3 pt-6 pb-12 pr-2">
+      <div className="h-2/3 w-11/12 overflow-y-auto scrollbar-description text-gray-900 overflow-x-hidden flex flex-col items-center justify-start space-y-3 pt-6 pb-12 pr-2">
         {items.map((item, i) => (
           <div
             key={i}
@@ -46,7 +46,7 @@ const MobileRecap = ({ openMobileRecap, toggleMobileRecap }) => {
       </div>
       <button
         onClick={toggleMobileRecap}
-        className="h-max w-max flex items-center justify-center gap-1 absolute bottom-8"
+        className="h-max w-max flex items-center justify-center space-x-1 absolute bottom-8"
       >
         <XCircle size={16} className="text-white" /> <span className="uppercase text-sm">close</span>
       </button>

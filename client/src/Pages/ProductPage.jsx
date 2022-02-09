@@ -93,8 +93,8 @@ const ProductPage = () => {
   return (
     <div className="pt-16 font-cabin overflow-x-hidden relative">
       <Navbar />
-      <div className="breadcrumb w-full flex items-center justify-start gap-1 whitespace-nowrap text-gray-900 bg-white px-2 md:pl-10 pt-3 md:pt-8 pb-3">
-        <Link to="/" className="w-max flex items-center justify-center gap-1 capitalize hover:underline">
+      <div className="breadcrumb w-full flex items-center justify-start space-x-1 whitespace-nowrap text-gray-900 bg-white px-2 md:pl-10 pt-3 md:pt-8 pb-3">
+        <Link to="/" className="w-max flex items-center justify-center space-x-1 capitalize hover:underline">
           home <ChevronDoubleRight size={12} className="transform translate-y-px" />
         </Link>
         <Link
@@ -105,7 +105,7 @@ const ProductPage = () => {
               item: parentProduct !== undefined && parentProduct,
             },
           }}
-          className="w-max flex items-center justify-center gap-1 capitalize hover:underline"
+          className="w-max flex items-center justify-center space-x-1 capitalize hover:underline"
         >
           <span>{parentProduct !== undefined ? parentProduct.name : item.categories[0]?.name}</span>
           <ChevronDoubleRight size={12} className="transform translate-y-px" />
@@ -114,7 +114,7 @@ const ProductPage = () => {
       </div>
 
       <div
-        className="product w-full max-w-8xl mx-auto flex flex-col lg:flex-row justify-start items-center gap-8 md:gap-2 lg:justify-center bg-black pb-16 md:pb-0 2xl:px-10"
+        className="product w-full max-w-8xl mx-auto flex flex-col lg:flex-row justify-start items-center space-y-8 md:space-y-2 lg:space-x-2 lg:justify-center bg-black pb-16 md:pb-0 2xl:px-10"
         style={{
           minHeight: "calc(100vh - 112px)",
           background: bgColor,
@@ -134,7 +134,7 @@ const ProductPage = () => {
           />
         </div>
 
-        <div className="product-info h-full w-full lg:w-1/3 flex flex-col items-center lg:justify-start border-l border-gray-600 border-opacity-60 text-left px-3 md:px-6 gap-6">
+        <div className="product-info h-full w-full lg:w-1/3 flex flex-col items-center lg:justify-start border-l border-gray-600 border-opacity-60 text-left px-3 md:px-6 space-y-6">
           <div className="h-max w-11/12 lg:w-full max-w-lg flex items-center justify-between md:pt-2">
             <h2 className="w-1/2 lg:w-2/3 text-lg md:text-xl text-bold">{item?.name}</h2>
             <span className="text-bold text-md md:text-lg whitespace-nowrap">{item?.price.formatted}&nbsp;€ </span>
@@ -145,7 +145,7 @@ const ProductPage = () => {
           >
             add to cart
           </button>
-          <div className="w-full flex flex-col items-center justify-center gap-4 self-center">
+          <div className="w-full flex flex-col items-center justify-center space-y-4 self-center">
             <div className="w-max relative px-3">
               <span className="capitalize text-lg md:text-xl">product info</span>
               <span

@@ -36,17 +36,17 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
         minWidth: width > 768 && "300px",
         maxWidth: width > 768 && "500px",
       }}
-      className="recap relative h-20 w-full md:h-5/6 md:w-2/3 z-10 flex flex-col items-center justify-center md:justify-start gap-1 md:gap-4 bg-black md:bg-white text-white md:text-gray-900 p-16 md:p-8 2xl:p-16 overflow-x-hidden overflow-y-hidden md:overflow-y-auto scrollbar-cart font-cabin"
+      className="recap relative h-20 w-full md:h-5/6 md:w-2/3 z-10 flex flex-col items-center justify-center md:justify-start space-y-1 md:space-y-4 bg-black md:bg-white text-white md:text-gray-900 p-16 md:p-8 2xl:p-16 overflow-x-hidden overflow-y-hidden md:overflow-y-auto scrollbar-cart font-cabin"
     >
       <div className="hidden md:block w-max relative pt-4 2xl:pt-8">
         <h2 className="text-lg uppercase px-3">Your order</h2>
         <span className="h-px w-full absolute inset-x-0 mx-auto left-0 bottom-0.5 bg-black"></span>
       </div>
-      <div className="h-max md:min-h-1/5 w-full flex flex-col items-center justify-end md:mt-6 2xl:mt-12">
+      <div className="h-max md:min-h-68 w-full flex flex-col items-center justify-start md:mt-6 2xl:mt-12">
         {formOpen && (
           <>
             <button
-              className="inline-block text-sm flex items-center justify-center gap-1 md:py-2"
+              className="h-12 inline-block text-sm flex items-center justify-center space-x-1 md:py-2"
               onClick={width < 768 ? toggleMobileRecap : toggleCartInRecap}
             >
               <EyeFill size={16} className="md:hidden text-white" />
@@ -86,8 +86,8 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
         )}
       </div>
 
-      <div className="h-max md:h-full w-full flex flex-col items-center justify-center md:gap-8 2xl:gap-16">
-        <div className="hidden w-full px-2 md:flex flex-col items-center 2xl:gap-4 justify-center">
+      <div className="h-max md:h-full w-full flex flex-col items-center justify-center md:space-y-8 2xl:space-y-16">
+        <div className="hidden w-full px-2 md:flex flex-col items-center 2xl:space-y-4 justify-center">
           <div className="w-full flex items-center justify-between py-2 border-b border-gray-200">
             <span>Total items:</span>
             <span>{totalItems}</span>
@@ -112,11 +112,11 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
         </div>
       </div>
 
-      <div className="h-max flex flex-col items-center justify-center gap-6">
-        {!formValidated && (
+      {!formValidated && (
+        <div className="h-40 flex flex-col items-center justify-end space-y-4">
           <button
             type="submit"
-            className="w-48 flex items-center justify-center gap-2 text-sm md:text-base uppercase text-black bg-yellow-300 shadow-md py-2"
+            className="h-max w-48 flex items-center justify-center space-x-2 text-sm md:text-base uppercase text-black bg-yellow-300 shadow-md py-2"
             onClick={!formOpen ? toggleForm : handleForm}
           >
             {!formOpen ? <span>checkout</span> : <span>next</span>}
@@ -155,17 +155,17 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
               ></path>
             </svg>
           </button>
-        )}
-        {!formOpen && !formValidated && (
-          <button
-            className="hidden md:flex w-max w-48 items-center justify-center gap-2 text-sm uppercase text-black underline py-1 justify-self-end"
-            onClick={handleDeleteCart}
-          >
-            <span>delete cart</span>
-            <Trash size={16} />
-          </button>
-        )}
-      </div>
+          {!formOpen && (
+            <button
+              className="hidden md:flex w-max w-48 items-center justify-center space-x-2 text-sm uppercase text-black underline py-1 justify-self-end"
+              onClick={handleDeleteCart}
+            >
+              <span>delete cart</span>
+              <Trash size={16} />
+            </button>
+          )}
+        </div>
+      )}
       <MobileRecap openMobileRecap={openMobileRecap} toggleMobileRecap={toggleMobileRecap} />
     </div>
   );

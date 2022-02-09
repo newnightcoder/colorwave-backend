@@ -95,7 +95,7 @@ const Steps = ({ formOpen, formValidated }) => {
 
   return (
     <div className="hidden h-24 w-screen fixed top-0 md:flex items-center justify-center bg-black z-50 shadow border-b-8 border-yellow-300">
-      <div className="h-full w-10/12 flex items-center justify-center gap-2">
+      <div className="h-full w-10/12 flex items-center justify-center space-x-2">
         <Link to="/" className="w-max group">
           <div className="relative">
             <span

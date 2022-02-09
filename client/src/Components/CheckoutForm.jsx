@@ -38,7 +38,7 @@ const CheckoutForm = ({ formValidated, clientSecret }) => {
       }}
       className="w-full md:w-11/12 md:px-2 flex flex-col md:flex-row items-start md:items-center justify-center"
     >
-      <div className="relative w-full h-full md:w-3/5 flex flex-col items-center justify-start md:flex-row md:justify-end md:gap-8 md:overflow-y-auto md:scrollbar-cart overflow-x-hidden">
+      <div className="relative w-full h-full md:w-3/5 flex flex-col items-center justify-start md:flex-row md:justify-end md:space-x-8 md:overflow-y-auto md:scrollbar-cart overflow-x-hidden">
         <div
           style={{ height: width < 768 ? responsiveHeight - 64 : "83.33%" }}
           className="w-full md:max-w-xl relative flex flex-col items-center justify-start md:justify-center bg-white"
@@ -53,15 +53,15 @@ const CheckoutForm = ({ formValidated, clientSecret }) => {
           >
             <form
               action="post"
-              className="h-max w-11/12 md:w-full flex flex-col items-center justify-start gap-4 overflow-x-hidden overflow-y-auto scrollbar-cart md:scrollbar-description mt-2 md:mt-0"
+              className="h-max w-11/12 md:w-full flex flex-col items-center justify-start space-y-4 overflow-x-hidden overflow-y-auto scrollbar-cart md:scrollbar-description mt-2 md:mt-0"
               onSubmit={handleSubmit}
             >
-              <div className="h-min md:h-full w-full bg-white relative flex flex-col items-center justify-start gap-8 pt-2 md:pt-4 md:px-12">
+              <div className="h-min md:h-full w-full bg-white relative flex flex-col items-center justify-start space-y-8 pt-2 md:pt-4 md:px-12">
                 <PaymentElement className="w-full md:pt-2" />
                 <button className="w-full md:w-10/12 py-2 md:py-3 uppercase md:text-lg text-gray-100 bg-blue-400 rounded-sm mb-2">
                   <>
                     {isLoading ? (
-                      <span className="flex items-center justify-center gap-2">
+                      <span className="flex items-center justify-center space-x-2">
                         <svg
                           class="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
                           xmlns="http://www.w3.org/2000/svg"

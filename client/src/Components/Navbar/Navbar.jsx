@@ -90,7 +90,7 @@ const Navbar = () => {
                 //////////////////////// */}
             <div className="w-full flex items-center justify-between px-8 2xl:pl-12 2xl:pr-8">
               {/* <!-- END DESKTOP NAVLINKS CONTAINER --> */}
-              <nav className="hidden md:flex items-center justify-center lg:gap-4">
+              <nav className="hidden md:flex items-center justify-center lg:space-x-4">
                 <NavLink
                   to="/shop"
                   className="relative text-gray-300 hover:text-white text-base font-medium whitespace-nowrap group px-3 py-2"
@@ -121,13 +121,13 @@ const Navbar = () => {
                   ///      SEARCH + CHECKOUT BTNS CONTAINER      ///
                   ////////////////////////////////////////////////// */}
 
-              <div className="w-max h-full absolute md:static right-4 flex items-center justify-center gap-4 lg:gap-8">
+              <div className="w-max h-full absolute md:static right-4 flex items-center justify-center space-x-4 lg:space-x-8">
                 {/* search btn*/}
                 <button
                   onClick={() => {
                     dispatch(toggleSearchModal());
                   }}
-                  className="h-10/12 w-max relative group flex items-center justify-center gap-2 text-gray-300"
+                  className="h-10/12 w-max relative group flex items-center justify-center space-x-2 text-gray-300"
                 >
                   <span className="absolute inline-block inset-x-0 bottom-0 mx-auto h-0.5 w-full bg-blue-500 transform scale-x-0 transition-scale origin-left duration-100 group-hover:scale-x-100"></span>
                   <span className="hidden md:inline-block group-hover:text-white">Search</span>
@@ -137,7 +137,7 @@ const Navbar = () => {
                 {location.pathname !== "/cart" && (
                   <button
                     onClick={() => dispatch(toggleCartDrawer())}
-                    className="w-max h-max relative flex items-center justify-center gap-1 z-10 text-gray-300 text-base group"
+                    className="w-max h-max relative flex items-center justify-center space-x-1 z-10 text-gray-300 text-base group"
                   >
                     <span className="hidden md:block text-gray-300 group-hover:text-white">Checkout</span>
                     <span className="absolute inline-block inset-x-0 bottom-0 mx-auto h-0.5 w-full bg-blue-500 transform scale-x-0 transition-scale origin-left duration-100 group-hover:scale-x-100"></span>

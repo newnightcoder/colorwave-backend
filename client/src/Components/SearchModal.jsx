@@ -24,7 +24,7 @@ const SearchModal = () => {
       style={{ opacity: open ? 1 : 0, zIndex: open ? 5000 : -1, backgroundColor: "rgba(0,0,0,.95)" }}
       className="h-screen w-screen fixed inset-0 flex flex-col items-center overflow-x-hidden text-white pt-2 pb-8 px-2 md:px-8 transition-opacity duration-700 font-cabin"
     >
-      <div className="h-max w-full flex flex-col items-center justify-start gap-8 py-4">
+      <div className="h-max w-full flex flex-col items-center justify-start space-y-8 py-4">
         <div className="h-max w-full flex items-center justify-between md:px-16">
           <div className="w-max relative text-center ">
             <h1 className="capitalize text-2xl md:text-4xl px-2 md:px-6 whitespace-nowrap">
@@ -36,7 +36,7 @@ const SearchModal = () => {
             onClick={() => {
               dispatch(toggleSearchModal());
             }}
-            className="h-max w-min flex flex-col items-center gap-2 group transition duration-300 hover:text-blue-400"
+            className="h-max w-min flex flex-col items-center space-y-2 group transition duration-300 hover:text-blue-400"
           >
             <XLg
               size={width > 500 ? 36 : 24}
@@ -46,7 +46,7 @@ const SearchModal = () => {
         </div>
 
         <div className="h-1/6 w-full flex flex-col items-center">
-          <div className="h-full w-full flex items-center justify-center gap-2 text-gray-300 px-2">
+          <div className="h-full w-full flex items-center justify-center space-x-2 text-gray-300 px-2">
             <input
               type="search"
               placeholder="Type your search here..."
