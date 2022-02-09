@@ -38,11 +38,11 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
       }}
       className="recap relative h-20 w-full md:h-5/6 md:w-2/3 z-10 flex flex-col items-center justify-center md:justify-start gap-1 md:gap-4 bg-black md:bg-white text-white md:text-gray-900 p-16 md:p-8 2xl:p-16 overflow-x-hidden overflow-y-hidden md:overflow-y-auto scrollbar-cart font-cabin"
     >
-      <div className="hidden md:block w-max relative">
+      <div className="hidden md:block w-max relative pt-4 2xl:pt-8">
         <h2 className="text-lg uppercase px-3">Your order</h2>
         <span className="h-px w-full absolute inset-x-0 mx-auto left-0 bottom-0.5 bg-black"></span>
       </div>
-      <div className="h-max md:min-h-1/5 w-full flex flex-col items-center justify-end">
+      <div className="h-max md:min-h-1/5 w-full flex flex-col items-center justify-end md:mt-6 2xl:mt-12">
         {formOpen && (
           <>
             <button
@@ -50,7 +50,9 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
               onClick={width < 768 ? toggleMobileRecap : toggleCartInRecap}
             >
               <EyeFill size={16} className="md:hidden text-white" />
-              <span className="uppercase italic font-bold md:underline">{btnContent} items in the cart</span>
+              <span className="uppercase italic font-bold md:underline whitespace-nowrap">
+                {btnContent} items in the cart
+              </span>
               <PlayFill
                 size={16}
                 className="hidden md:block transition-transform duration-300"
@@ -95,7 +97,10 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
             <span className="italic">free</span>
           </div>
         </div>
-        <div className="h-max w-full flex items-center justify-between md:pt-2 border-b border-white md:border-b-0 md:border-t md:border-yellow-300 px-2">
+        <div
+          style={{ minWidth: "215px" }}
+          className="h-max w-full font-bold flex items-center justify-between md:pt-2 border-b border-white md:border-b-0 md:border-t md:border-yellow-300 px-2"
+        >
           <span className="uppercase w-4/5 whitespace-nowrap">
             TOTAL&nbsp;
             <span className="lowercase italic">
