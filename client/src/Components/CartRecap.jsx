@@ -42,7 +42,7 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
         <h2 className="text-lg uppercase px-3">Your order</h2>
         <span className="h-px w-full absolute inset-x-0 mx-auto left-0 bottom-0.5 bg-black"></span>
       </div>
-      <div className="h-max md:h-1/5 w-full flex flex-col items-center justify-end">
+      <div className="h-max md:min-h-1/5 w-full flex flex-col items-center justify-end">
         {formOpen && (
           <>
             <button
@@ -50,7 +50,7 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
               onClick={width < 768 ? toggleMobileRecap : toggleCartInRecap}
             >
               <EyeFill size={16} className="md:hidden text-white" />
-              <span className="uppercase italic md:underline">{btnContent} items in the cart</span>
+              <span className="uppercase italic font-bold md:underline">{btnContent} items in the cart</span>
               <PlayFill
                 size={16}
                 className="hidden md:block transition-transform duration-300"
@@ -61,7 +61,7 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
               />
             </button>
             <AnimateHeight duration={500} height={itemsDivHeight}>
-              <div className="hidden md:flex h-56 2xl:h-44 flex-col items-center justify-start overflow-y-auto scrollbar-cart pr-2">
+              <div className="hidden md:flex h-56 2xl:h-44 flex-col items-center justify-start overflow-y-auto scrollbar-description pr-2">
                 {items.map((item, i) => (
                   <div
                     key={i}

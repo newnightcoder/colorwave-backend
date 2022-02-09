@@ -15,7 +15,7 @@ const CardInfo = ({ formValidated }) => {
   return (
     <div
       style={{
-        animation: formValidated && "500ms fadeInLeft 300ms forwards ease-out",
+        animation: formValidated && "500ms fadeInTop 300ms forwards ease-in",
       }}
       className="h-auto w-full opacity-0 absolute bottom-0 md:relative text-sm md:text-base text-black bg-yellow-300 md:border md:border-gray-100 flex flex-col items-center justify-center gap-2 z-40 px-2 py-3 md:py-2"
     >
