@@ -1,10 +1,12 @@
 import React from "react";
+import { XCircle } from "react-bootstrap-icons";
 import Div100vh from "react-div-100vh";
 import { useSelector } from "react-redux";
 import "../Styles/_variables.css";
 
 const MobileRecap = ({ openMobileRecap, toggleMobileRecap }) => {
   const items = useSelector((state) => state?.cart.items);
+
   return (
     <Div100vh
       style={{
@@ -42,8 +44,11 @@ const MobileRecap = ({ openMobileRecap, toggleMobileRecap }) => {
           </div>
         ))}
       </div>
-      <button onClick={toggleMobileRecap} className="h-max w-max underline text-sm absolute bottom-8">
-        close
+      <button
+        onClick={toggleMobileRecap}
+        className="h-max w-max flex items-center justify-center gap-1 absolute bottom-8"
+      >
+        <XCircle size={16} className="text-white" /> <span className="uppercase text-sm">close</span>
       </button>
     </Div100vh>
   );
