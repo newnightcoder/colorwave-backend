@@ -70,19 +70,19 @@ const Steps = ({ formOpen, formValidated }) => {
     textColor: {
       step0: {
         color: "white",
-        border: `1px solid rgb(253 224 71)`,
+        border: `2px solid rgb(253 224 71)`,
       },
       step1: {
         color: textColor1,
-        border: `1px solid ${borderColor1}`,
+        border: `2px solid ${borderColor1}`,
       },
       step2: {
         color: textColor2,
-        border: `1px solid ${borderColor2}`,
+        border: `2px solid ${borderColor2}`,
       },
       step3: {
         color: textColor3,
-        border: `1px solid ${borderColor3}`,
+        border: `2px solid ${borderColor3}`,
       },
     },
     dot: {

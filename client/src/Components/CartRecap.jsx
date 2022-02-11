@@ -49,15 +49,15 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
               className="h-max md:h-12 inline-block text-sm flex items-center justify-center space-x-1 md:py-2"
               onClick={width < 768 ? toggleMobileRecap : toggleCartInRecap}
             >
-              <EyeFill size={16} className="md:hidden text-white" />
-              <span className="uppercase italic font-bold md:underline whitespace-nowrap">
+              <EyeFill size={16} className="md:hidden text-yellow-300" />
+              <span className="uppercase italic font-bold md:underline whitespace-nowrap text-yellow-300 md:text-black">
                 {btnContent} items in the cart
               </span>
               <PlayFill
                 size={16}
                 className="hidden md:block transition-transform duration-300"
                 style={{
-                  color: width < 768 ? "white" : "rgb(17 24 39)",
+                  color: "rgb(17 24 39)",
                   transform: itemsDivHeight !== 0 && "rotate(90deg)",
                 }}
               />

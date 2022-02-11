@@ -93,7 +93,7 @@ const ProductPage = () => {
   return (
     <div className="pt-16 font-cabin overflow-x-hidden relative">
       <Navbar />
-      <div className="breadcrumb w-full flex items-center justify-start space-x-1 whitespace-nowrap text-gray-900 bg-white px-2 md:pl-10 pt-3 md:pt-8 pb-3">
+      <div className="breadcrumb w-full flex items-center justify-start space-x-1 whitespace-nowrap text-gray-900 bg-white px-2 md:pl-10 pt-3 md:pt-8 pb-3 md:border-b border-gray-200">
         <Link to="/" className="w-max flex items-center justify-center space-x-1 capitalize hover:underline">
           home <ChevronDoubleRight size={12} className="transform translate-y-px" />
         </Link>
