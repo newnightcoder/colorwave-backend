@@ -1,6 +1,6 @@
 import React from "react";
 import { LockFill } from "react-bootstrap-icons";
-import paymentLogos from "../Assets/cards.png";
+import paymentLogos from "../Assets/cards/cards.png";
 
 const PaymentBanner = () => {
   return (

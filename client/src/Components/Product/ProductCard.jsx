@@ -1,4 +1,5 @@
 import React from "react";
+import { EyeFill } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { addToCart, toggleCartDrawer } from "../../Redux/Actions/cart.action";
@@ -51,13 +52,19 @@ const ProductCard = ({ item, variants, bgColor, parentProduct }) => {
           style={{ backgroundColor: limitedItem ? "rgba(250,250,250,.5)" : "rgba(0,0,0,.5)" }}
           className="hidden z-10 h-1/4 w-full md:flex items-center justify-between px-2 absolute bottom-0 bg-white transform translate-y-full transition duration-300 group-hover:translate-y-0 opacity-0 group-hover:opacity-100"
         >
-          <div>{item.price.raw}&nbsp;€</div>
+          <button
+            style={{ backgroundColor: limitedItem ? "black" : "white", color: limitedItem ? "white" : "black" }}
+            className="flex items-center justify-center space-x-1 uppercase py-2 px-3 rounded-sm text-white text-sm whitespace-nowrap"
+            onClick={linkPage}
+          >
+            <EyeFill size={16} className="text-white" /> <span>view more</span>
+          </button>
           <button
             style={{ backgroundColor: limitedItem ? "black" : "white", color: limitedItem ? "white" : "black" }}
             className="uppercase py-2 px-3 rounded-sm text-sm"
             onClick={handleAddToCart}
           >
-            add to cart
+            buy now
           </button>
         </div>
       </div>
