@@ -36,9 +36,9 @@ const ProductCard = ({ item, variants, bgColor, parentProduct }) => {
   };
 
   return (
-    <div className="h-40 w-full md:h-64 2xl:h-68 font-cabin group">
+    <div className="h-52 w-full md:h-64 2xl:h-68 font-cabin group">
       <div
-        className="h-32 md:h-56 w-full cursor-pointer relative overflow-hidden"
+        className="h-44 md:h-56 w-full cursor-pointer relative overflow-hidden"
         style={{ backgroundColor: `${bgColor}` }}
       >
         <img
@@ -68,7 +68,7 @@ const ProductCard = ({ item, variants, bgColor, parentProduct }) => {
           </button>
         </div>
       </div>
-      <div className="w-full h-max flex items-center justify-center">
+      <div className="w-full h-8 flex items-center justify-center">
         <p className="text-sm md:text-md text-center transition-color duration-300 group-hover:text-blue-500">
           {item && item.name}
         </p>

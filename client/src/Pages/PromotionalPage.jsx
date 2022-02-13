@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { ChevronDown } from "react-bootstrap-icons";
 import img1 from "../Assets/promotional/1.png";
 import img2 from "../Assets/promotional/2.png";
@@ -16,28 +16,6 @@ const promotionalImages = {
 
 const PromotionalPage = () => {
   const { height, width } = useWindowSize();
-  const [parallaxDivs, setParallaxDivs] = useState(null);
-
-  const supportForBackgroundFixed = () => {
-    parallaxDivs.forEach((div, i) => {
-      if (div.style.backgroundAttachment !== undefined) {
-        return div.setAttribute(
-          "style",
-          `background: url("${Object.values(promotionalImages)[i]}") no-repeat fixed center/cover`
-        );
-      } else {
-        return div.setAttribute(
-          "style",
-          `background: url("${Object.values(promotionalImages)[i]}") no-repeat scroll center/cover`
-        );
-      }
-    });
-  };
-
-  // useEffect(() => {
-  //   setParallaxDivs(document.body.querySelectorAll(".parallax"));
-  //   if (parallaxDivs) supportForBackgroundFixed();
-  // }, []);
 
   // PARALLAX WITH JS _ I USED CSS BACKGROUND-ATTACHEMENT:FIXED INSTEAD
   // const [offsetY, setOffsetY] = useState(0);

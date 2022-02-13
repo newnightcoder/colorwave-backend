@@ -131,7 +131,7 @@ const CategoryPage = () => {
         </span>
       </div>
 
-      <div className="w-full f-full">
+      <div className="w-full h-full">
         {!variants && location.pathname.includes("limited") ? (
           <div className="h-full w-full grid place-items-center gap-3 md:gap-8 grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 px-2 md:px-6 py-12">
             {isLoading ? (
@@ -152,12 +152,12 @@ const CategoryPage = () => {
             </div>
           ) : (
             subCategories.map((cat, i) => (
-              <div id={cat} className="flex flex-col items-center justify-center py-4 md:py-8" key={i + 1}>
+              <div id={cat} className="h-full flex flex-col items-center justify-center py-3 md:py-8" key={i + 1}>
                 <div className="h-min w-max relative text-center text-2xl capitalize px-4 md:px-8 mb-6 md:mb-8">
                   <h2 className="text-xl md:text-3xl relative z-10 whitespace-nowrap">{cat}</h2>
                   <span className="h-0.5 md:h-1 w-full absolute inset-x-0 mx-auto left-0 bottom-1 md:bottom-0.5 bg-yellow-300"></span>
                 </div>
-                <div className="h-full w-full grid place-items-center gap-3 md:gap-8 grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 px-3 md:px-6">
+                <div className="h-max w-full grid place-items-center gap-3 md:gap-8 grid-cols-2 md:grid-cols-3 2xl:grid-cols-5 px-3 md:px-6">
                   {categoryItems.map((item, i) => {
                     const { categories } = item;
                     if (categories.find((category) => category.name === cat)) {

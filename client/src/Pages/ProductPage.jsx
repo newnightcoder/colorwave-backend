@@ -124,7 +124,7 @@ const ProductPage = () => {
         <div className="h-max w-full lg:w-2/3 flex flex-col items-center justify-center px-2">
           <ImageGallery
             items={item.assets.length > 1 ? itemImages : onlyOneImg}
-            showFullscreenButton={false}
+            showFullscreenButton={true}
             showPlayButton={false}
             autoPlay={false}
             showNav={false}
