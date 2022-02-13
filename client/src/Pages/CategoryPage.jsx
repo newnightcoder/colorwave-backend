@@ -4,7 +4,7 @@ import { use100vh } from "react-div-100vh";
 import { useSelector } from "react-redux";
 import { useLocation } from "react-router";
 import { Link } from "react-router-dom";
-import { LoaderGaming, Navbar, ProductCard } from "../Components";
+import { Footer, LoaderGaming, Navbar, ProductCard } from "../Components";
 import "../Styles/_variables.css";
 import useWindowSize from "../utils/useWindowSize";
 
@@ -111,7 +111,7 @@ const CategoryPage = () => {
 
   return (
     <div
-      className="pt-24 min-h-screen w-full flex flex-col items-center justify-start pb-12 font-cabin"
+      className="pt-24 min-h-screen h-max w-full flex flex-col items-center justify-start font-cabin"
       style={pageConditionalStyle.colors}
     >
       <Navbar />
@@ -190,6 +190,7 @@ const CategoryPage = () => {
           </div>
         )}
       </div>
+      <Footer />
     </div>
   );
 };

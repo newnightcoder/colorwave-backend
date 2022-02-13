@@ -113,7 +113,7 @@ const CartRecap = ({ formValidated, formOpen, toggleForm, handleForm, totalPrice
       </div>
 
       {!formValidated && (
-        <div className="h-max md:h-40 flex flex-col items-center justify-end space-y-4">
+        <div className="h-max md:h-56 flex flex-col items-center justify-between space-y-4">
           <button
             type="submit"
             className="h-max w-48 flex items-center justify-center space-x-2 text-sm md:text-base uppercase text-black bg-yellow-300 shadow-md py-2"
