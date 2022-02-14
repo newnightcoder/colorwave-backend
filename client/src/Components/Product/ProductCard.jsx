@@ -57,7 +57,7 @@ const ProductCard = ({ item, variants, bgColor, parentProduct }) => {
             className="flex items-center justify-center space-x-1 uppercase py-2 px-3 rounded-sm text-white text-sm whitespace-nowrap"
             onClick={linkPage}
           >
-            <EyeFill size={16} className="text-white" /> <span>view more</span>
+            <EyeFill size={16} style={{ color: limitedItem ? "white" : "black" }} /> <span>view more</span>
           </button>
           <button
             style={{ backgroundColor: limitedItem ? "black" : "white", color: limitedItem ? "white" : "black" }}

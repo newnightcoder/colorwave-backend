@@ -14,27 +14,6 @@ const CartDrawer = () => {
   const items = useSelector((state) => state.cart.items);
   const cartDrawerOpen = useSelector((state) => state?.cart.cartDrawerOpen);
 
-  // const handleAddToCart = (e) => {
-  //   items.forEach((item) => {
-  //     if (item.product.name === e.target.parentElement.parentElement.firstChild.innerText) {
-  //       dispatch(addToCart(item.product, item.quantity));
-  //     }
-  //   });
-  // };
-
-  // const handleRemoveOne = (e) => {
-  //   items.forEach((item) => {
-  //     if (item.quantity === 1) dispatch(deleteItem(item.product));
-  //     if (item.product.name === e.target.parentElement.parentElement.firstChild.innerText) {
-  //       dispatch(removeOne(item.product, item.quantity));
-  //     }
-  //   });
-  // };
-
-  // const handleDeleteCart = () => {
-  //   dispatch(deleteItem(items));
-  // };
-
   const handleDeleteItem = (id) => {
     items.forEach((item) => {
       if (item.product.id === id) {
@@ -65,7 +44,7 @@ const CartDrawer = () => {
           style={{ animation: cartDrawerOpen && items.length !== 0 && "750ms fadeIn 100ms forwards" }}
           className="opacity-0 w-max h-min relative"
         >
-          <h1 className="text-xl md:text-3xl px-4 text-center">Your Cart</h1>
+          <h1 className="text-xl md:text-2xl px-4 text-center uppercase">Your Cart</h1>
           <span className="h-px w-full absolute inset-x-0 mx-auto left-0 bottom-0.5 bg-black"></span>
         </div>
 
@@ -83,14 +62,14 @@ const CartDrawer = () => {
                   style={{
                     backgroundColor: item.product.categories.find((x) => x.name === "limited") ? "black" : "white",
                   }}
-                  className="h-full w-full"
+                  className="h-full w-2/5"
                 >
                   <img src={item.product.media.source} alt="" className="object-cover h-full w-full" />
                 </div>
-                <div className="w-1/3 text-left text-sm pl-2 md:pl-5 whitespace-nowrap truncate">
+                <div className="w-2/5 text-left text-sm pl-2 pr-2 md:pl-5 md:pr-0 whitespace-nowrap truncate">
                   {item.product.name}
                 </div>
-                <div className="w-1/3 text-right text-sm pr-2">{item.product.price.formatted}&nbsp;€</div>
+                <div className="w-1/5 text-right text-sm md:pr-2">{item.product.price.formatted}&nbsp;€</div>
                 <button
                   onClick={() => handleDeleteItem(item.product.id)}
                   className="h-10 w-10 rounded-full flex items-center justify-center bg-transparent transition-color duration-300 hover:bg-gray-300"
@@ -123,7 +102,7 @@ const CartDrawer = () => {
               dispatch(toggleCartDrawer());
             }}
           >
-            <span>go to cart</span> <ChevronDoubleRight size={16} />
+            <span>checkout</span> <ChevronDoubleRight size={16} />
           </button>
         </div>
       </div>

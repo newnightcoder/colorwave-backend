@@ -8,7 +8,7 @@ const CategoryCard = ({ categoryTitle, img, bgColor, btnColor, btnText, mirror }
 
   return (
     <div
-      className="h-40 sm:h-60 md:h-80 relative flex items-center justify-center transition duration-300 cursor-pointer"
+      className="h-40 sm:h-60 md:h-80 relative flex items-center justify-center transition duration-300"
       style={{ background: `${bgColor}` }}
     >
       {mirror && width < 768 && (
@@ -28,7 +28,7 @@ const CategoryCard = ({ categoryTitle, img, bgColor, btnColor, btnText, mirror }
         <span className="w-full text-lg text-center uppercase">{categoryTitle}</span>
         <Link
           to={{ pathname: `/categories/${categoryTitle}`, state: { from: pathname } }}
-          className="w-32 rounded-sm text-center shadow-md hover:shadow-sm"
+          className="w-32 rounded-sm text-center shadow-md hover:shadow-sm py-2"
           style={{
             background: `${btnColor}`,
             border: `1px solid ${btnColor}`,

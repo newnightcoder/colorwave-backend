@@ -68,10 +68,10 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
                 <div
                   key={i}
                   style={{
-                    height: width < 500 ? "10rem" : "14rem",
+                    // height: width < 500 ? "12rem" : "14rem",
                     animation: `750ms fadeInTop ${100 + i * 50}ms forwards`,
                   }}
-                  className="item opacity-0 w-11/12 flex items-center justify-start space-x-1 md:space-x-6 pr-1 md:px-0 bg-white shadow"
+                  className="item opacity-0 h-28 md:h-44 w-11/12 flex items-center justify-start space-x-1 md:space-x-6 pr-1 md:px-0 bg-white shadow"
                 >
                   <div
                     className="h-full w-2/5 border-r border-gray-100"
@@ -108,7 +108,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
                       </div>
                     </div>
                   </div>
-                  <div className="h-full w-1/5 flex flex-col items-center justify-center pr-4">
+                  <div className="h-full w-1/5 flex flex-col items-center justify-center md:pr-4">
                     <button
                       onClick={() => handleDeleteItem(item.product.id)}
                       className="h-10 w-10 rounded-full flex items-center justify-center bg-transparent transition-color duration-300 hover:bg-gray-300"

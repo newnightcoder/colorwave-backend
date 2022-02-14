@@ -73,9 +73,9 @@ const Footer = () => {
             </div>
           </Link>
           <p className="w-full text-center border-t border-gray-600 md:border-transparent pt-5 md:pt-0">
-            <span className="block">Bringing swag to your life</span>
-            <span className="block">with creative customizations !</span>
-            <span className="md:hidden block">Visit us here :</span>
+            <span className="block whitespace-nowrap">Bringing swag to your life</span>
+            <span className="block whitespace-nowrap">with creative customizations !</span>
+            <span className="md:hidden block whitespace-nowrap">Visit us here :</span>
           </p>
           <ul className="w-max flex items-center justify-center space-x-8 px-4 pt-1 md:pt-0">
             <li>
