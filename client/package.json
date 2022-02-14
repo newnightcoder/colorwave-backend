@@ -1,5 +1,6 @@
 {
-  "name": "frontend-shop",
+  "name": "colorwave-frontend",
+  "author": "nightcoder",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
