@@ -56,7 +56,7 @@ const CartDrawer = () => {
                 style={{
                   animation: cartDrawerOpen && items.length !== 0 && `750ms fadeIn ${200 + i * 100}ms forwards`,
                 }}
-                className="opacity-0 h-max w-11/12 flex flex items-center justify-left border-b border-gray-300 only:border-b-0 last:border-b-0 bg-white md:pr-3"
+                className="opacity-0 h-28 md:h-40 w-11/12 flex flex items-center justify-left border-b border-gray-300 only:border-b-0 last:border-b-0 bg-white md:pr-3"
               >
                 <div
                   style={{

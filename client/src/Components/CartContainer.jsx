@@ -67,10 +67,7 @@ const CartContainer = ({ handleRemoveOne, handleAddToCart, handleDeleteItem, han
               {items.map((item, i) => (
                 <div
                   key={i}
-                  style={{
-                    // height: width < 500 ? "12rem" : "14rem",
-                    animation: `750ms fadeInTop ${100 + i * 50}ms forwards`,
-                  }}
+                  style={{ animation: `750ms fadeInTop ${100 + i * 50}ms forwards` }}
                   className="item opacity-0 h-28 md:h-44 w-11/12 flex items-center justify-start space-x-1 md:space-x-6 pr-1 md:px-0 bg-white shadow"
                 >
                   <div
