@@ -112,7 +112,7 @@ const CategoryPage = () => {
   return (
     <>
       <div
-        className="pt-16 min-h-screen w-full flex flex-col items-center justify-start font-cabin space-y-6 pb-12"
+        className="pt-16 min-h-screen w-screen flex flex-col items-center justify-start font-cabin space-y-6 pb-12"
         style={pageConditionalStyle.colors}
       >
         <Navbar />
