@@ -30,7 +30,7 @@ const Navbar = () => {
         style={{ zIndex: 3000 }}
         className="h-16 md:h-20 w-screen bg-black shadow-lg fixed top-0 font-cabin border-b-8 border-yellow-300 shadow-lg shadow-yellow-300"
       >
-        <div className="nav-container h-full w-full max-w-7xl mx-auto px-4">
+        <div className="nav-container h-full w-full mx-auto px-4 2xl:px-8">
           {/* 
                 /////////////////////////
                 ///      PART 1       ///
