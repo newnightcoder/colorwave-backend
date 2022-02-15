@@ -116,7 +116,7 @@ const CategoryPage = () => {
         style={pageConditionalStyle.colors}
       >
         <Navbar />
-        <div className="w-full relative flex items-center justify-center md:justify-start relative mt-2 mb-4">
+        <div className="w-full relative flex items-center justify-center md:justify-start relative pt-4 md:pt-10 mb-4">
           <Link
             to={{ pathname: location.state?.from?.includes("shop") ? "/shop" : "/" }}
             className="absolute left-5 md:left-10 top-50"
