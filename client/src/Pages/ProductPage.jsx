@@ -35,7 +35,6 @@ const ProductPage = () => {
 
   const getRelatedItem = (id) => {
     const relatedProduct = shop.find((product) => product.id === id);
-    console.log("relatedItem", relatedProduct);
     return relatedProduct;
   };
 

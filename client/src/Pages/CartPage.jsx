@@ -79,7 +79,6 @@ const CartPage = () => {
 
   useEffect(() => {
     fetchPaymentIntentSecret();
-    console.log(clientSecret);
     if (confirmationSuccess) dispatch(confirmSuccess());
   }, []);
 

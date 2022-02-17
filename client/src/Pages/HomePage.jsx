@@ -37,11 +37,8 @@ const HomePage = () => {
 
   const images = [{ original: img1 }, { original: img2 }, { original: img3 }, { original: img4 }];
   const imagesMob = [{ original: imgMob1 }, { original: imgMob2 }, { original: imgMob3 }, { original: imgMob4 }];
-  console.log(images);
 
   const linkTo = (e) => {
-    console.log(e.currentTarget.firstChild.src);
-    console.log(images[0].original);
     switch (e.currentTarget.firstChild.src) {
       case `https://colorwave-shop.herokuapp.com${images[0].original}`:
       case `https://colorwave-shop.herokuapp.com${imgMob1}`: {

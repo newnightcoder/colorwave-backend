@@ -17,7 +17,6 @@ const CheckoutForm = ({ formValidated, clientSecret }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log(userOrder);
     setIsLoading(true);
 
     const { error } = await stripe.confirmPayment({

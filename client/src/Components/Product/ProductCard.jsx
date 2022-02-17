@@ -6,7 +6,6 @@ import { addToCart, toggleCartDrawer } from "../../Redux/Actions/cart.action";
 import { toggleSearchModal } from "../../Redux/Actions/shop.action";
 import "../../Styles/_variables.css";
 import useWindowSize from "../../utils/useWindowSize";
-import "./product.css";
 
 const ProductCard = ({ item, variants, bgColor, parentProduct }) => {
   const history = useHistory();
