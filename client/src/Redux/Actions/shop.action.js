@@ -3,7 +3,6 @@ import { actionTypes } from "../Types/types";
 
 export const getShopData = () => async (dispatch) => {
   const data = await listing();
-  console.log("data", data);
   if (data !== undefined) {
     return dispatch({
       type: actionTypes.GET_SHOP,
