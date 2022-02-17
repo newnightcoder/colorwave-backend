@@ -13,7 +13,7 @@
   "scripts": {
     "start": "node app",
     "dev": "cd client && yarn build && cd ../../backend-shop && nodemon app",
-    "heroku-postbuild": "cd client && yarn && yarn build"
+    "heroku-postbuild": "cd client && yarn && GENERATE_SOURCEMAP=false yarn build"
   },
   "engines": {
     "node": "14.17.6"
