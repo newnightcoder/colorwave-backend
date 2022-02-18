@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useCallback, useEffect } from "react";
 import { ChevronDoubleRight } from "react-bootstrap-icons";
 import ImageGallery from "react-image-gallery";
 import Carousel from "react-multi-carousel";
@@ -31,10 +31,10 @@ const ProductPage = () => {
     },
   ];
 
-  const getRelatedItem = (id) => {
+  const getRelatedItem = useCallback((id) => {
     const relatedProduct = shop.find((product) => product.id === id);
     return relatedProduct;
-  };
+  });
 
   const getFullVersionRelatedProduct = (product) => {
     let relatedProduct = shop.find((item) => item.id === product.id);
