@@ -8,9 +8,3 @@ body {
   overflow-x: hidden;
   background-color: black;
 }
-
-body::before {
-  content: "";
-  display: block;
-  height: 0px;
-}
