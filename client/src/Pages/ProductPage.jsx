@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { ChevronDoubleRight } from "react-bootstrap-icons";
 import ImageGallery from "react-image-gallery";
 import Carousel from "react-multi-carousel";
@@ -16,6 +16,7 @@ const ProductPage = () => {
   const shop = useSelector((state) => state.shop.shop);
   const { item } = location?.state || undefined;
   const { parentProduct } = location?.state || undefined;
+  const [related, setRelated] = useState(null);
 
   const itemImages = item.assets
     .filter((asset) => !asset.filename.includes("product"))
@@ -31,13 +32,11 @@ const ProductPage = () => {
     },
   ];
 
-  const getRelatedItem = useCallback(
-    (id) => {
-      const relatedProduct = shop.find((product) => product.id === id);
-      return relatedProduct;
-    },
-    [shop]
-  );
+  const getRelatedItem = (id) => {
+    const relatedProduct = shop.find((product) => product.id === id);
+    setRelated(relatedProduct);
+    return relatedProduct;
+  };
 
   const getFullVersionRelatedProduct = (product) => {
     let relatedProduct = shop.find((item) => item.id === product.id);
@@ -60,7 +59,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [getRelatedItem]);
+  }, [related]);
 
   const handleAddToCart = () => {
     const qty = 1;
