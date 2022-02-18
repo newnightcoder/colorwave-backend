@@ -57,7 +57,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, []);
+  }, [getRelatedItem]);
 
   const handleAddToCart = () => {
     const qty = 1;
