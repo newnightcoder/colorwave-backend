@@ -31,10 +31,13 @@ const ProductPage = () => {
     },
   ];
 
-  const getRelatedItem = useCallback((id) => {
-    const relatedProduct = shop.find((product) => product.id === id);
-    return relatedProduct;
-  });
+  const getRelatedItem = useCallback(
+    (id) => {
+      const relatedProduct = shop.find((product) => product.id === id);
+      return relatedProduct;
+    },
+    [shop]
+  );
 
   const getFullVersionRelatedProduct = (product) => {
     let relatedProduct = shop.find((item) => item.id === product.id);
