@@ -5,7 +5,6 @@ import img2 from "../Assets/promotional/2.png";
 import img3 from "../Assets/promotional/3.png";
 import img4 from "../Assets/promotional/4.png";
 import { Footer, Navbar } from "../Components";
-import useWindowSize from "../utils/useWindowSize";
 
 const promotionalImages = {
   img1,
@@ -15,8 +14,6 @@ const promotionalImages = {
 };
 
 const PromotionalPage = () => {
-  const { height, width } = useWindowSize();
-
   // PARALLAX WITH JS _ I USED CSS BACKGROUND-ATTACHEMENT:FIXED INSTEAD
   // const [offsetY, setOffsetY] = useState(0);
   // const handleScroll = () => setOffsetY(window.pageYOffset);

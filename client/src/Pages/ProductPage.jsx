@@ -8,7 +8,6 @@ import { Link, useHistory, useLocation } from "react-router-dom";
 import { Footer, Navbar } from "../Components";
 import { addToCart, toggleCartDrawer } from "../Redux/Actions/cart.action";
 import "../Styles/_variables.css";
-import useWindowSize from "../utils/useWindowSize";
 
 const ProductPage = () => {
   const location = useLocation();
@@ -17,7 +16,6 @@ const ProductPage = () => {
   const shop = useSelector((state) => state.shop.shop);
   const { item } = location?.state || undefined;
   const { parentProduct } = location?.state || undefined;
-  const { height, width } = useWindowSize();
 
   const itemImages = item.assets
     .filter((asset) => !asset.filename.includes("product"))
@@ -59,7 +57,7 @@ const ProductPage = () => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
-  }, [getRelatedItem]);
+  }, []);
 
   const handleAddToCart = () => {
     const qty = 1;
