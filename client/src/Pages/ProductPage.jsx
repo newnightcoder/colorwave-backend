@@ -34,7 +34,6 @@ const ProductPage = () => {
 
   const getRelatedItem = (id) => {
     const relatedProduct = shop.find((product) => product.id === id);
-    setRelated(relatedProduct);
     return relatedProduct;
   };
 
@@ -45,12 +44,15 @@ const ProductPage = () => {
 
   const linkToRelatedProduct = (related) => {
     if (getFullVersionRelatedProduct(related).variant_groups.length !== 0) {
+      setRelated(getRelatedItem(related.id).name);
+
       history.push({
         pathname: `/categories/${getRelatedItem(related.id).name}`,
         state: { variants: true, item: getFullVersionRelatedProduct(related) },
       });
       return;
     }
+    setRelated(getRelatedItem(related.id).name);
     history.push({
       pathname: `/product/${getRelatedItem(related.id).name}`,
       state: { item: getFullVersionRelatedProduct(related) },
