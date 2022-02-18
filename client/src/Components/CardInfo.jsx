@@ -47,7 +47,7 @@ const CardInfo = ({ formValidated }) => {
           </div>
         </AnimateHeight>
       </div>
-      <div className="md:hidden flex flex-col items-center justify-center space-x-2">
+      <div className="md:hidden flex flex-col items-center justify-center space-y-2">
         <h3 className="uppercase underline rounded-sm font-bold text-center text-lg">Please use this credit card</h3>
         <div className="h-max w-max flex flex-col items-start justify-center">
           <div className="flex items-center justify-center space-x-1 transform -translate-x-px">
