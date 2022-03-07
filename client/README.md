@@ -1,3 +1,0 @@
-# COLORWAVE
-
-## Front-end shop

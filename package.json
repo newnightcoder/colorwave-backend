@@ -11,9 +11,7 @@
     "stripe": "^8.195.0"
   },
   "scripts": {
-    "start": "node app",
-    "dev": "cd client && yarn build && cd ../../backend-shop && nodemon app",
-    "heroku-postbuild": "cd client && yarn && GENERATE_SOURCEMAP=false yarn build"
+    "start": "node app"
   },
   "engines": {
     "node": "14.17.6"

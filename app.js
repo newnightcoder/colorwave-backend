@@ -39,11 +39,13 @@ app.use((req, res, next) => {
 app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use(express.static(path.resolve(__dirname, "./client/build")));
 
-app.get("/", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-});
+// frontend is now deployed on netlify so no need to serve front from backend app:
+
+// app.use(express.static(path.resolve(__dirname, "./client/build")));
+// app.get("/", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+// });
 
 app.get("/stripe", (req, res, next) => {
   console.log("stripe key request");
@@ -59,9 +61,9 @@ app.get("/success", (req, res, next) => {
   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
 
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+// });
 
 app.post("/payment-intent-secret", async (req, res) => {
   //PAYMENT INTENT CREATION
