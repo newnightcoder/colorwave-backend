@@ -40,13 +40,6 @@ app.use(cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// frontend is now deployed on netlify so no need to serve front from backend app:
-
-// app.use(express.static(path.resolve(__dirname, "./client/build")));
-// app.get("/", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-// });
-
 app.get("/stripe", (req, res, next) => {
   console.log("stripe key request");
   res.json({ key: process.env.STRIPE_PUBLIC_KEY });
@@ -60,10 +53,6 @@ app.get("/success", (req, res, next) => {
   console.log("success page");
   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 });
-
-// app.get("*", (req, res) => {
-//   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
-// });
 
 app.post("/payment-intent-secret", async (req, res) => {
   //PAYMENT INTENT CREATION
@@ -90,6 +79,15 @@ app.listen(PORT, (err) => {
   console.log(`listening on port ${PORT}`);
 });
 
+// 😉 Frontend is now deployed on netlify so no need to serve front from backend app:
+
+// app.use(express.static(path.resolve(__dirname, "./client/build")));
+// app.get("/", (req, res) => {
+//   res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
+// });
+
+// NODE_ENV conditional:
+
 // switch (process.env.NODE_ENV) {
 //   case "production":
 //     {
@@ -98,7 +96,6 @@ app.listen(PORT, (err) => {
 //         res.sendFile(path.resolve(__dirname, "./client/build", "index.html"));
 //       });
 //     }
-
 //     break;
 //   case "development": {
 //     app.use(express.static(path.resolve(__dirname, "./client/public")));
@@ -106,7 +103,5 @@ app.listen(PORT, (err) => {
 //       res.sendFile(path.resolve(__dirname, "./client/public", "index.html"));
 //     });
 //   }
-
-//   default:
-//     break;
+//   default: return;
 // }
